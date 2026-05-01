@@ -2,11 +2,20 @@ extends Node
 
 class_name State
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+var state_machine: FiniteStateMachine
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func enter():
 	pass
+	
+func exit():
+	pass	
+
+func update(delta: float):
+	pass
+	
+func physics_update(delta: float):
+	pass
+
+func handle_input(event: InputEvent):
+	pass
+	
