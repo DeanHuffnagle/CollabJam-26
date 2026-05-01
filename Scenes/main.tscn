@@ -1,3 +1,15 @@
 [gd_scene format=3 uid="uid://bbe7snx7ng4h3"]
 
+[ext_resource type="Script" path="res://Scripts/finite_state_machine.gd" id="1_bo1nx"]
+[ext_resource type="Script" path="res://Scripts/example_state.gd" id="2_8gbba"]
+
 [node name="Main" type="Node2D" unique_id=586448145]
+
+[node name="FiniteStateMachine" type="Node" parent="." unique_id=977307441 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("1_bo1nx")
+initial_state = NodePath("ExampleState")
+metadata/_custom_type_script = "uid://cjwh3jfkkw13m"
+
+[node name="ExampleState" type="Node" parent="FiniteStateMachine" unique_id=1825009647]
+script = ExtResource("2_8gbba")
+metadata/_custom_type_script = "uid://dtppofgdwco5g"
