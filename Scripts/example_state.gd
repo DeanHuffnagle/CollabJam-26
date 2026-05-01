@@ -1,6 +1,5 @@
 extends State
 
-
 class_name ExampleState
 
 func enter():
