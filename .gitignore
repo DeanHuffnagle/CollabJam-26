@@ -1,0 +1,29 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Godot 3 specific
+.import/
+
+# Exported binaries
+*.exe
+*.pck
+*.zip
+*.apk
+*.ipa
+*.app
+
+# Local editor settings
+export_presets.cfg
+# Note: Keep export_presets.cfg IF you want to share export settings with a team, 
+# but ignore it if it contains sensitive credentials (like keystore passwords).
+
+# Translation files
+*.translation
+
+# Mono/C# specific (if using C# version)
+.mono/
+bin/
+obj/
+*.csproj
+*.sln
