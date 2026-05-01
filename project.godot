@@ -11,8 +11,9 @@ config_version=5
 [application]
 
 config/name="collabjam-26"
+run/main_scene="uid://bbe7snx7ng4h3"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://Assets/icon.svg"
 
 [editor]
 
@@ -29,6 +30,7 @@ enabled=PackedStringArray()
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
