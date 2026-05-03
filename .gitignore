@@ -27,3 +27,6 @@ bin/
 obj/
 *.csproj
 *.sln
+
+# editor files
+.vscode/
