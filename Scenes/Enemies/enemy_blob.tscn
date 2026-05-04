@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cgtte42u3lu2t"]
 
-[ext_resource type="Script" uid="uid://cj00n1yh2dke" path="res://Scenes/Enemies/enemy.gd" id="1_spxs2"]
+[ext_resource type="Script" uid="uid://cj00n1yh2dke" path="res://Scripts/enemy.gd" id="1_spxs2"]
 [ext_resource type="Texture2D" uid="uid://c5wowjerp4d07" path="res://Assets/TileSets/side-scroller-tileset.png" id="2_7b2qm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8rwmy"]
