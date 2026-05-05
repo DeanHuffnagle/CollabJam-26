@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://cevvvjvxekayl"]
+
+[ext_resource type="Texture2D" uid="uid://ce5nyx44bvdkk" path="res://Assets/SpriteSheets/Turret.png" id="1_haagk"]
+[ext_resource type="Script" uid="uid://cjwh3jfkkw13m" path="res://Scripts/finite_state_machine.gd" id="1_pn7tv"]
+[ext_resource type="Script" uid="uid://bi1mygahrqhqh" path="res://Scripts/turret_idle_state.gd" id="2_qsgc7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qsgc7"]
+radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_haagk"]
+atlas = ExtResource("1_haagk")
+region = Rect2(0, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pn7tv"]
+atlas = ExtResource("1_haagk")
+region = Rect2(48, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsgc7"]
+atlas = ExtResource("1_haagk")
+region = Rect2(96, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fynhm"]
+atlas = ExtResource("1_haagk")
+region = Rect2(144, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pd42u"]
+atlas = ExtResource("1_haagk")
+region = Rect2(192, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqs3w"]
+atlas = ExtResource("1_haagk")
+region = Rect2(240, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xx51a"]
+atlas = ExtResource("1_haagk")
+region = Rect2(288, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ml246"]
+atlas = ExtResource("1_haagk")
+region = Rect2(336, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fb47r"]
+atlas = ExtResource("1_haagk")
+region = Rect2(384, 0, 48, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e2kyp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_haagk")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pn7tv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qsgc7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fynhm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pd42u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eqs3w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xx51a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ml246")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fb47r")
+}],
+"loop": true,
+"name": &"Shooting",
+"speed": 30.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qsgc7"]
+size = Vector2(300, 206)
+
+[node name="DoubleBarrelTurret" type="CharacterBody2D" unique_id=2024493519]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=912473968]
+shape = SubResource("CircleShape2D_qsgc7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1029829701]
+position = Vector2(16, 0)
+sprite_frames = SubResource("SpriteFrames_e2kyp")
+animation = &"Idle"
+frame_progress = 0.0033805699
+
+[node name="Enemy Detection" type="Area2D" parent="." unique_id=1694918477]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy Detection" unique_id=480226514]
+visible = false
+position = Vector2(150, 0)
+shape = SubResource("RectangleShape2D_qsgc7")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enemy Detection" unique_id=795922362]
+polygon = PackedVector2Array(0, 0, 300, 103, 300, -103)
+
+[node name="FiniteStateMachine" type="Node" parent="." unique_id=2034546159 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("1_pn7tv")
+initial_state = NodePath("TurretIdleState")
+metadata/_custom_type_script = "uid://cjwh3jfkkw13m"
+
+[node name="TurretIdleState" type="Node" parent="FiniteStateMachine" unique_id=422303686 node_paths=PackedStringArray("enemy_detect_area", "turret_body")]
+script = ExtResource("2_qsgc7")
+enemy_detect_area = NodePath("../../Enemy Detection")
+turret_body = NodePath("../..")
+metadata/_custom_type_script = "uid://bi1mygahrqhqh"
+
+[node name="Barrel1" type="Node2D" parent="." unique_id=1967129290]
+position = Vector2(28, -3)
+
+[node name="Barrel2" type="Node2D" parent="." unique_id=1598193854]
+position = Vector2(28, 3)
