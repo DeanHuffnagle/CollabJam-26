@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://0viojdup3dhj"]
+
+[ext_resource type="Script" uid="uid://dm1af8npdgnqr" path="res://Scripts/snap_point.gd" id="1_d0kch"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_10x0e"]
+
+[node name="SnapPoint" type="Area2D" unique_id=1861624800]
+script = ExtResource("1_d0kch")
+metadata/_custom_type_script = "uid://dm1af8npdgnqr"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=694511091]
+shape = SubResource("CircleShape2D_10x0e")
+debug_color = Color(0.69749165, 0.28011182, 1, 0.41960785)
