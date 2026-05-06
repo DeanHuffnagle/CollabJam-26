@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cevvvjvxekayl"]
 
-[ext_resource type="PackedScene" uid="uid://doy2e4nfmfte0" path="res://Scenes/Buildings/laser_turret_animated_sprite.tscn" id="1_7fkfh"]
-[ext_resource type="Script" uid="uid://cjwh3jfkkw13m" path="res://Scripts/finite_state_machine.gd" id="1_pn7tv"]
-[ext_resource type="Script" uid="uid://bi1mygahrqhqh" path="res://Scripts/turret_idle_state.gd" id="2_qsgc7"]
+[ext_resource type="PackedScene" uid="uid://doy2e4nfmfte0" path="res://Scenes/AnimatedSprites/laser_turret_animated_sprite.tscn" id="1_7fkfh"]
+[ext_resource type="Script" uid="uid://cjwh3jfkkw13m" path="res://Scripts/BaseClasses/finite_state_machine.gd" id="1_pn7tv"]
+[ext_resource type="Script" uid="uid://bi1mygahrqhqh" path="res://Scripts/States/turret_idle_state.gd" id="2_qsgc7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qsgc7"]
 radius = 8.0

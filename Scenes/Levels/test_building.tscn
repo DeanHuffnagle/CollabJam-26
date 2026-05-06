@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://baygn142ebblt"]
+
+[ext_resource type="Script" uid="uid://db6af3xrv1ya2" path="res://Scripts/testbutton.gd" id="1_jviw8"]
+
+[node name="TestBuilding" type="Node2D" unique_id=104485838]
+
+[node name="Button" type="Button" parent="." unique_id=1828363440]
+offset_left = 28.0
+offset_top = 12.0
+offset_right = 36.0
+offset_bottom = 20.0
+text = "Spawn frame."
+script = ExtResource("1_jviw8")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
