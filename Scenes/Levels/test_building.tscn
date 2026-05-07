@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://baygn142ebblt"]
 
 [ext_resource type="Script" uid="uid://db6af3xrv1ya2" path="res://Scripts/testbutton.gd" id="1_jviw8"]
+[ext_resource type="PackedScene" uid="uid://l827y6iq7sf1" path="res://Scenes/Buildings/frame.tscn" id="1_n5h5u"]
 
 [node name="TestBuilding" type="Node2D" unique_id=104485838]
 
@@ -11,5 +12,8 @@ offset_right = 36.0
 offset_bottom = 20.0
 text = "Spawn frame."
 script = ExtResource("1_jviw8")
+
+[node name="Frame" parent="." unique_id=1179845687 instance=ExtResource("1_n5h5u")]
+position = Vector2(578, 374)
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

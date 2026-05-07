@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dm1af8npdgnqr" path="res://Scripts/BaseClasses/snap_point.gd" id="1_d0kch"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_10x0e"]
+radius = 4.1231055
 
 [node name="SnapPoint" type="Area2D" unique_id=1861624800]
 script = ExtResource("1_d0kch")
@@ -14,4 +15,4 @@ debug_color = Color(0.69749165, 0.28011182, 1, 0.41960785)
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=100921103]
 rotation = 1.5707964
-target_position = Vector2(-4.371139e-07, -10)
+target_position = Vector2(-1.7484555e-07, -4)

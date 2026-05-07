@@ -3,8 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://crngsmrw36q1u" path="res://Scenes/TileMaps/ship_parts_tile_map_v_2.tscn" id="1_8ccvr"]
 [ext_resource type="Script" uid="uid://cjwh3jfkkw13m" path="res://Scripts/BaseClasses/finite_state_machine.gd" id="1_m52qg"]
 [ext_resource type="PackedScene" uid="uid://0viojdup3dhj" path="res://Scenes/BuildingBlocks/snap_point.tscn" id="2_mg7eu"]
-[ext_resource type="Script" uid="uid://bodnyvknqi85c" path="res://Scripts/States/building_placement_state.gd" id="4_m52qg"]
+[ext_resource type="Script" uid="uid://bodnyvknqi85c" path="res://Scripts/States/building_follow_cursor_state.gd" id="4_m52qg"]
 [ext_resource type="Script" uid="uid://bwf5g5fs5x6h6" path="res://Scripts/States/building_stationary_state.gd" id="5_2i2n7"]
+[ext_resource type="Script" uid="uid://b53cfplf8okk4" path="res://Scripts/States/building_snapped_state.gd" id="6_3rb1g"]
 
 [node name="Frame" type="Node2D" unique_id=1179845687]
 script = ExtResource("1_m52qg")
@@ -34,10 +35,10 @@ rotation = -3.1415925
 
 [node name="FiniteStateMachine" type="Node" parent="." unique_id=1871983160 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_m52qg")
-initial_state = NodePath("BuildingPlacementState")
+initial_state = NodePath("BuildingFollowCursorState")
 metadata/_custom_type_script = "uid://cjwh3jfkkw13m"
 
-[node name="BuildingPlacementState" type="Node" parent="FiniteStateMachine" unique_id=1097552549 node_paths=PackedStringArray("building")]
+[node name="BuildingFollowCursorState" type="Node" parent="FiniteStateMachine" unique_id=517558777 node_paths=PackedStringArray("building")]
 script = ExtResource("4_m52qg")
 building = NodePath("../..")
 metadata/_custom_type_script = "uid://bodnyvknqi85c"
@@ -45,3 +46,9 @@ metadata/_custom_type_script = "uid://bodnyvknqi85c"
 [node name="BuildingStationaryState" type="Node" parent="FiniteStateMachine" unique_id=457313757]
 script = ExtResource("5_2i2n7")
 metadata/_custom_type_script = "uid://bwf5g5fs5x6h6"
+
+[node name="BuildingSnappedState" type="Node" parent="FiniteStateMachine" unique_id=487216496 node_paths=PackedStringArray("building")]
+script = ExtResource("6_3rb1g")
+snap_strength = 30.0
+building = NodePath("../..")
+metadata/_custom_type_script = "uid://b53cfplf8okk4"
