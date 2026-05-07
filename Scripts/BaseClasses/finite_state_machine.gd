@@ -1,5 +1,5 @@
+@icon("res://Assets/Icons/fsm.png")
 extends Node
-
 class_name FiniteStateMachine
 
 @export var initial_state: State
@@ -7,14 +7,10 @@ var current_state: State
 var states: Dictionary = {}
 
 func _ready() -> void:
-	call_deferred("_initialize")
-
-func _initialize() -> void:
 	for child in get_children():
 		if child is State:
 			states[child.name.to_lower()] = child
 			child.state_machine = self
-	
 	if initial_state:
 		change_state(initial_state.name.to_lower())
 		

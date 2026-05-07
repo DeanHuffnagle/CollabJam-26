@@ -1,14 +1,21 @@
 [gd_scene format=4 uid="uid://l827y6iq7sf1"]
 
+[ext_resource type="Script" uid="uid://dbyydvnk6x8wc" path="res://Scripts/BaseClasses/building.gd" id="1_2yxmv"]
 [ext_resource type="PackedScene" uid="uid://crngsmrw36q1u" path="res://Scenes/TileMaps/ship_parts_tile_map_v_2.tscn" id="1_8ccvr"]
 [ext_resource type="Script" uid="uid://cjwh3jfkkw13m" path="res://Scripts/BaseClasses/finite_state_machine.gd" id="1_m52qg"]
 [ext_resource type="PackedScene" uid="uid://0viojdup3dhj" path="res://Scenes/BuildingBlocks/snap_point.tscn" id="2_mg7eu"]
+[ext_resource type="Script" uid="uid://d1uuk7g1gkfjj" path="res://Scripts/BaseClasses/tower.gd" id="2_pxr40"]
+[ext_resource type="Script" uid="uid://dlnitv62isox2" path="res://Scripts/BaseClasses/container.gd" id="4_fnn4e"]
 [ext_resource type="Script" uid="uid://bodnyvknqi85c" path="res://Scripts/States/building_follow_cursor_state.gd" id="4_m52qg"]
 [ext_resource type="Script" uid="uid://bwf5g5fs5x6h6" path="res://Scripts/States/building_stationary_state.gd" id="5_2i2n7"]
 [ext_resource type="Script" uid="uid://b53cfplf8okk4" path="res://Scripts/States/building_snapped_state.gd" id="6_3rb1g"]
 
 [node name="Frame" type="Node2D" unique_id=1179845687]
-script = ExtResource("1_m52qg")
+script = ExtResource("1_2yxmv")
+
+[node name="Tower" type="Node2D" parent="." unique_id=1084712269]
+script = ExtResource("2_pxr40")
+metadata/_custom_type_script = "uid://d1uuk7g1gkfjj"
 
 [node name="Sprite" type="Node2D" parent="." unique_id=740293865]
 position = Vector2(8, -8)
@@ -16,7 +23,9 @@ position = Vector2(8, -8)
 [node name="ShipPartsTileMap_V2" parent="Sprite" unique_id=280711130 instance=ExtResource("1_8ccvr")]
 tile_map_data = PackedByteArray("AAD//wAAAAABAAEAAAD/////AAADAAEAAAD//wEAAAADAAEAAAABAAAAAAABAAMAAAAAAAAAAAABAAMAAAD+/wAAAAABAAMAAAD8/wAAAAAAAAMAAAD9/wAAAAABAAMAAAD///7/AAADAAAAAAD//wIAAAADAAIAAAACAAAAAAACAAMAAAA=")
 
-[node name="SnapPoints" type="Node2D" parent="." unique_id=1108735235]
+[node name="SnapPoints" type="Node2D" parent="." unique_id=744524452]
+script = ExtResource("4_fnn4e")
+metadata/_custom_type_script = "uid://dlnitv62isox2"
 
 [node name="SnapPoint" parent="SnapPoints" unique_id=1861624800 instance=ExtResource("2_mg7eu")]
 position = Vector2(0, -40)
@@ -35,7 +44,7 @@ rotation = -3.1415925
 
 [node name="FiniteStateMachine" type="Node" parent="." unique_id=1871983160 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_m52qg")
-initial_state = NodePath("BuildingFollowCursorState")
+initial_state = NodePath("BuildingStationaryState")
 metadata/_custom_type_script = "uid://cjwh3jfkkw13m"
 
 [node name="BuildingFollowCursorState" type="Node" parent="FiniteStateMachine" unique_id=517558777 node_paths=PackedStringArray("building")]
@@ -43,8 +52,9 @@ script = ExtResource("4_m52qg")
 building = NodePath("../..")
 metadata/_custom_type_script = "uid://bodnyvknqi85c"
 
-[node name="BuildingStationaryState" type="Node" parent="FiniteStateMachine" unique_id=457313757]
+[node name="BuildingStationaryState" type="Node" parent="FiniteStateMachine" unique_id=457313757 node_paths=PackedStringArray("building")]
 script = ExtResource("5_2i2n7")
+building = NodePath("../..")
 metadata/_custom_type_script = "uid://bwf5g5fs5x6h6"
 
 [node name="BuildingSnappedState" type="Node" parent="FiniteStateMachine" unique_id=487216496 node_paths=PackedStringArray("building")]

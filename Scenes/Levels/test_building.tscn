@@ -1,19 +1,26 @@
 [gd_scene format=3 uid="uid://baygn142ebblt"]
 
-[ext_resource type="Script" uid="uid://db6af3xrv1ya2" path="res://Scripts/testbutton.gd" id="1_jviw8"]
+[ext_resource type="Script" uid="uid://db6af3xrv1ya2" path="res://Scripts/BaseClasses/building_spawn_button.gd" id="1_jviw8"]
 [ext_resource type="PackedScene" uid="uid://l827y6iq7sf1" path="res://Scenes/Buildings/frame.tscn" id="1_n5h5u"]
+[ext_resource type="Script" uid="uid://dlnitv62isox2" path="res://Scripts/BaseClasses/container.gd" id="2_g4jw0"]
 
 [node name="TestBuilding" type="Node2D" unique_id=104485838]
 
-[node name="Button" type="Button" parent="." unique_id=1828363440]
+[node name="Button" type="Button" parent="." unique_id=1828363440 node_paths=PackedStringArray("building_collection")]
 offset_left = 28.0
 offset_top = 12.0
 offset_right = 36.0
 offset_bottom = 20.0
 text = "Spawn frame."
 script = ExtResource("1_jviw8")
+building_scene = ExtResource("1_n5h5u")
+building_collection = NodePath("../Buildings")
 
-[node name="Frame" parent="." unique_id=1179845687 instance=ExtResource("1_n5h5u")]
-position = Vector2(578, 374)
+[node name="Buildings" type="Node2D" parent="." unique_id=950386451]
+script = ExtResource("2_g4jw0")
+metadata/_custom_type_script = "uid://dlnitv62isox2"
+
+[node name="Frame" parent="Buildings" unique_id=1179845687 instance=ExtResource("1_n5h5u")]
+position = Vector2(80, 299)
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

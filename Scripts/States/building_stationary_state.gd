@@ -1,6 +1,8 @@
 extends State
-
 class_name BuildingStationaryState
 
+@export var building: Building
+
 func enter():
-	print("building placed.")
+	
+	building.emit_signal("on_placed")
