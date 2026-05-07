@@ -3,7 +3,7 @@ class_name BuildingSnappedState
 
 @export var snap_strength: float = 20
 @export var building: Building
-@onready var snap_points_container = building.get_node("SnapPoints")
+@onready var snap_points_container = building.get_node("SnapPointCollection")
 var snap_points_list: Array[SnapPoint] = []
 var target_snap_point: SnapPoint
 var active_snap_point: SnapPoint

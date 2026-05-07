@@ -3,7 +3,7 @@ extends State
 class_name BuildingFollowCursorState
 
 @export var building: Building
-@onready var snap_points_node = building.get_node("SnapPoints")
+@onready var snap_points_node = building.get_node("SnapPointCollection")
 var snap_points_list: Array[SnapPoint] = []
 var can_snap = false
 
