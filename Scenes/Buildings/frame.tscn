@@ -1,13 +1,18 @@
 [gd_scene format=4 uid="uid://l827y6iq7sf1"]
 
+[ext_resource type="Script" uid="uid://dbyydvnk6x8wc" path="res://Scripts/BaseClasses/building.gd" id="1_2yxmv"]
 [ext_resource type="PackedScene" uid="uid://crngsmrw36q1u" path="res://Scenes/TileMaps/ship_parts_tile_map_v_2.tscn" id="1_8ccvr"]
 [ext_resource type="Script" uid="uid://cjwh3jfkkw13m" path="res://Scripts/BaseClasses/finite_state_machine.gd" id="1_m52qg"]
 [ext_resource type="PackedScene" uid="uid://0viojdup3dhj" path="res://Scenes/BuildingBlocks/snap_point.tscn" id="2_mg7eu"]
-[ext_resource type="Script" uid="uid://bodnyvknqi85c" path="res://Scripts/States/building_placement_state.gd" id="4_m52qg"]
+[ext_resource type="Script" uid="uid://dga345wwl3lrl" path="res://Scripts/BaseClasses/snap_point_collection.gd" id="3_fnn4e"]
+[ext_resource type="Script" uid="uid://bodnyvknqi85c" path="res://Scripts/States/building_follow_cursor_state.gd" id="4_m52qg"]
 [ext_resource type="Script" uid="uid://bwf5g5fs5x6h6" path="res://Scripts/States/building_stationary_state.gd" id="5_2i2n7"]
+[ext_resource type="Script" uid="uid://b53cfplf8okk4" path="res://Scripts/States/building_snapped_state.gd" id="6_3rb1g"]
+[ext_resource type="Script" uid="uid://do0w5c8juwrr" path="res://Scripts/BaseClasses/overlap_detector.gd" id="10_hwgeg"]
 
-[node name="Frame" type="Node2D" unique_id=1179845687]
-script = ExtResource("1_m52qg")
+[node name="Frame" type="Node2D" unique_id=1179845687 node_paths=PackedStringArray("overlap_detector")]
+script = ExtResource("1_2yxmv")
+overlap_detector = NodePath("OverlapDetector")
 
 [node name="Sprite" type="Node2D" parent="." unique_id=740293865]
 position = Vector2(8, -8)
@@ -15,33 +20,50 @@ position = Vector2(8, -8)
 [node name="ShipPartsTileMap_V2" parent="Sprite" unique_id=280711130 instance=ExtResource("1_8ccvr")]
 tile_map_data = PackedByteArray("AAD//wAAAAABAAEAAAD/////AAADAAEAAAD//wEAAAADAAEAAAABAAAAAAABAAMAAAAAAAAAAAABAAMAAAD+/wAAAAABAAMAAAD8/wAAAAAAAAMAAAD9/wAAAAABAAMAAAD///7/AAADAAAAAAD//wIAAAADAAIAAAACAAAAAAACAAMAAAA=")
 
-[node name="SnapPoints" type="Node2D" parent="." unique_id=1108735235]
+[node name="SnapPointCollection" type="Node2D" parent="." unique_id=249367134]
+script = ExtResource("3_fnn4e")
+metadata/_custom_type_script = "uid://dga345wwl3lrl"
 
-[node name="SnapPoint" parent="SnapPoints" unique_id=1861624800 instance=ExtResource("2_mg7eu")]
+[node name="SnapPoint" parent="SnapPointCollection" unique_id=1861624800 instance=ExtResource("2_mg7eu")]
 position = Vector2(0, -40)
 rotation = -1.5707964
 
-[node name="SnapPoint2" parent="SnapPoints" unique_id=70037565 instance=ExtResource("2_mg7eu")]
+[node name="SnapPoint2" parent="SnapPointCollection" unique_id=70037565 instance=ExtResource("2_mg7eu")]
 position = Vector2(56, 0)
 
-[node name="SnapPoint3" parent="SnapPoints" unique_id=1038724171 instance=ExtResource("2_mg7eu")]
+[node name="SnapPoint3" parent="SnapPointCollection" unique_id=1038724171 instance=ExtResource("2_mg7eu")]
 position = Vector2(0, 40)
 rotation = 1.5707964
 
-[node name="SnapPoint4" parent="SnapPoints" unique_id=1120866923 instance=ExtResource("2_mg7eu")]
+[node name="SnapPoint4" parent="SnapPointCollection" unique_id=1120866923 instance=ExtResource("2_mg7eu")]
 position = Vector2(-56, 0)
 rotation = -3.1415925
 
 [node name="FiniteStateMachine" type="Node" parent="." unique_id=1871983160 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_m52qg")
-initial_state = NodePath("BuildingPlacementState")
+initial_state = NodePath("BuildingStationaryState")
 metadata/_custom_type_script = "uid://cjwh3jfkkw13m"
 
-[node name="BuildingPlacementState" type="Node" parent="FiniteStateMachine" unique_id=1097552549 node_paths=PackedStringArray("building")]
+[node name="BuildingFollowCursorState" type="Node" parent="FiniteStateMachine" unique_id=517558777 node_paths=PackedStringArray("building")]
 script = ExtResource("4_m52qg")
 building = NodePath("../..")
 metadata/_custom_type_script = "uid://bodnyvknqi85c"
 
-[node name="BuildingStationaryState" type="Node" parent="FiniteStateMachine" unique_id=457313757]
+[node name="BuildingStationaryState" type="Node" parent="FiniteStateMachine" unique_id=457313757 node_paths=PackedStringArray("building")]
 script = ExtResource("5_2i2n7")
+building = NodePath("../..")
 metadata/_custom_type_script = "uid://bwf5g5fs5x6h6"
+
+[node name="BuildingSnappedState" type="Node" parent="FiniteStateMachine" unique_id=487216496 node_paths=PackedStringArray("building")]
+script = ExtResource("6_3rb1g")
+snap_strength = 30.0
+building = NodePath("../..")
+metadata/_custom_type_script = "uid://b53cfplf8okk4"
+
+[node name="OverlapDetector" type="Area2D" parent="." unique_id=1726527564]
+visible = false
+script = ExtResource("10_hwgeg")
+metadata/_custom_type_script = "uid://do0w5c8juwrr"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="OverlapDetector" unique_id=1935156026]
+polygon = PackedVector2Array(7, -7, 55, -7, 55, 7, 7, 7, 7, 39, -7, 39, -7, 7, -55, 7, -55, -7, -7, -7, -7, -39, 7, -39)

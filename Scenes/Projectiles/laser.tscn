@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://7ium5quth3hm"]
+
+[ext_resource type="Script" uid="uid://metjdx44oswd" path="res://Scripts/BaseClasses/projectile.gd" id="1_7afm0"]
+[ext_resource type="Texture2D" uid="uid://duhftllxabhor" path="res://Assets/SpriteSheets/projectile.png" id="2_eetno"]
+[ext_resource type="Script" uid="uid://dga345wwl3lrl" path="res://Scripts/BaseClasses/snap_point_collection.gd" id="3_eetno"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pc01"]
+atlas = ExtResource("2_eetno")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8ure"]
+atlas = ExtResource("2_eetno")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krwe7"]
+atlas = ExtResource("2_eetno")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6hsp"]
+atlas = ExtResource("2_eetno")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cnw57"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3pc01")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8ure")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_krwe7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6hsp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_siqut"]
+radius = 3.1622777
+
+[node name="Laser" type="Area2D" unique_id=658826243 node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_7afm0")
+sprite = NodePath("AnimatedSprite2D")
+metadata/_custom_type_script = "uid://metjdx44oswd"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2067044980]
+position = Vector2(-3, 0)
+sprite_frames = SubResource("SpriteFrames_cnw57")
+frame_progress = 0.166074
+
+[node name="SnapPointCollection" type="Node2D" parent="AnimatedSprite2D" unique_id=1084342617]
+script = ExtResource("3_eetno")
+metadata/_custom_type_script = "uid://dga345wwl3lrl"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=270356122]
+visible = false
+shape = SubResource("CircleShape2D_siqut")
