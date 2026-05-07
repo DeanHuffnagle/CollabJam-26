@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://baygn142ebblt"]
+
+[ext_resource type="Script" uid="uid://db6af3xrv1ya2" path="res://Scripts/BaseClasses/building_spawn_button.gd" id="1_vuy0i"]
+[ext_resource type="PackedScene" uid="uid://l827y6iq7sf1" path="res://Scenes/Buildings/frame.tscn" id="2_3rtlf"]
+[ext_resource type="Script" uid="uid://dlnitv62isox2" path="res://Scripts/BaseClasses/container.gd" id="3_f06qu"]
+
+[node name="TestWorld" type="WorldEnvironment" unique_id=40971707]
+
+[node name="Button" type="Button" parent="." unique_id=1828363440 node_paths=PackedStringArray("building_collection")]
+offset_left = 28.0
+offset_top = 12.0
+offset_right = 36.0
+offset_bottom = 20.0
+text = "Spawn frame."
+script = ExtResource("1_vuy0i")
+building_scene = ExtResource("2_3rtlf")
+building_collection = NodePath("../Buildings")
+
+[node name="Buildings" type="Node2D" parent="." unique_id=950386451]
+script = ExtResource("3_f06qu")
+metadata/_custom_type_script = "uid://dlnitv62isox2"
+
+[node name="Frame" parent="Buildings" unique_id=1179845687 instance=ExtResource("2_3rtlf")]
+position = Vector2(80, 299)
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
