@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://l827y6iq7sf1" path="res://Scenes/Buildings/frame.tscn" id="1_n5h5u"]
 [ext_resource type="Script" uid="uid://dlnitv62isox2" path="res://Scripts/BaseClasses/container.gd" id="2_g4jw0"]
 
-[node name="TestBuilding" type="Node2D" unique_id=104485838]
+[node name="TestBuilding" type="WorldEnvironment" unique_id=40971707]
 
 [node name="Button" type="Button" parent="." unique_id=1828363440 node_paths=PackedStringArray("building_collection")]
 offset_left = 28.0

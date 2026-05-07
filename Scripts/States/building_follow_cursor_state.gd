@@ -43,9 +43,10 @@ func on_snap_overlap(target_snap_point:SnapPoint, this_snap_point:SnapPoint):
 			state_machine.change_state("buildingsnappedstate")
 	
 func rotate_CCW() -> void:
-	
+	building.rotate(deg_to_rad(90))
 	pass
 	
 func rotate_CW() -> void:
+	building.rotate(deg_to_rad(-90))
 	pass
 	

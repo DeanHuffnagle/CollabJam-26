@@ -2,6 +2,7 @@
 extends Node2D
 class_name Building
 
+@export var overlap_detector:OverlapDetector
 signal on_placed
 
 # Called when the node enters the scene tree for the first time.
