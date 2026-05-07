@@ -22,15 +22,18 @@ func exit():
 	snap_points_list.clear()
 	target_snap_point = null
 	active_snap_point = null
+	building.modulate = Color.WHITE
 		
 func update(delta: float):
-		if active_snap_point and target_snap_point:
-			snap_to_point()
-		disengage_snap()
+	handle_color_indicator()
+	if active_snap_point and target_snap_point:
+		snap_to_point()
+	disengage_snap()
+	
 		
 func handle_input(event: InputEvent):
 	if Input.is_action_just_pressed("building_place"):
-		state_machine.change_state("buildingstationarystate")
+		handle_place_building()
 			
 func on_snap_overlap(target:SnapPoint, this_snap_point:SnapPoint):
 		target_snap_point = target
@@ -50,4 +53,13 @@ func disengage_snap() -> void:
 	var distance = check_for_mouse_distance()
 	if distance > snap_strength:
 		state_machine.change_state("buildingfollowcursorstate")
-		
+	
+func handle_place_building() -> void:
+	if building.overlap_detector.is_empty:
+		state_machine.change_state("buildingstationarystate")
+
+func handle_color_indicator():
+	if building.overlap_detector.is_empty:
+		building.modulate = Color.GREEN
+	else:
+		building.modulate = Color.RED
