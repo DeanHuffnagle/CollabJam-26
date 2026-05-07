@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c7vpbrgertjex"]
 
-[ext_resource type="Script" uid="uid://duo6k8pexmui4" path="res://minigame_manager.gd" id="1_3lqn6"]
+[ext_resource type="Script" uid="uid://cd5h2vuvtmlsk" path="res://Scripts/minigame_manager.gd" id="1_3lqn6"]
 
 [node name="MinigameManager" type="Control" unique_id=1285281627]
 layout_mode = 3
@@ -18,20 +18,21 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -360.0
-offset_top = -180.0
-offset_right = 360.0
-offset_bottom = 180.0
+offset_left = -160.0
+offset_top = -90.0
+offset_right = 160.0
+offset_bottom = 90.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=225698974]
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(720, 360)
+size = Vector2i(320, 180)
 render_target_update_mode = 4
 
 [node name="ColorRect" type="ColorRect" parent="SubViewportContainer/SubViewport" unique_id=630284098]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

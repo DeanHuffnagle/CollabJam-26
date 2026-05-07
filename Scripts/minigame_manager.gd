@@ -4,7 +4,7 @@ const MICROGAMES: Array[String] = [
 	"waiting_for_godot"
 ]
 
-func on_microgame_start():
+func on_microgame_start() -> void:
 	# Select microgame
 	var microgame_name: String = MICROGAMES.pick_random()
 	var microgame: MicroGame = load(
@@ -17,11 +17,8 @@ func on_microgame_start():
 	# Add to scene tree
 	$SubViewportContainer.show()
 	$SubViewportContainer/SubViewport.add_child(microgame)
-	
-	# Show container
-	visible = true
-	
-func on_microgame_end(microgame: MicroGame):
+		
+func on_microgame_end(microgame: MicroGame) -> void:
 	$SubViewportContainer.hide()
 	microgame.queue_free()
 	
