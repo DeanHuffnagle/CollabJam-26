@@ -1,0 +1,2 @@
+extends NodeCollection
+class_name SnapPointCollection
