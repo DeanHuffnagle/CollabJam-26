@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://dg8vugxoc0kh4"]
 
-[ext_resource type="Script" uid="uid://cjwh3jfkkw13m" path="res://Scripts/BaseClasses/finite_state_machine.gd" id="1_8t0vy"]
+[ext_resource type="Script" uid="uid://dooxtpq2yc3u7" path="res://Scripts/StateMachines/building_state_machine.gd" id="1_8t0vy"]
 [ext_resource type="Script" uid="uid://bodnyvknqi85c" path="res://Scripts/States/building_follow_cursor_state.gd" id="2_b0pvd"]
 [ext_resource type="Script" uid="uid://b53cfplf8okk4" path="res://Scripts/States/building_snapped_state.gd" id="3_0nbvn"]
 [ext_resource type="Script" uid="uid://bwf5g5fs5x6h6" path="res://Scripts/States/building_stationary_state.gd" id="4_m54ki"]
 
-[node name="BuildingStateMachine" type="Node" unique_id=896706739 node_paths=PackedStringArray("initial_state")]
+[node name="BuildingStateMachine" type="Node" unique_id=1006246523 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_8t0vy")
 initial_state = NodePath("BuildingStationaryState")
-metadata/_custom_type_script = "uid://cjwh3jfkkw13m"
+metadata/_custom_type_script = "uid://dooxtpq2yc3u7"
 
 [node name="BuildingFollowCursorState" type="Node" parent="." unique_id=1429536126]
 script = ExtResource("2_b0pvd")

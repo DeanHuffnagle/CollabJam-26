@@ -1,18 +1,15 @@
 [gd_scene format=4 uid="uid://cr3g1q1e76mav"]
 
 [ext_resource type="Script" uid="uid://dbyydvnk6x8wc" path="res://Scripts/BaseClasses/building.gd" id="1_82u6d"]
-[ext_resource type="PackedScene" uid="uid://0viojdup3dhj" path="res://Scenes/BuildingBlocks/snap_point.tscn" id="3_d6fwp"]
+[ext_resource type="PackedScene" uid="uid://0viojdup3dhj" path="res://Scenes/Areas/snap_point.tscn" id="3_d6fwp"]
 [ext_resource type="PackedScene" uid="uid://crngsmrw36q1u" path="res://Scenes/TileMaps/ship_parts_tile_map_v_2.tscn" id="4_fe2vo"]
-[ext_resource type="Script" uid="uid://do0w5c8juwrr" path="res://Scripts/BaseClasses/overlap_detector.gd" id="5_7dap4"]
-[ext_resource type="Script" uid="uid://cjwh3jfkkw13m" path="res://Scripts/BaseClasses/finite_state_machine.gd" id="6_enq7u"]
-[ext_resource type="Script" uid="uid://bodnyvknqi85c" path="res://Scripts/States/building_follow_cursor_state.gd" id="7_xfh60"]
-[ext_resource type="Script" uid="uid://dga345wwl3lrl" path="res://Scripts/BaseClasses/snap_point_collection.gd" id="8_enq7u"]
-[ext_resource type="Script" uid="uid://b53cfplf8okk4" path="res://Scripts/States/building_snapped_state.gd" id="8_jbtmb"]
-[ext_resource type="Script" uid="uid://bwf5g5fs5x6h6" path="res://Scripts/States/building_stationary_state.gd" id="9_67y2m"]
+[ext_resource type="PackedScene" uid="uid://dg8vugxoc0kh4" path="res://Scenes/StateMachinePrefabs/building_state_machine.tscn" id="5_c0ucr"]
+[ext_resource type="Script" uid="uid://do0w5c8juwrr" path="res://Scripts/Areas/collider.gd" id="6_x7tod"]
+[ext_resource type="Script" uid="uid://dga345wwl3lrl" path="res://Scripts/NodeOrganization/snap_point_collection.gd" id="8_enq7u"]
 
-[node name="SolarPanel" type="Node2D" unique_id=1652176954 node_paths=PackedStringArray("overlap_detector")]
+[node name="SolarPanel" type="Node2D" unique_id=1652176954 node_paths=PackedStringArray("collider")]
 script = ExtResource("1_82u6d")
-overlap_detector = NodePath("OverlapDetector")
+collider = NodePath("Collider")
 metadata/_custom_type_script = "uid://dbyydvnk6x8wc"
 
 [node name="Sprite" type="Node2D" parent="." unique_id=862275723]
@@ -29,30 +26,13 @@ metadata/_custom_type_script = "uid://dga345wwl3lrl"
 position = Vector2(0, 8)
 rotation = 1.5707964
 
-[node name="FiniteStateMachine" type="Node" parent="." unique_id=2145224374 node_paths=PackedStringArray("initial_state")]
-script = ExtResource("6_enq7u")
-initial_state = NodePath("BuildingStationaryState")
-metadata/_custom_type_script = "uid://cjwh3jfkkw13m"
+[node name="BuildingStateMachine" parent="." unique_id=1006246523 node_paths=PackedStringArray("building") instance=ExtResource("5_c0ucr")]
+building = NodePath("..")
 
-[node name="BuildingFollowCursorState" type="Node" parent="FiniteStateMachine" unique_id=2059842955 node_paths=PackedStringArray("building")]
-script = ExtResource("7_xfh60")
-building = NodePath("../..")
-metadata/_custom_type_script = "uid://bodnyvknqi85c"
-
-[node name="BuildingSnappedState" type="Node" parent="FiniteStateMachine" unique_id=234084388 node_paths=PackedStringArray("building")]
-script = ExtResource("8_jbtmb")
-building = NodePath("../..")
-metadata/_custom_type_script = "uid://b53cfplf8okk4"
-
-[node name="BuildingStationaryState" type="Node" parent="FiniteStateMachine" unique_id=305407518 node_paths=PackedStringArray("building")]
-script = ExtResource("9_67y2m")
-building = NodePath("../..")
-metadata/_custom_type_script = "uid://bwf5g5fs5x6h6"
-
-[node name="OverlapDetector" type="Area2D" parent="." unique_id=2077297556]
-position = Vector2(8, -8)
-script = ExtResource("5_7dap4")
+[node name="Collider" type="Area2D" parent="." unique_id=1178853507]
+script = ExtResource("6_x7tod")
 metadata/_custom_type_script = "uid://do0w5c8juwrr"
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="OverlapDetector" unique_id=1261873114]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collider" unique_id=1261873114]
+position = Vector2(8, -8)
 polygon = PackedVector2Array(-1, -17, -1, 15, -15, 15, -15, -17, -34, -17, -34, -2, -78, -2, -78, -46, -34, -46, -34, -31, 18, -31, 18, -46, 62, -46, 62, -2, 18, -2, 18, -17)

@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://cevvvjvxekayl"]
 
 [ext_resource type="PackedScene" uid="uid://doy2e4nfmfte0" path="res://Scenes/AnimatedSprites/laser_turret_animated_sprite.tscn" id="1_7fkfh"]
-[ext_resource type="Script" uid="uid://cjwh3jfkkw13m" path="res://Scripts/BaseClasses/finite_state_machine.gd" id="1_pn7tv"]
+[ext_resource type="Script" uid="uid://cjwh3jfkkw13m" path="res://Scripts/StateMachines/finite_state_machine.gd" id="1_pn7tv"]
 [ext_resource type="Script" uid="uid://bi1mygahrqhqh" path="res://Scripts/States/turret_idle_state.gd" id="2_qsgc7"]
+[ext_resource type="Script" uid="uid://dlnitv62isox2" path="res://Scripts/NodeOrganization/node_collection.gd" id="4_msj1a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qsgc7"]
 radius = 8.0
@@ -41,8 +42,15 @@ enemy_detect_area = NodePath("../../Enemy Detection")
 turret_body = NodePath("../..")
 metadata/_custom_type_script = "uid://bi1mygahrqhqh"
 
-[node name="Barrel1" type="Node2D" parent="." unique_id=1967129290]
+[node name="Launchers" type="Node2D" parent="." unique_id=1556593224]
 position = Vector2(28, -3)
+script = ExtResource("4_msj1a")
+metadata/_custom_type_script = "uid://dlnitv62isox2"
 
-[node name="Barrel2" type="Node2D" parent="." unique_id=1598193854]
-position = Vector2(28, 3)
+[node name="Top" type="Node2D" parent="Launchers" unique_id=1967129290]
+
+[node name="Middle" type="Node2D" parent="Launchers" unique_id=536524390]
+position = Vector2(0, 3)
+
+[node name="Bottom" type="Node2D" parent="Launchers" unique_id=1598193854]
+position = Vector2(0, 6)
