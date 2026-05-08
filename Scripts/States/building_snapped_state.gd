@@ -1,14 +1,16 @@
-extends State
+extends BuildingState
 class_name BuildingSnappedState
 
 @export var snap_strength: float = 20
-@export var building: Building
-@onready var snap_points_container = building.get_node("SnapPointCollection")
+@onready var snap_points_container: SnapPointCollection
 var snap_points_list: Array[SnapPoint] = []
 var target_snap_point: SnapPoint
 var active_snap_point: SnapPoint
+var colliding: bool
 
 func enter():
+	super()
+	snap_points_container = building.get_node("SnapPointCollection")
 	for point in snap_points_container.get_children():
 		if point is SnapPoint:
 			snap_points_list.append(point)
@@ -25,10 +27,10 @@ func exit():
 	building.modulate = Color.WHITE
 		
 func update(delta: float):
+	handle_collision()
 	handle_color_indicator()
-	if active_snap_point and target_snap_point:
-		snap_to_point()
-	disengage_snap()
+	handle_snap_to_point()
+	handle_disengage_snap()
 	
 		
 func handle_input(event: InputEvent):
@@ -39,27 +41,34 @@ func on_snap_overlap(target:SnapPoint, this_snap_point:SnapPoint):
 		target_snap_point = target
 		active_snap_point = this_snap_point
 	
-func snap_to_point():
-	var offset = building.global_position - active_snap_point.global_position
-	var target_position = target_snap_point.global_position + offset
-	building.global_position = target_position
+func handle_snap_to_point() -> void:
+	if active_snap_point and target_snap_point:
+		var offset = building.global_position - active_snap_point.global_position
+		var target_position = target_snap_point.global_position + offset
+		building.global_position = target_position
 	
 func check_for_mouse_distance() -> float:
 	var mouse_pos = get_viewport().get_mouse_position()
 	var distance: Vector2 = (building.global_position - mouse_pos)
 	return distance.length()
 
-func disengage_snap() -> void:
+func handle_disengage_snap() -> void:
 	var distance = check_for_mouse_distance()
 	if distance > snap_strength:
 		state_machine.change_state("buildingfollowcursorstate")
 	
 func handle_place_building() -> void:
-	if building.overlap_detector.is_empty:
+	if not colliding:
 		state_machine.change_state("buildingstationarystate")
 
 func handle_color_indicator():
-	if building.overlap_detector.is_empty:
-		building.modulate = Color.GREEN
-	else:
+	if colliding:
 		building.modulate = Color.RED
+	else:
+		building.modulate = Color.GREEN
+
+func handle_collision() -> void:
+	if building.collider.is_empty:
+		colliding = false
+	else:
+		colliding = true

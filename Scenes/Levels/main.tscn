@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://db6ynamvqg4nj" path="res://Scenes/Buildings/turret.tscn" id="4_nk5xi"]
 [ext_resource type="PackedScene" uid="uid://cgtte42u3lu2t" path="res://Scenes/Enemies/enemy_blob.tscn" id="5_7i1ub"]
 [ext_resource type="PackedScene" uid="uid://crngsmrw36q1u" path="res://Scenes/TileMaps/ship_parts_tile_map_v_2.tscn" id="6_tpkgp"]
-[ext_resource type="PackedScene" uid="uid://cevvvjvxekayl" path="res://Scenes/Buildings/laser_turret.tscn" id="7_irfg1"]
+[ext_resource type="PackedScene" uid="uid://cevvvjvxekayl" path="res://Scenes/Towers/laser_turret.tscn" id="7_irfg1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7i1ub"]
 

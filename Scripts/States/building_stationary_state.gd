@@ -1,8 +1,7 @@
-extends State
+extends BuildingState
 class_name BuildingStationaryState
 
-@export var building: Building
 
 func enter():
-	
+	super()
 	building.emit_signal("on_placed")

@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://cgtte42u3lu2t"]
 
-[ext_resource type="Script" uid="uid://cjwh3jfkkw13m" path="res://Scripts/BaseClasses/finite_state_machine.gd" id="1_spxs2"]
-[ext_resource type="Script" uid="uid://cyy0bnvifu61c" path="res://Scripts/BaseClasses/enemy.gd" id="1_vy5aq"]
+[ext_resource type="Script" uid="uid://cjwh3jfkkw13m" path="res://Scripts/StateMachines/finite_state_machine.gd" id="1_spxs2"]
+[ext_resource type="Script" path="res://Scripts/BaseClasses/enemy.gd" id="1_vy5aq"]
 [ext_resource type="Texture2D" uid="uid://c5wowjerp4d07" path="res://Assets/TileSets/side-scroller-tileset.png" id="2_7b2qm"]
-[ext_resource type="Script" uid="uid://cj00n1yh2dke" path="res://Scripts/States/enemy_seeking_state.gd" id="3_7b2qm"]
-[ext_resource type="Script" uid="uid://bami2a3vmwcsn" path="res://Scripts/States/enemy_attacking_state.gd" id="4_8iqfk"]
-[ext_resource type="Script" uid="uid://c738ntdnfc3jc" path="res://Scripts/BaseClasses/hitbox.gd" id="5_yexa4"]
+[ext_resource type="Script" path="res://Scripts/States/enemy_attacking_state.gd" id="4_8iqfk"]
+[ext_resource type="Script" uid="uid://c738ntdnfc3jc" path="res://Scripts/Areas/hitbox.gd" id="6_vy5aq"]
+[ext_resource type="Script" uid="uid://bebqfq82ylfx6" path="res://Scripts/Areas/hurtbox.gd" id="6_wxwye"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8rwmy"]
 texture = ExtResource("2_7b2qm")
@@ -60,32 +60,25 @@ texture = ExtResource("2_7b2qm")
 [sub_resource type="TileSet" id="TileSet_kvx5w"]
 sources/0 = SubResource("TileSetAtlasSource_8rwmy")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_mcbut"]
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_vy5aq"]
+radius = 23.021729
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mcbut"]
+radius = 16.03122
 
 [node name="Blob" type="CharacterBody2D" unique_id=517647881]
-position = Vector2(251, 20)
 script = ExtResource("1_vy5aq")
-metadata/_custom_type_script = "uid://cyy0bnvifu61c"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1323896823]
 tile_map_data = PackedByteArray(0, 0, 0, 0, 1, 0, 0, 0, 10, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 9, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 9, 0, 2, 0, 0, 0)
 tile_set = SubResource("TileSet_kvx5w")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1376117185]
-position = Vector2(16, 17)
-shape = SubResource("CircleShape2D_mcbut")
 
 [node name="FiniteStateMachine" type="Node" parent="." unique_id=348776095 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_spxs2")
 initial_state = NodePath("EnemySeekingState")
 metadata/_custom_type_script = "uid://cjwh3jfkkw13m"
 
-[node name="EnemySeekingState" type="Node" parent="FiniteStateMachine" unique_id=1051971656 node_paths=PackedStringArray("enemy", "hitBox")]
-script = ExtResource("3_7b2qm")
-enemy = NodePath("../..")
-hitBox = NodePath("../../HitBox")
+[node name="EnemySeekingState" type="Node" parent="FiniteStateMachine" unique_id=1051971656]
 metadata/_custom_type_script = "uid://cj00n1yh2dke"
 
 [node name="EnemyAttackingState" type="Node" parent="FiniteStateMachine" unique_id=1348911364 node_paths=PackedStringArray("enemy", "hitBox")]
@@ -93,12 +86,22 @@ script = ExtResource("4_8iqfk")
 enemy = NodePath("../..")
 hitBox = NodePath("../../HitBox")
 attackCooldown = 1.5
-metadata/_custom_type_script = "uid://bami2a3vmwcsn"
 
 [node name="HitBox" type="Area2D" parent="." unique_id=1298775913]
-script = ExtResource("5_yexa4")
-metadata/_custom_type_script = "uid://c738ntdnfc3jc"
+script = ExtResource("6_vy5aq")
+is_enemy = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1371698188]
-position = Vector2(16, 17)
+position = Vector2(16, 16)
 shape = SubResource("CircleShape2D_vy5aq")
+debug_color = Color(0.9999998, 0.00835983, 0.07020179, 0.41960785)
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=2007538994]
+position = Vector2(16, 17)
+script = ExtResource("6_wxwye")
+is_enemy = true
+metadata/_custom_type_script = "uid://bebqfq82ylfx6"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1376117185]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_mcbut")

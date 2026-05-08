@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://0viojdup3dhj"]
 
-[ext_resource type="Script" uid="uid://dm1af8npdgnqr" path="res://Scripts/BaseClasses/snap_point.gd" id="1_d0kch"]
+[ext_resource type="Script" uid="uid://dm1af8npdgnqr" path="res://Scripts/Areas/snap_point.gd" id="1_d0kch"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_10x0e"]
 radius = 4.1231055
 
-[node name="SnapPoint" type="Area2D" unique_id=1861624800]
+[node name="SnapPoint" type="Area2D" unique_id=616598525]
 script = ExtResource("1_d0kch")
 metadata/_custom_type_script = "uid://dm1af8npdgnqr"
 

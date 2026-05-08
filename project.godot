@@ -11,15 +11,19 @@ config_version=5
 [application]
 
 config/name="collabjam-26"
-run/main_scene="uid://bbe7snx7ng4h3"
+run/main_scene="uid://baygn142ebblt"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://Assets/Icons/icon.svg"
+
+[autoload]
+
+SignalLens="*uid://85rkx60vm7a7"
 
 [display]
 
 window/size/viewport_width=640
 window/size/viewport_height=360
-window/size/mode=3
+window/size/mode=2
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
 
@@ -30,7 +34,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/signal_lens/plugin.cfg")
 
 [global_group]
 

@@ -1,8 +1,13 @@
 [gd_scene format=3 uid="uid://7ium5quth3hm"]
 
-[ext_resource type="Script" uid="uid://metjdx44oswd" path="res://Scripts/BaseClasses/projectile.gd" id="1_7afm0"]
+[ext_resource type="Script" uid="uid://metjdx44oswd" path="res://Scripts/projectile.gd" id="1_7afm0"]
+[ext_resource type="Script" uid="uid://c738ntdnfc3jc" path="res://Scripts/Areas/hitbox.gd" id="2_7s51r"]
 [ext_resource type="Texture2D" uid="uid://duhftllxabhor" path="res://Assets/SpriteSheets/projectile.png" id="2_eetno"]
-[ext_resource type="Script" uid="uid://dga345wwl3lrl" path="res://Scripts/BaseClasses/snap_point_collection.gd" id="3_eetno"]
+[ext_resource type="Script" uid="uid://dpaea42s2t48l" path="res://Scripts/States/projectile_move_state.gd" id="4_7s51r"]
+[ext_resource type="Script" uid="uid://cjwh3jfkkw13m" path="res://Scripts/StateMachines/finite_state_machine.gd" id="4_siqut"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_siqut"]
+radius = 3.1622777
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3pc01"]
 atlas = ExtResource("2_eetno")
@@ -40,23 +45,34 @@ animations = [{
 "speed": 15.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_siqut"]
-radius = 3.1622777
-
-[node name="Laser" type="Area2D" unique_id=658826243 node_paths=PackedStringArray("sprite")]
+[node name="Laser" type="CharacterBody2D" unique_id=1177838584 node_paths=PackedStringArray("sprite", "hit_box")]
 script = ExtResource("1_7afm0")
 sprite = NodePath("AnimatedSprite2D")
+hit_box = NodePath("HitBox")
+direction = Vector2(1, 0)
 metadata/_custom_type_script = "uid://metjdx44oswd"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2067044980]
-position = Vector2(-3, 0)
-sprite_frames = SubResource("SpriteFrames_cnw57")
-frame_progress = 0.166074
+[node name="HitBox" type="Area2D" parent="." unique_id=1271120897]
+script = ExtResource("2_7s51r")
+is_projectile = true
+metadata/_custom_type_script = "uid://c738ntdnfc3jc"
 
-[node name="SnapPointCollection" type="Node2D" parent="AnimatedSprite2D" unique_id=1084342617]
-script = ExtResource("3_eetno")
-metadata/_custom_type_script = "uid://dga345wwl3lrl"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=270356122]
-visible = false
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=270356122]
 shape = SubResource("CircleShape2D_siqut")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2067044980]
+position = Vector2(-4, 0)
+sprite_frames = SubResource("SpriteFrames_cnw57")
+frame_progress = 0.7748317
+
+[node name="FiniteStateMachine" type="Node" parent="." unique_id=152919139 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("4_siqut")
+initial_state = NodePath("ProjectileMoveState")
+metadata/_custom_type_script = "uid://cjwh3jfkkw13m"
+
+[node name="ProjectileMoveState" type="Node" parent="FiniteStateMachine" unique_id=520469277 node_paths=PackedStringArray("projectile")]
+script = ExtResource("4_7s51r")
+projectile = NodePath("../..")
+metadata/_custom_type_script = "uid://dpaea42s2t48l"
+
+[connection signal="enemy_hit" from="HitBox" to="FiniteStateMachine/ProjectileMoveState" method="_on_hit_box_enemy_hit"]
