@@ -22,7 +22,7 @@ position = Vector2(558, 430)
 [node name="Enemy_Blob" parent="." unique_id=1018756277 instance=ExtResource("5_7i1ub")]
 position = Vector2(561, 152)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy_Blob" unique_id=425935430]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemy_Blob" unique_id=425935430]
 shape = SubResource("CircleShape2D_7i1ub")
 
 [node name="ShipPartsTileMap_V2" parent="." unique_id=280711130 instance=ExtResource("6_tpkgp")]
