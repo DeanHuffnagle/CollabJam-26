@@ -2,9 +2,7 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tm3kh"]
 
-[node name="Hitbox" type="Area2D" unique_id=1699645205]
+[node name="HitBox" type="Area2D" unique_id=1699645205]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=97922709]
 shape = SubResource("CircleShape2D_tm3kh")
-
-[node name="Timer" type="Timer" parent="." unique_id=4209720]

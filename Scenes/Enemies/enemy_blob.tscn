@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://cgtte42u3lu2t"]
 
 [ext_resource type="Script" uid="uid://cjwh3jfkkw13m" path="res://Scripts/BaseClasses/finite_state_machine.gd" id="1_spxs2"]
+[ext_resource type="Script" uid="uid://cyy0bnvifu61c" path="res://Scripts/BaseClasses/enemy.gd" id="1_vy5aq"]
 [ext_resource type="Texture2D" uid="uid://c5wowjerp4d07" path="res://Assets/TileSets/side-scroller-tileset.png" id="2_7b2qm"]
 [ext_resource type="Script" uid="uid://cj00n1yh2dke" path="res://Scripts/States/enemy_seeking_state.gd" id="3_7b2qm"]
 [ext_resource type="Script" uid="uid://bami2a3vmwcsn" path="res://Scripts/States/enemy_attacking_state.gd" id="4_8iqfk"]
+[ext_resource type="Script" uid="uid://c738ntdnfc3jc" path="res://Scripts/BaseClasses/hitbox.gd" id="5_yexa4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8rwmy"]
 texture = ExtResource("2_7b2qm")
@@ -60,7 +62,12 @@ sources/0 = SubResource("TileSetAtlasSource_8rwmy")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mcbut"]
 
-[node name="Enemy_Blob" type="CharacterBody2D" unique_id=1018756277]
+[sub_resource type="CircleShape2D" id="CircleShape2D_vy5aq"]
+
+[node name="Blob" type="CharacterBody2D" unique_id=517647881]
+position = Vector2(251, 20)
+script = ExtResource("1_vy5aq")
+metadata/_custom_type_script = "uid://cyy0bnvifu61c"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1323896823]
 tile_map_data = PackedByteArray(0, 0, 0, 0, 1, 0, 0, 0, 10, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 9, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 9, 0, 2, 0, 0, 0)
@@ -75,10 +82,23 @@ script = ExtResource("1_spxs2")
 initial_state = NodePath("EnemySeekingState")
 metadata/_custom_type_script = "uid://cjwh3jfkkw13m"
 
-[node name="EnemySeekingState" type="Node" parent="FiniteStateMachine" unique_id=1051971656]
+[node name="EnemySeekingState" type="Node" parent="FiniteStateMachine" unique_id=1051971656 node_paths=PackedStringArray("enemy", "hitBox")]
 script = ExtResource("3_7b2qm")
+enemy = NodePath("../..")
+hitBox = NodePath("../../HitBox")
 metadata/_custom_type_script = "uid://cj00n1yh2dke"
 
-[node name="EnemyAttackingState" type="Node" parent="FiniteStateMachine" unique_id=1348911364]
+[node name="EnemyAttackingState" type="Node" parent="FiniteStateMachine" unique_id=1348911364 node_paths=PackedStringArray("enemy", "hitBox")]
 script = ExtResource("4_8iqfk")
+enemy = NodePath("../..")
+hitBox = NodePath("../../HitBox")
+attackCooldown = 1.5
 metadata/_custom_type_script = "uid://bami2a3vmwcsn"
+
+[node name="HitBox" type="Area2D" parent="." unique_id=1298775913]
+script = ExtResource("5_yexa4")
+metadata/_custom_type_script = "uid://c738ntdnfc3jc"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1371698188]
+position = Vector2(16, 17)
+shape = SubResource("CircleShape2D_vy5aq")

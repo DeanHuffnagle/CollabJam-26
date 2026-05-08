@@ -9,5 +9,3 @@ script = ExtResource("1_o1td3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=567684323]
 shape = SubResource("CircleShape2D_o1td3")
-
-[node name="Timer" type="Timer" parent="." unique_id=913115807]
