@@ -15,9 +15,10 @@ func enter():
 
 func exit():
 	attackTimer.stop()
+	attackTimer.timeout.disconnect(on_timer_timeout)
 	attackTimer.queue_free()
 
-func _update(delta: float):
+func update(delta: float):
 	if canAttack:
 		attack()	
 
@@ -27,13 +28,13 @@ func on_target_detected(hurtBox, hitBox):
 func createTimer():
 	attackTimer = Timer.new()
 	add_child(attackTimer)
-	attackTimer.one_shot = false
 	attackTimer.wait_time = attackCooldown
+	attackTimer.timeout.connect(on_timer_timeout)
 	attackTimer.start()
 	
 func on_timer_timeout():
 	canAttack = true
 	
 func attack():
-	print(target)
+	print("Attacking " + str(target))
 	canAttack = false
