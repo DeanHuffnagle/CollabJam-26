@@ -11,7 +11,7 @@ source_file="res://Assets/Audio/Music/music-idea-1.ogg"
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
