@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://7ium5quth3hm"]
+
+[ext_resource type="Script" uid="uid://metjdx44oswd" path="res://src/Towers/ProjectileLauncher/projectile.gd" id="1_gb5ko"]
+[ext_resource type="Script" uid="uid://c738ntdnfc3jc" path="res://src/Components/HitBox/hitbox.gd" id="2_hhah4"]
+[ext_resource type="Texture2D" uid="uid://duhftllxabhor" path="res://src/Towers/LaserTurret/LaserBolt/laser_bolt.png" id="3_ebosy"]
+[ext_resource type="Script" uid="uid://cjwh3jfkkw13m" path="res://src/Components/FSM/finite_state_machine.gd" id="4_eml8y"]
+[ext_resource type="Script" uid="uid://dpaea42s2t48l" path="res://src/Towers/ProjectileLauncher/projectile_move_state.gd" id="5_1ugc8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_siqut"]
+radius = 3.1622777
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pc01"]
+atlas = ExtResource("3_ebosy")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8ure"]
+atlas = ExtResource("3_ebosy")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krwe7"]
+atlas = ExtResource("3_ebosy")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6hsp"]
+atlas = ExtResource("3_ebosy")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cnw57"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3pc01")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8ure")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_krwe7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6hsp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="Laser" type="CharacterBody2D" unique_id=1177838584 node_paths=PackedStringArray("sprite", "hit_box")]
+script = ExtResource("1_gb5ko")
+sprite = NodePath("AnimatedSprite2D")
+hit_box = NodePath("HitBox")
+direction = Vector2(1, 0)
+metadata/_custom_type_script = "uid://metjdx44oswd"
+
+[node name="HitBox" type="Area2D" parent="." unique_id=1271120897]
+script = ExtResource("2_hhah4")
+is_projectile = true
+metadata/_custom_type_script = "uid://c738ntdnfc3jc"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=270356122]
+shape = SubResource("CircleShape2D_siqut")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2067044980]
+position = Vector2(-4, 0)
+sprite_frames = SubResource("SpriteFrames_cnw57")
+frame_progress = 0.7748317
+
+[node name="FiniteStateMachine" type="Node" parent="." unique_id=152919139 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("4_eml8y")
+initial_state = NodePath("ProjectileMoveState")
+metadata/_custom_type_script = "uid://cjwh3jfkkw13m"
+
+[node name="ProjectileMoveState" type="Node" parent="FiniteStateMachine" unique_id=520469277 node_paths=PackedStringArray("projectile")]
+script = ExtResource("5_1ugc8")
+projectile = NodePath("../..")
+metadata/_custom_type_script = "uid://dpaea42s2t48l"
+
+[connection signal="enemy_hit" from="HitBox" to="FiniteStateMachine/ProjectileMoveState" method="_on_hit_box_enemy_hit"]
