@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://cr3g1q1e76mav"]
 
 [ext_resource type="Script" uid="uid://dbyydvnk6x8wc" path="res://Scripts/BaseClasses/building.gd" id="1_82u6d"]
-[ext_resource type="PackedScene" uid="uid://0viojdup3dhj" path="res://Scenes/Areas/snap_point.tscn" id="3_d6fwp"]
+[ext_resource type="PackedScene" uid="uid://0viojdup3dhj" path="res://Scenes/Components/snap_point.tscn" id="3_d6fwp"]
 [ext_resource type="PackedScene" uid="uid://crngsmrw36q1u" path="res://Scenes/TileMaps/ship_parts_tile_map_v_2.tscn" id="4_fe2vo"]
 [ext_resource type="PackedScene" uid="uid://dg8vugxoc0kh4" path="res://Scenes/StateMachinePrefabs/building_state_machine.tscn" id="5_c0ucr"]
 [ext_resource type="Script" uid="uid://do0w5c8juwrr" path="res://Scripts/Areas/collider.gd" id="6_x7tod"]

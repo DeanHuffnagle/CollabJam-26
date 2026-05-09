@@ -38,8 +38,11 @@ enabled=PackedStringArray("res://addons/signal_lens/plugin.cfg")
 
 [global_group]
 
-buildings="All Buildings"
-Enemies=""
+ProjectileCollection=""
+EnemyCollection=""
+BuildingCollection="All Buildings"
+SnapPointCollection=""
+LauncherCollection=""
 
 [input]
 

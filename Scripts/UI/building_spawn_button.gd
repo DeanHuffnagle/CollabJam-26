@@ -2,7 +2,7 @@ extends Button
 class_name BuildingSpawnButton
 
 @export var building_scene: PackedScene
-@export var building_collection: NodeCollection
+@onready var building_collection: BuildingCollection = get_tree().get_first_node_in_group("BuildingCollection")
 
 func _on_pressed() -> void:
 	var building = building_scene.instantiate()

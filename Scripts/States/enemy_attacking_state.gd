@@ -11,7 +11,7 @@ var canAttack: bool
 func enter():
 	print("entering attacking state")
 	createTimer()
-	hitBox.target_detected.connect(on_target_detected.bind(hitBox))
+	hitBox.target_detected.connect(on_target_detected)
 
 func exit():
 	attackTimer.stop()
@@ -22,7 +22,7 @@ func update(delta: float):
 	if canAttack:
 		attack()	
 
-func on_target_detected(hurtBox, hitBox):
+func on_target_detected(hurtBox):
 	target = hurtBox.get_parent()
 	
 func createTimer():
@@ -37,4 +37,5 @@ func on_timer_timeout():
 	
 func attack():
 	print("Attacking " + str(target))
+	hitBox.emit_damage_signal(10)
 	canAttack = false
