@@ -2,14 +2,26 @@
 
 [ext_resource type="Script" uid="uid://db6af3xrv1ya2" path="res://Scripts/UI/building_spawn_button.gd" id="1_vuy0i"]
 [ext_resource type="PackedScene" uid="uid://l827y6iq7sf1" path="res://Scenes/Buildings/frame.tscn" id="2_3rtlf"]
+[ext_resource type="Script" uid="uid://bqh60mdp18pi4" path="res://Scripts/NodeOrganization/building_collection.gd" id="2_5mxrb"]
 [ext_resource type="PackedScene" uid="uid://cr3g1q1e76mav" path="res://Scenes/Buildings/solar_panel.tscn" id="3_3rtlf"]
-[ext_resource type="Script" uid="uid://dlnitv62isox2" path="res://Scripts/NodeOrganization/node_collection.gd" id="3_f06qu"]
-[ext_resource type="PackedScene" uid="uid://7ium5quth3hm" path="res://Scenes/Projectiles/laser.tscn" id="5_f06qu"]
 [ext_resource type="PackedScene" uid="uid://cgtte42u3lu2t" path="res://Scenes/Enemies/enemy_blob.tscn" id="6_owoyi"]
+[ext_resource type="PackedScene" uid="uid://dxqqn2vmgjbkj" path="res://Scenes/Components/projectile_launcher.tscn" id="7_5mxrb"]
+[ext_resource type="Script" uid="uid://b2ay3b7d44cw2" path="res://Scripts/NodeOrganization/projectile_collection.gd" id="8_ful3d"]
 
 [node name="TestWorld" type="WorldEnvironment" unique_id=40971707]
 
-[node name="frame_Button" type="Button" parent="." unique_id=1828363440 node_paths=PackedStringArray("building_collection")]
+[node name="ProjectileCollection" type="Node2D" parent="." unique_id=1751299761]
+script = ExtResource("8_ful3d")
+metadata/_custom_type_script = "uid://b2ay3b7d44cw2"
+
+[node name="BuildingCollection" type="Node2D" parent="." unique_id=2083253201]
+script = ExtResource("2_5mxrb")
+metadata/_custom_type_script = "uid://bqh60mdp18pi4"
+
+[node name="Frame" parent="BuildingCollection" unique_id=1179845687 instance=ExtResource("2_3rtlf")]
+position = Vector2(80, 299)
+
+[node name="frame_Button" type="Button" parent="." unique_id=1828363440]
 offset_left = 28.0
 offset_top = 12.0
 offset_right = 36.0
@@ -17,9 +29,8 @@ offset_bottom = 20.0
 text = "Spawn frame."
 script = ExtResource("1_vuy0i")
 building_scene = ExtResource("2_3rtlf")
-building_collection = NodePath("../Buildings")
 
-[node name="solar_panel_Button" type="Button" parent="." unique_id=896850113 node_paths=PackedStringArray("building_collection")]
+[node name="solar_panel_Button" type="Button" parent="." unique_id=896850113]
 offset_left = 146.0
 offset_top = 12.0
 offset_right = 296.0
@@ -28,22 +39,6 @@ text = "Spawn Solar Panel
 "
 script = ExtResource("1_vuy0i")
 building_scene = ExtResource("3_3rtlf")
-building_collection = NodePath("../Buildings")
-
-[node name="Buildings" type="Node2D" parent="." unique_id=950386451]
-script = ExtResource("3_f06qu")
-metadata/_custom_type_script = "uid://dlnitv62isox2"
-
-[node name="Frame" parent="Buildings" unique_id=1179845687 instance=ExtResource("2_3rtlf")]
-position = Vector2(80, 299)
-
-[node name="Projectiles" type="Node2D" parent="." unique_id=737160510]
-script = ExtResource("3_f06qu")
-metadata/_custom_type_script = "uid://dlnitv62isox2"
-
-[node name="Laser" parent="Projectiles" unique_id=658826243 instance=ExtResource("5_f06qu")]
-position = Vector2(15, 92)
-movement_speed = 5000.0
 
 [node name="Blob" parent="." unique_id=517647881 instance=ExtResource("6_owoyi")]
 position = Vector2(227, 73)
@@ -56,6 +51,10 @@ position = Vector2(359, 72)
 
 [node name="Blob4" parent="." unique_id=1707693937 instance=ExtResource("6_owoyi")]
 position = Vector2(287, 73)
+
+[node name="ProjectileLauncher" parent="." unique_id=1365522219 instance=ExtResource("7_5mxrb")]
+position = Vector2(15, 80)
+rotation = 0.65798914
 
 [connection signal="pressed" from="frame_Button" to="frame_Button" method="_on_pressed"]
 [connection signal="pressed" from="solar_panel_Button" to="solar_panel_Button" method="_on_pressed"]

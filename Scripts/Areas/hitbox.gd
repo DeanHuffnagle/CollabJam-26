@@ -1,3 +1,4 @@
+@icon("res://Assets/Icons/radar.png")
 extends Area2D
 
 class_name HitBox
