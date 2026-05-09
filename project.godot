@@ -13,7 +13,7 @@ config_version=5
 config/name="collabjam-26"
 run/main_scene="uid://baygn142ebblt"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://Assets/Icons/icon.svg"
+config/icon="res://SharedAssets/Icons/icon.svg"
 
 [autoload]
 
@@ -35,6 +35,26 @@ version_control/autoload_on_startup=true
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/signal_lens/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://Deprecated/": "gray",
+"res://ProjectFiles/": "gray",
+"res://SharedAssets/": "gray",
+"res://SharedAssets/Audio/": "green",
+"res://SharedAssets/Icons/": "teal",
+"res://addons/": "gray",
+"res://script_templates/": "gray",
+"res://src/": "gray",
+"res://src/Buildings/": "purple",
+"res://src/Components/": "blue",
+"res://src/Enemies/": "green",
+"res://src/Levels/": "yellow",
+"res://src/TileMaps/": "orange",
+"res://src/Towers/": "red",
+"res://src/UI/": "pink"
+}
 
 [global_group]
 
