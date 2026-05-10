@@ -19,6 +19,7 @@ config/icon="res://Assets/Icons/icon.svg"
 
 SignalLens="*uid://85rkx60vm7a7"
 Global="*uid://dhw2athvcbr2m"
+MicrogameManager="*uid://bh2bbdrr43ih6"
 
 [display]
 
