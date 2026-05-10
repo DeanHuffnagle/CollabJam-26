@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://ck4gwlhg4wyik"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q5xkv"]
+size = Vector2(150, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l3ec8"]
+size = Vector2(135, 135)
+
+[node name="RigidBody2D" type="RigidBody2D" unique_id=1968105579]
+input_pickable = true
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=161728487]
+shape = SubResource("RectangleShape2D_q5xkv")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=385354499]
+collision_layer = 0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=68527468]
+shape = SubResource("RectangleShape2D_l3ec8")
+
+[node name="Node2D" type="Node2D" parent="StaticBody2D" unique_id=1383476146]
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="StaticBody2D/Node2D" unique_id=1232749014]
+position = Vector2(0, 66)
+node_a = NodePath("../..")
+node_b = NodePath("../../..")
+bias = 0.9
+length = 1.0
+stiffness = 64.0
+damping = 0.5
+
+[node name="DampedSpringJoint2D2" type="DampedSpringJoint2D" parent="StaticBody2D/Node2D" unique_id=2047419298]
+position = Vector2(0, -64)
+node_a = NodePath("../..")
+node_b = NodePath("../../..")
+bias = 0.9
+length = 1.0
+stiffness = 64.0
+damping = 0.5
+
+[node name="DampedSpringJoint2D3" type="DampedSpringJoint2D" parent="StaticBody2D/Node2D" unique_id=345976461]
+position = Vector2(-66, 0)
+node_a = NodePath("../..")
+node_b = NodePath("../../..")
+bias = 0.9
+length = 1.0
+stiffness = 64.0
+damping = 0.5
+
+[node name="DampedSpringJoint2D4" type="DampedSpringJoint2D" parent="StaticBody2D/Node2D" unique_id=1925568808]
+position = Vector2(66, 0)
+node_a = NodePath("../..")
+node_b = NodePath("../../..")
+bias = 0.9
+length = 1.0
+stiffness = 64.0
+damping = 0.5

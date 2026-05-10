@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://jlmpn3l0g67"]
+
+[ext_resource type="PackedScene" uid="uid://ck4gwlhg4wyik" path="res://src/Levels/MicroGames/PercussiveMaintenance/computer.tscn" id="1_3wsfv"]
+[ext_resource type="Script" uid="uid://xe3uby0masp6" path="res://src/Levels/MicroGames/PercussiveMaintenance/microgame.gd" id="1_4028w"]
+
+[node name="MicroGame" type="Node2D" unique_id=1846526693]
+script = ExtResource("1_4028w")
+
+[node name="Computer" parent="." unique_id=1973972775 instance=ExtResource("1_3wsfv")]
+position = Vector2(240, 118)
+
+[connection signal="mouse_entered" from="Computer" to="." method="_on_computer_mouse_entered"]
