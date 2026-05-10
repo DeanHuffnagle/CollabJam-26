@@ -2,11 +2,58 @@
 
 [ext_resource type="PackedScene" uid="uid://ck4gwlhg4wyik" path="res://src/Levels/MicroGames/PercussiveMaintenance/computer.tscn" id="1_3wsfv"]
 [ext_resource type="Script" uid="uid://xe3uby0masp6" path="res://src/Levels/MicroGames/PercussiveMaintenance/microgame.gd" id="1_4028w"]
+[ext_resource type="Script" uid="uid://dpti8fr74o4wb" path="res://src/Utils/float_slider.gd" id="2_tmsok"]
+[ext_resource type="PackedScene" uid="uid://1ooxqw3w85l2" path="res://src/Levels/MicroGames/PercussiveMaintenance/debug_arrow.tscn" id="4_fw5ay"]
+
+[sub_resource type="Resource" id="Resource_tmsok"]
+script = ExtResource("2_tmsok")
+metadata/_custom_type_script = "uid://dpti8fr74o4wb"
+
+[sub_resource type="Gradient" id="Gradient_tmsok"]
+offsets = PackedFloat32Array(0, 0.41975307, 0.6111111, 0.9814815)
+colors = PackedColorArray(0.41787615, 0.71914655, 0.16020802, 1, 1, 0.7176471, 0.2901961, 0.99607843, 1, 0.7176471, 0.2901961, 0.99607843, 0.96, 0.24, 0.24, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fw5ay"]
+gradient = SubResource("Gradient_tmsok")
+
+[sub_resource type="Curve2D" id="Curve2D_tmsok"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 388, 107, 0, 0, 0, 0, 254, 107)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_fw5ay"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 403, 256.966, 0, 0, 0, 0, 403, 117.02042)
+}
+point_count = 2
 
 [node name="MicroGame" type="Node2D" unique_id=1846526693]
 script = ExtResource("1_4028w")
+shake_force = SubResource("Resource_tmsok")
+gradient = SubResource("GradientTexture1D_fw5ay")
 
 [node name="Computer" parent="." unique_id=1973972775 instance=ExtResource("1_3wsfv")]
-position = Vector2(240, 118)
+position = Vector2(320, 186)
 
-[connection signal="mouse_entered" from="Computer" to="." method="_on_computer_mouse_entered"]
+[node name="XPath" type="Path2D" parent="." unique_id=461815477]
+curve = SubResource("Curve2D_tmsok")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="XPath" unique_id=979934885]
+position = Vector2(388, 107)
+rotation = 3.1415927
+
+[node name="YPath" type="Path2D" parent="." unique_id=299087207]
+position = Vector2(0, 0.7702713)
+scale = Vector2(1, 0.9932432)
+curve = SubResource("Curve2D_fw5ay")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="YPath" unique_id=484301949]
+position = Vector2(403, 256.966)
+rotation = -1.5707964
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1492065304]
+offset_right = 638.0
+offset_bottom = 40.0
+
+[node name="Area2D" parent="." unique_id=2110675930 instance=ExtResource("4_fw5ay")]
