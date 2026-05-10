@@ -1,0 +1,130 @@
+[gd_scene format=3 uid="uid://dpdccnrlsnoe2"]
+
+[ext_resource type="Texture2D" uid="uid://c1tlcnh850y73" path="res://src/UI/UI_icons.png" id="1_88hnc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_keake"]
+atlas = ExtResource("1_88hnc")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_erw37"]
+atlas = ExtResource("1_88hnc")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_167et"]
+atlas = ExtResource("1_88hnc")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jx7pp"]
+atlas = ExtResource("1_88hnc")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5ktg"]
+atlas = ExtResource("1_88hnc")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tlnwy"]
+atlas = ExtResource("1_88hnc")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jtut0"]
+atlas = ExtResource("1_88hnc")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekd1c"]
+atlas = ExtResource("1_88hnc")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idjgm"]
+atlas = ExtResource("1_88hnc")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l46st"]
+atlas = ExtResource("1_88hnc")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fv8pm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_keake")
+}],
+"loop": true,
+"name": &"button_disabled",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_erw37")
+}],
+"loop": true,
+"name": &"button_enabled",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_167et")
+}],
+"loop": true,
+"name": &"frame_disabled",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jx7pp")
+}],
+"loop": true,
+"name": &"frame_enabled",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x5ktg")
+}],
+"loop": true,
+"name": &"laser_disabled",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tlnwy")
+}],
+"loop": true,
+"name": &"laser_enabled",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jtut0")
+}],
+"loop": true,
+"name": &"rocket_disabled",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ekd1c")
+}],
+"loop": true,
+"name": &"rocket_enabled",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idjgm")
+}],
+"loop": true,
+"name": &"solar_panel_disabled",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l46st")
+}],
+"loop": true,
+"name": &"solar_panel_enabled",
+"speed": 5.0
+}]
+
+[node name="Animated_UI_component" type="AnimatedSprite2D" unique_id=1122704035]
+sprite_frames = SubResource("SpriteFrames_fv8pm")
+animation = &"frame_enabled"

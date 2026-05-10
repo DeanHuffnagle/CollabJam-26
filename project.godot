@@ -13,11 +13,12 @@ config_version=5
 config/name="collabjam-26"
 run/main_scene="uid://baygn142ebblt"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://SharedAssets/Icons/icon.svg"
+config/icon="res://Assets/Icons/icon.svg"
 
 [autoload]
 
 SignalLens="*uid://85rkx60vm7a7"
+Global="*uid://dhw2athvcbr2m"
 
 [display]
 
@@ -39,14 +40,13 @@ enabled=PackedStringArray("res://addons/signal_lens/plugin.cfg")
 [file_customization]
 
 folder_colors={
+"res://Assets/Audio/": "green",
+"res://Assets/Icons/": "teal",
 "res://Deprecated/": "gray",
 "res://ProjectFiles/": "gray",
-"res://SharedAssets/": "gray",
-"res://SharedAssets/Audio/": "green",
-"res://SharedAssets/Icons/": "teal",
 "res://addons/": "gray",
 "res://script_templates/": "gray",
-"res://src/": "gray",
+"res://src/Autoload/": "teal",
 "res://src/Buildings/": "purple",
 "res://src/Components/": "blue",
 "res://src/Enemies/": "green",

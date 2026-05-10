@@ -1,38 +1,29 @@
 [gd_scene format=4 uid="uid://cr3g1q1e76mav"]
 
 [ext_resource type="Script" uid="uid://dbyydvnk6x8wc" path="res://src/Buildings/building.gd" id="1_82u6d"]
+[ext_resource type="Script" uid="uid://wskqsm1yt4f6" path="res://src/Buildings/SolarPanel/energy_spawner.gd" id="2_kh34u"]
+[ext_resource type="PackedScene" uid="uid://bm6o600w7fbd7" path="res://src/Buildings/SolarPanel/energy.tscn" id="3_brfct"]
 [ext_resource type="PackedScene" uid="uid://0viojdup3dhj" path="res://src/Components/SnapPoint/snap_point.tscn" id="3_d6fwp"]
 [ext_resource type="PackedScene" uid="uid://crngsmrw36q1u" path="res://src/TileMaps/ShipParts/ship_parts_tile_map_v_2.tscn" id="4_fe2vo"]
 [ext_resource type="PackedScene" uid="uid://dg8vugxoc0kh4" path="res://src/Buildings/FSM/building_state_machine.tscn" id="5_c0ucr"]
+[ext_resource type="Script" uid="uid://do0w5c8juwrr" path="res://src/Components/Collider/collider.gd" id="6_4268e"]
 [ext_resource type="Script" uid="uid://dga345wwl3lrl" path="res://src/Components/NodeCollections/snap_point_collection.gd" id="8_enq7u"]
-
-[sub_resource type="GDScript" id="GDScript_tkh6e"]
-script/source = "@icon(\"res://Assets/Icons/overlap.png\")
-extends Area2D
-class_name Collider
-
-var is_empty = true
-var overlap_count = 0
-
-func _ready() -> void:
-	area_entered.connect(_on_area_entered)
-	area_exited.connect(_on_area_exited)
-
-func _on_area_entered(area: Area2D) -> void:
-	if area is Collider:
-		overlap_count += 1
-		is_empty = false
-
-func _on_area_exited(area: Area2D) -> void:
-	if area is Collider:
-		overlap_count -= 1
-		if overlap_count == 0:
-			is_empty = true
-"
 
 [node name="SolarPanel" type="Node2D" unique_id=1652176954 node_paths=PackedStringArray("collider")]
 script = ExtResource("1_82u6d")
 collider = NodePath("Collider")
+
+[node name="EnergySpawner" type="Node2D" parent="." unique_id=94259787]
+position = Vector2(-50, -33)
+script = ExtResource("2_kh34u")
+energy_scene = ExtResource("3_brfct")
+metadata/_custom_type_script = "uid://wskqsm1yt4f6"
+
+[node name="EnergySpawner2" type="Node2D" parent="." unique_id=1747495064]
+position = Vector2(50, -33)
+script = ExtResource("2_kh34u")
+energy_scene = ExtResource("3_brfct")
+metadata/_custom_type_script = "uid://wskqsm1yt4f6"
 
 [node name="Sprite" type="Node2D" parent="." unique_id=862275723]
 position = Vector2(8, -8)
@@ -50,8 +41,9 @@ rotation = 1.5707964
 [node name="BuildingStateMachine" parent="." unique_id=1006246523 node_paths=PackedStringArray("building") instance=ExtResource("5_c0ucr")]
 building = NodePath("..")
 
-[node name="Collider" type="Area2D" parent="." unique_id=1178853507]
-script = SubResource("GDScript_tkh6e")
+[node name="Collider" type="Area2D" parent="." unique_id=1797023033]
+script = ExtResource("6_4268e")
+metadata/_custom_type_script = "uid://do0w5c8juwrr"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collider" unique_id=1261873114]
 position = Vector2(8, -8)

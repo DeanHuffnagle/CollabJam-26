@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bm6o600w7fbd7"]
+
+[ext_resource type="Script" uid="uid://ueyu4eb5xc5q" path="res://src/Buildings/SolarPanel/energy.gd" id="1_ffbp0"]
+[ext_resource type="PackedScene" uid="uid://dpdccnrlsnoe2" path="res://src/UI/BuildingSpawnButton/animated_ui_component.tscn" id="2_ru7p5"]
+
+[node name="Energy" type="CharacterBody2D" unique_id=693264082]
+script = ExtResource("1_ffbp0")
+metadata/_custom_type_script = "uid://ueyu4eb5xc5q"
+
+[node name="Animated_UI_component" parent="." unique_id=1122704035 instance=ExtResource("2_ru7p5")]
+z_index = 2
+animation = &"solar_panel_enabled"

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b7jj5rnq07s2b"]
+
+[ext_resource type="Texture2D" uid="uid://jtg8wuiqof08" path="res://src/UI/ProgressBar/Sprites/under.png" id="1_6fuae"]
+[ext_resource type="Texture2D" uid="uid://bb15v18l4cs2q" path="res://src/UI/ProgressBar/Sprites/over.png" id="2_ae5q3"]
+[ext_resource type="Texture2D" uid="uid://cc21fbbwdbjte" path="res://src/UI/ProgressBar/Sprites/progress.png" id="3_aacfj"]
+
+[node name="TextureProgressBar" type="TextureProgressBar" unique_id=1919199042]
+max_value = 5.0
+rounded = true
+fill_mode = 2
+texture_under = ExtResource("1_6fuae")
+texture_over = ExtResource("2_ae5q3")
+texture_progress = ExtResource("3_aacfj")
