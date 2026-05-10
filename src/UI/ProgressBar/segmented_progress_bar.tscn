@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://ca1uyob0uue7u"]
+
+[ext_resource type="Script" uid="uid://c83up6ew06rw0" path="res://src/UI/ProgressBar/segmented_progress_bar.gd" id="1_eri08"]
+[ext_resource type="PackedScene" uid="uid://b7jj5rnq07s2b" path="res://src/UI/ProgressBar/segment.tscn" id="2_5bq7h"]
+
+[node name="SegmentedProgressBar" type="VBoxContainer" unique_id=165836111]
+offset_right = 16.0
+offset_bottom = 270.0
+scale = Vector2(-1, -1)
+theme_override_constants/separation = 0
+script = ExtResource("1_eri08")
+metadata/_custom_type_script = "uid://c83up6ew06rw0"
+
+[node name="TextureProgressBar" parent="." unique_id=1919199042 instance=ExtResource("2_5bq7h")]
+layout_mode = 2
+
+[node name="TextureProgressBar2" parent="." unique_id=435048499 instance=ExtResource("2_5bq7h")]
+layout_mode = 2
+
+[node name="TextureProgressBar3" parent="." unique_id=993897009 instance=ExtResource("2_5bq7h")]
+layout_mode = 2
+
+[node name="TextureProgressBar4" parent="." unique_id=128536830 instance=ExtResource("2_5bq7h")]
+layout_mode = 2
+
+[node name="TextureProgressBar5" parent="." unique_id=47409857 instance=ExtResource("2_5bq7h")]
+layout_mode = 2
+
+[node name="TextureProgressBar6" parent="." unique_id=310489911 instance=ExtResource("2_5bq7h")]
+layout_mode = 2
+
+[node name="TextureProgressBar7" parent="." unique_id=848196030 instance=ExtResource("2_5bq7h")]
+layout_mode = 2
+
+[node name="TextureProgressBar8" parent="." unique_id=1919300956 instance=ExtResource("2_5bq7h")]
+layout_mode = 2
+
+[node name="TextureProgressBar9" parent="." unique_id=174863866 instance=ExtResource("2_5bq7h")]
+layout_mode = 2
+
+[node name="TextureProgressBar10" parent="." unique_id=968719082 instance=ExtResource("2_5bq7h")]
+layout_mode = 2

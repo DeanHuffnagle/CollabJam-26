@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d0x6u1852revf"]
 
 [ext_resource type="Script" uid="uid://s4qytfuqxy1n" path="res://src/Levels/MicroGames/WaitingForGodot/waiting_for_godot.gd" id="1_xacqk"]
-[ext_resource type="Texture2D" uid="uid://cwevpyk0co76u" path="res://SharedAssets/Icons/icon.svg" id="2_g4n7n"]
+[ext_resource type="Texture2D" uid="uid://cwevpyk0co76u" path="res://Assets/Icons/icon.svg" id="2_g4n7n"]
 
 [node name="WaitingForGodot" type="Node2D" unique_id=2001244829]
 script = ExtResource("1_xacqk")

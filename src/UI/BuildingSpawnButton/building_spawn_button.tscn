@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cgptblo30g7ac"]
+
+[ext_resource type="Script" uid="uid://db6af3xrv1ya2" path="res://src/UI/BuildingSpawnButton/building_spawn_button.gd" id="1_y86rp"]
+[ext_resource type="PackedScene" uid="uid://l827y6iq7sf1" path="res://src/Buildings/Frame/frame.tscn" id="2_qdh5y"]
+[ext_resource type="PackedScene" uid="uid://dpdccnrlsnoe2" path="res://src/UI/BuildingSpawnButton/animated_ui_component.tscn" id="2_yddtb"]
+
+[node name="BuildingSpawnButton" type="TextureButton" unique_id=1612387776]
+offset_right = 32.0
+offset_bottom = 32.0
+action_mode = 0
+script = ExtResource("1_y86rp")
+building_scene = ExtResource("2_qdh5y")
+metadata/_custom_type_script = "uid://db6af3xrv1ya2"
+
+[node name="Button" parent="." unique_id=1122704035 instance=ExtResource("2_yddtb")]
+position = Vector2(16, 16)
+animation = &"button_disabled"
+
+[node name="Icon" parent="." unique_id=1899510185 instance=ExtResource("2_yddtb")]
+position = Vector2(16, 16)
+animation = &"laser_disabled"
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

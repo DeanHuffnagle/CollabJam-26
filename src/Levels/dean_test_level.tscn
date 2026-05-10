@@ -3,10 +3,9 @@
 [ext_resource type="Script" uid="uid://b2ay3b7d44cw2" path="res://src/Components/NodeCollections/projectile_collection.gd" id="1_l7m7a"]
 [ext_resource type="Script" uid="uid://bqh60mdp18pi4" path="res://src/Components/NodeCollections/building_collection.gd" id="2_q22x4"]
 [ext_resource type="PackedScene" uid="uid://l827y6iq7sf1" path="res://src/Buildings/Frame/frame.tscn" id="3_jk3uy"]
-[ext_resource type="Script" uid="uid://db6af3xrv1ya2" path="res://src/UI/BuildingSpawnButton/building_spawn_button.gd" id="4_bdv3i"]
 [ext_resource type="PackedScene" uid="uid://cr3g1q1e76mav" path="res://src/Buildings/SolarPanel/solar_panel.tscn" id="5_3lpyh"]
-[ext_resource type="PackedScene" uid="uid://cgtte42u3lu2t" path="res://src/Enemies/Blob/enemy_blob.tscn" id="6_uwksr"]
-[ext_resource type="PackedScene" uid="uid://dxqqn2vmgjbkj" path="res://src/Towers/ProjectileLauncher/projectile_launcher.tscn" id="7_1lavf"]
+[ext_resource type="PackedScene" uid="uid://cgptblo30g7ac" path="res://src/UI/BuildingSpawnButton/building_spawn_button.tscn" id="6_iw1np"]
+[ext_resource type="PackedScene" uid="uid://chlftfdd1nehl" path="res://src/UI/ProgressBar/ui_energy_bar.tscn" id="7_l7m7a"]
 
 [node name="TestWorld" type="WorldEnvironment" unique_id=40971707]
 
@@ -17,42 +16,53 @@ script = ExtResource("1_l7m7a")
 script = ExtResource("2_q22x4")
 
 [node name="Frame" parent="BuildingCollection" unique_id=1179845687 instance=ExtResource("3_jk3uy")]
-position = Vector2(80, 299)
+position = Vector2(259, 235)
 
-[node name="frame_Button" type="Button" parent="." unique_id=1828363440]
-offset_left = 28.0
-offset_top = 12.0
-offset_right = 36.0
-offset_bottom = 20.0
-text = "Spawn frame."
-script = ExtResource("4_bdv3i")
-building_scene = ExtResource("3_jk3uy")
+[node name="SolarPanel" parent="BuildingCollection" unique_id=1652176954 instance=ExtResource("5_3lpyh")]
+position = Vector2(259, 187)
 
-[node name="solar_panel_Button" type="Button" parent="." unique_id=896850113]
-offset_left = 146.0
-offset_top = 12.0
-offset_right = 296.0
-offset_bottom = 43.0
-text = "Spawn Solar Panel
-"
-script = ExtResource("4_bdv3i")
+[node name="UI" type="CanvasLayer" parent="." unique_id=1485789888]
+
+[node name="UI_EnergyBar" parent="UI" unique_id=1640103534 instance=ExtResource("7_l7m7a")]
+position = Vector2(612, 32)
+
+[node name="BuildingSpawnButton" parent="UI" unique_id=1612387776 instance=ExtResource("6_iw1np")]
+offset_left = 577.0
+offset_top = 253.0
+offset_right = 609.0
+offset_bottom = 285.0
+spawns_frame = true
+
+[node name="BuildingSpawnButton2" parent="UI" unique_id=287824750 instance=ExtResource("6_iw1np")]
+offset_left = 577.0
+offset_top = 199.0
+offset_right = 609.0
+offset_bottom = 231.0
+energy_cost = 20
+spawns_solar_panel = true
 building_scene = ExtResource("5_3lpyh")
 
-[node name="Blob" parent="." unique_id=517647881 instance=ExtResource("6_uwksr")]
-position = Vector2(227, 73)
+[node name="BuildingSpawnButton3" parent="UI" unique_id=970824206 instance=ExtResource("6_iw1np")]
+offset_left = 577.0
+offset_top = 145.0
+offset_right = 609.0
+offset_bottom = 177.0
+energy_cost = 30
+spawns_laser_tower = true
+spawns_solar_panel = true
 
-[node name="Blob2" parent="." unique_id=1535189790 instance=ExtResource("6_uwksr")]
-position = Vector2(155, 75)
+[node name="BuildingSpawnButton4" parent="UI" unique_id=1179889511 instance=ExtResource("6_iw1np")]
+offset_left = 577.0
+offset_top = 91.0
+offset_right = 609.0
+offset_bottom = 123.0
+energy_cost = 40
+spawns_rocket_launcher = true
 
-[node name="Blob3" parent="." unique_id=1944097648 instance=ExtResource("6_uwksr")]
-position = Vector2(359, 72)
-
-[node name="Blob4" parent="." unique_id=1707693937 instance=ExtResource("6_uwksr")]
-position = Vector2(287, 73)
-
-[node name="ProjectileLauncher" parent="." unique_id=1365522219 instance=ExtResource("7_1lavf")]
-position = Vector2(15, 80)
-rotation = 0.65798914
-
-[connection signal="pressed" from="frame_Button" to="frame_Button" method="_on_pressed"]
-[connection signal="pressed" from="solar_panel_Button" to="solar_panel_Button" method="_on_pressed"]
+[node name="BuildingSpawnButton5" parent="UI" unique_id=310290296 instance=ExtResource("6_iw1np")]
+offset_left = 577.0
+offset_top = 37.0
+offset_right = 609.0
+offset_bottom = 69.0
+energy_cost = 50
+spawns_rocket_launcher = true

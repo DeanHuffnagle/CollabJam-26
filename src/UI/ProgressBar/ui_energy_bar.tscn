@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://chlftfdd1nehl"]
+
+[ext_resource type="PackedScene" uid="uid://ca1uyob0uue7u" path="res://src/UI/ProgressBar/segmented_progress_bar.tscn" id="1_meb2n"]
+[ext_resource type="Texture2D" uid="uid://0scbrw2p484m" path="res://src/UI/ProgressBar/Sprites/energy_icon.png" id="2_cyxe2"]
+[ext_resource type="Texture2D" uid="uid://b7hxe6n34gg2v" path="res://src/UI/ProgressBar/Sprites/cap.png" id="3_meb2n"]
+
+[node name="UI_EnergyBar" type="Node2D" unique_id=1640103534]
+
+[node name="SegmentedProgressBar" parent="." unique_id=165836111 instance=ExtResource("1_meb2n")]
+offset_left = 16.0
+offset_top = 274.0
+offset_right = 32.0
+offset_bottom = 544.0
+
+[node name="EnergyIcon" type="Sprite2D" parent="." unique_id=1458025214]
+position = Vector2(8, 287)
+texture = ExtResource("2_cyxe2")
+
+[node name="Cap" type="Sprite2D" parent="." unique_id=664805560]
+position = Vector2(8, -10)
+texture = ExtResource("3_meb2n")
