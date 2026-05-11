@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bhn8ilr34xces"
-path="res://.godot/imported/incorrect-placement.wav-da2b30b6fac1cc31511cce13fbde9ba0.sample"
+path="res://.godot/imported/incorrect-placement.wav-4ed249068df8d54fac5fa5255ec8a816.sample"
 
 [deps]
 
-source_file="res://SharedAssets/Audio/SFX/incorrect-placement.wav"
-dest_files=["res://.godot/imported/incorrect-placement.wav-da2b30b6fac1cc31511cce13fbde9ba0.sample"]
+source_file="res://Assets/Audio/SFX/incorrect-placement.wav"
+dest_files=["res://.godot/imported/incorrect-placement.wav-4ed249068df8d54fac5fa5255ec8a816.sample"]
 
 [params]
 
