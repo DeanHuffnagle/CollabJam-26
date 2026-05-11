@@ -1,0 +1,53 @@
+[gd_scene format=4 uid="uid://cqlot3ufjidkc"]
+
+[ext_resource type="Script" uid="uid://dbyydvnk6x8wc" path="res://src/Buildings/building.gd" id="1_qsvbs"]
+[ext_resource type="PackedScene" uid="uid://dg8vugxoc0kh4" path="res://src/Buildings/FSM/building_state_machine.tscn" id="2_6clbk"]
+[ext_resource type="PackedScene" uid="uid://crngsmrw36q1u" path="res://src/TileMaps/ShipParts/ship_parts_tile_map_v_2.tscn" id="3_hm606"]
+[ext_resource type="PackedScene" uid="uid://cr5w7fyi31sbq" path="res://src/Buildings/ShieldGenerator/shield_generator_animated_sprite.tscn" id="4_dbood"]
+[ext_resource type="Script" uid="uid://do0w5c8juwrr" path="res://src/Components/Collider/collider.gd" id="5_dbood"]
+[ext_resource type="Script" uid="uid://dga345wwl3lrl" path="res://src/Components/NodeCollections/snap_point_collection.gd" id="6_05n44"]
+[ext_resource type="PackedScene" uid="uid://0viojdup3dhj" path="res://src/Components/SnapPoint/snap_point.tscn" id="7_xl5g4"]
+
+[node name="ShieldGeneratorBuilding" type="Node2D" unique_id=353799837]
+script = ExtResource("1_qsvbs")
+metadata/_custom_type_script = "uid://dbyydvnk6x8wc"
+
+[node name="BuildingStateMachine" parent="." unique_id=1006246523 node_paths=PackedStringArray("building") instance=ExtResource("2_6clbk")]
+building = NodePath("..")
+
+[node name="Sprite" type="Node2D" parent="." unique_id=1045281622]
+position = Vector2(8, -8)
+
+[node name="ShipPartsTileMap_V2" parent="Sprite" unique_id=280711130 instance=ExtResource("3_hm606")]
+tile_map_data = PackedByteArray("AAAAAAEAAAAHAAMAAAAAAAAAAAAHAAIAAAD//wEAAAAFAAMAAAD//wAAAAAFAAIAAAD/////AAAGAAAAAAD+/wEAAAAEAAMAAAD+/wAAAAAEAAEAAAD+////AAAEAAAAAAAAAP//AAAHAAAAAAD//wIAAAADAAIAAAD///7/AAADAAAAAAABAAAAAAACAAMAAAD9/wAAAAAAAAMAAAA=")
+
+[node name="ShieldGeneratorAnimatedSprite" parent="." unique_id=323616713 instance=ExtResource("4_dbood")]
+animation = &"100%"
+frame_progress = 0.0
+
+[node name="Collider" type="Area2D" parent="." unique_id=558751106]
+script = ExtResource("5_dbood")
+metadata/_custom_type_script = "uid://do0w5c8juwrr"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collider" unique_id=356684944]
+visible = false
+polygon = PackedVector2Array(39, -7, 39, 7, 23, 7, 23, 23, 7, 23, 7, 39, -7, 39, -7, 23, -23, 23, -23, 6, -39, 6, -39, -7, -23, -7, -23, -23, -7, -23, -7, -39, 7, -39, 7, -23, 23, -23, 23, -7)
+
+[node name="SnapPointCollection" type="Node2D" parent="." unique_id=2028348287]
+script = ExtResource("6_05n44")
+metadata/_custom_type_script = "uid://dga345wwl3lrl"
+
+[node name="SnapPoint" parent="SnapPointCollection" unique_id=616598525 instance=ExtResource("7_xl5g4")]
+position = Vector2(-40, 0)
+rotation = 3.1415927
+
+[node name="SnapPoint2" parent="SnapPointCollection" unique_id=1515278943 instance=ExtResource("7_xl5g4")]
+position = Vector2(0, -40)
+rotation = -1.5707964
+
+[node name="SnapPoint3" parent="SnapPointCollection" unique_id=538682486 instance=ExtResource("7_xl5g4")]
+position = Vector2(0, 40)
+rotation = 1.5707964
+
+[node name="SnapPoint4" parent="SnapPointCollection" unique_id=1426742212 instance=ExtResource("7_xl5g4")]
+position = Vector2(40, 0)
