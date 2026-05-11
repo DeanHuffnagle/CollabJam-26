@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cevncolsafjma"]
+
+[ext_resource type="Script" uid="uid://vo8h743lyv3r" path="res://src/Levels/MicroGames/Manager/MicroGameWindow/microgame_window.gd" id="1_4kihh"]
+[ext_resource type="PackedScene" uid="uid://d0x6u1852revf" path="res://src/Levels/MicroGames/WaitingForGodot/waiting_for_godot.tscn" id="2_nkaiv"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_nkaiv"]
+viewport_path = NodePath("SubViewport")
+
+[node name="MicrogameWindow" type="Window" unique_id=1599922034]
+oversampling_override = 1.0
+initial_position = 1
+size = Vector2i(448, 252)
+content_scale_size = Vector2i(640, 360)
+content_scale_mode = 2
+content_scale_aspect = 4
+script = ExtResource("1_4kihh")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1578490213]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("ViewportTexture_nkaiv")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1213739161]
+handle_input_locally = false
+size = Vector2i(640, 360)
+render_target_update_mode = 4
+
+[node name="WaitingForGodot" parent="SubViewport" unique_id=2001244829 instance=ExtResource("2_nkaiv")]

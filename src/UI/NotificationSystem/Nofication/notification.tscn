@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://cf1ir6lp3pyot"]
+
+[ext_resource type="Script" uid="uid://3socr0cpogec" path="res://src/UI/NotificationSystem/Nofication/notification.gd" id="1_c0mj8"]
+[ext_resource type="Texture2D" uid="uid://04sg3w6msty3" path="res://src/UI/NotificationSystem/Nofication/notification.svg" id="1_ywn3x"]
+[ext_resource type="Texture2D" uid="uid://cwevpyk0co76u" path="res://Assets/Icons/icon.svg" id="3_5ejva"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_5ejva"]
+diffuse_texture = ExtResource("1_ywn3x")
+
+[node name="Notification" type="Control" unique_id=1640601067]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_c0mj8")
+
+[node name="NotificationBody" type="TextureButton" parent="." unique_id=1279199263]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_top = -143.0
+offset_right = 60.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = SubResource("CanvasTexture_5ejva")
+
+[node name="Icon" type="TextureRect" parent="NotificationBody" unique_id=1082005906]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 18.0
+offset_right = 101.0
+offset_bottom = 71.0
+texture = ExtResource("3_5ejva")
+expand_mode = 1
+stretch_mode = 5
