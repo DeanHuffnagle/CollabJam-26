@@ -18,8 +18,9 @@ config/icon="res://Assets/Icons/icon.svg"
 [autoload]
 
 SignalLens="*uid://85rkx60vm7a7"
-Global="*uid://dhw2athvcbr2m"
 MicrogameManager="*uid://bh2bbdrr43ih6"
+Global="*uid://dhw2athvcbr2m"
+NotificationManager="*uid://b24a7vaids7bq"
 
 [display]
 

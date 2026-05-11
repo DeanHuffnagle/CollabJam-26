@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bwrbceashvqct"]
+
+[ext_resource type="Script" uid="uid://dadht0q3d2fy7" path="res://src/UI/hud.gd" id="1_aia3k"]
+
+[node name="HUD" type="Control" unique_id=637076708]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 360.0
+script = ExtResource("1_aia3k")
