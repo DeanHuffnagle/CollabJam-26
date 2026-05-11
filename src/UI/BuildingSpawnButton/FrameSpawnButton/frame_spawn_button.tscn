@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://diphtttaovikq"]
+
+[ext_resource type="Script" uid="uid://c2xaok20sj8ht" path="res://src/UI/BuildingSpawnButton/FrameSpawnButton/frame_spawn_button.gd" id="1_gmlff"]
+[ext_resource type="PackedScene" uid="uid://l827y6iq7sf1" path="res://src/Buildings/Frame/frame.tscn" id="2_yrcxg"]
+[ext_resource type="PackedScene" uid="uid://crg0vgudj7acf" path="res://src/UI/BuildingSpawnButton/Shared/button_visuals.tscn" id="2_ythhe"]
+
+[node name="FrameSpawnButton" type="TextureButton" unique_id=1825148887]
+offset_right = 32.0
+offset_bottom = 32.0
+script = ExtResource("1_gmlff")
+building_scene = ExtResource("2_yrcxg")
+metadata/_custom_type_script = "uid://c2xaok20sj8ht"
+
+[node name="ButtonVisuals" parent="." unique_id=1976614654 instance=ExtResource("2_ythhe")]

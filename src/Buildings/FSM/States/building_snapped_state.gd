@@ -59,7 +59,9 @@ func handle_disengage_snap() -> void:
 	
 func handle_place_building() -> void:
 	if not colliding:
+		Global.placing_building = false
 		state_machine.change_state("buildingstationarystate")
+		
 
 func handle_color_indicator():
 	if colliding:

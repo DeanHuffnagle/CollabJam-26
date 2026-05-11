@@ -10,6 +10,14 @@ region = Rect2(0, 0, 32, 32)
 atlas = ExtResource("1_88hnc")
 region = Rect2(32, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfjhv"]
+atlas = ExtResource("1_88hnc")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kibwn"]
+atlas = ExtResource("1_88hnc")
+region = Rect2(32, 160, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_167et"]
 atlas = ExtResource("1_88hnc")
 region = Rect2(0, 32, 32, 32)
@@ -58,6 +66,22 @@ animations = [{
 }],
 "loop": true,
 "name": &"button_enabled",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qfjhv")
+}],
+"loop": true,
+"name": &"emp_disabled",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kibwn")
+}],
+"loop": true,
+"name": &"emp_enabled",
 "speed": 5.0
 }, {
 "frames": [{
@@ -127,4 +151,4 @@ animations = [{
 
 [node name="Animated_UI_component" type="AnimatedSprite2D" unique_id=1122704035]
 sprite_frames = SubResource("SpriteFrames_fv8pm")
-animation = &"frame_enabled"
+animation = &"emp_enabled"

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://p0ilybk470mt"
-path="res://.godot/imported/UI_icons.png-4ebff0c64a0d78cf36efd9a7f3867435.ctex"
+uid="uid://ctfirifvp66hd"
+path="res://.godot/imported/Shield Generator.png-8ee7e596e6c86331f372dd760da92ff0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/UI/BuildingSpawnButton/UI_icons.png"
-dest_files=["res://.godot/imported/UI_icons.png-4ebff0c64a0d78cf36efd9a7f3867435.ctex"]
+source_file="res://src/Towers/ShieldGenerator/Shield Generator.png"
+dest_files=["res://.godot/imported/Shield Generator.png-8ee7e596e6c86331f372dd760da92ff0.ctex"]
 
 [params]
 

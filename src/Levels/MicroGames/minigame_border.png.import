@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctfirifvp66hd"
-path="res://.godot/imported/Shield Generator.png-7ca6f2fddc8a7d0047973f76f6694715.ctex"
+uid="uid://h1hlckdf1khl"
+path="res://.godot/imported/minigame_border.png-a119c0cb93401c7fd0fbe3c4e88d566c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/Buildings/ShieldGenerator/Shield Generator.png"
-dest_files=["res://.godot/imported/Shield Generator.png-7ca6f2fddc8a7d0047973f76f6694715.ctex"]
+source_file="res://src/Levels/MicroGames/minigame_border.png"
+dest_files=["res://.godot/imported/minigame_border.png-a119c0cb93401c7fd0fbe3c4e88d566c.ctex"]
 
 [params]
 
