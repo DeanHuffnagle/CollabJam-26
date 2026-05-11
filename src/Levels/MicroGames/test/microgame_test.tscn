@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://ba0gla566da11"]
 
 [ext_resource type="Script" uid="uid://md0lad7x4trv" path="res://src/Levels/MicroGames/test/microgame_test.gd" id="1_m3u1k"]
+[ext_resource type="PackedScene" uid="uid://bwrbceashvqct" path="res://src/UI/hud.tscn" id="2_iqoi5"]
 
 [node name="MicrogameTest" type="Node2D" unique_id=1109185880]
 script = ExtResource("1_m3u1k")
+
+[node name="HUD" parent="." unique_id=637076708 instance=ExtResource("2_iqoi5")]
 
 [node name="Button" type="Button" parent="." unique_id=556929901]
 offset_left = 492.0
