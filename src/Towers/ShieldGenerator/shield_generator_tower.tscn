@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b6l0p4dk0hanw"]
+
+[ext_resource type="Script" uid="uid://d1uuk7g1gkfjj" path="res://src/Towers/tower.gd" id="1_id5uv"]
+[ext_resource type="PackedScene" uid="uid://cr5w7fyi31sbq" path="res://src/Towers/ShieldGenerator/shield_generator_animated_sprite.tscn" id="2_ovp0o"]
+[ext_resource type="Script" uid="uid://cxthrrbdrbahj" path="res://src/Towers/FSM/tower_state_machine.gd" id="3_ovp0o"]
+
+[node name="ShieldGeneratorTower" type="CharacterBody2D" unique_id=576957675]
+script = ExtResource("1_id5uv")
+metadata/_custom_type_script = "uid://d1uuk7g1gkfjj"
+
+[node name="ShieldGeneratorAnimatedSprite" parent="." unique_id=323616713 instance=ExtResource("2_ovp0o")]
+
+[node name="TowerStateMachine" type="Node" parent="." unique_id=1466202268]
+script = ExtResource("3_ovp0o")
+metadata/_custom_type_script = "uid://cxthrrbdrbahj"

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ctfirifvp66hd"
-path="res://.godot/imported/Shield Generator.png-7ca6f2fddc8a7d0047973f76f6694715.ctex"
+path="res://.godot/imported/Shield Generator.png-8ee7e596e6c86331f372dd760da92ff0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/Buildings/ShieldGenerator/Shield Generator.png"
-dest_files=["res://.godot/imported/Shield Generator.png-7ca6f2fddc8a7d0047973f76f6694715.ctex"]
+source_file="res://src/Towers/ShieldGenerator/Shield Generator.png"
+dest_files=["res://.godot/imported/Shield Generator.png-8ee7e596e6c86331f372dd760da92ff0.ctex"]
 
 [params]
 

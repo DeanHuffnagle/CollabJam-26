@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cr5w7fyi31sbq"]
 
-[ext_resource type="Texture2D" uid="uid://ctfirifvp66hd" path="res://src/Buildings/ShieldGenerator/Shield Generator.png" id="1_sf8cc"]
+[ext_resource type="Texture2D" uid="uid://ctfirifvp66hd" path="res://src/Towers/ShieldGenerator/Shield Generator.png" id="1_sf8cc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xw6ie"]
 atlas = ExtResource("1_sf8cc")

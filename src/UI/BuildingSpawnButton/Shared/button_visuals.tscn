@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://crg0vgudj7acf"]
+
+[ext_resource type="Script" uid="uid://c8gx234lao6yw" path="res://src/UI/BuildingSpawnButton/Shared/button_visuals.gd" id="1_et4qa"]
+[ext_resource type="PackedScene" uid="uid://dpdccnrlsnoe2" path="res://src/UI/BuildingSpawnButton/Shared/animated_ui_component.tscn" id="1_if6xm"]
+
+[node name="ButtonVisuals" type="Node2D" unique_id=1976614654]
+script = ExtResource("1_et4qa")
+metadata/_custom_type_script = "uid://c8gx234lao6yw"
+
+[node name="Button" parent="." unique_id=1122704035 instance=ExtResource("1_if6xm")]
+position = Vector2(16, 16)
+animation = &"button_disabled"
+
+[node name="Icon" parent="." unique_id=817203543 instance=ExtResource("1_if6xm")]
+position = Vector2(16, 16)
+animation = &"frame_disabled"
