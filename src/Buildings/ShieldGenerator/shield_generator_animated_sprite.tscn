@@ -103,4 +103,4 @@ animations = [{
 [node name="ShieldGeneratorAnimatedSprite" type="AnimatedSprite2D" unique_id=323616713]
 sprite_frames = SubResource("SpriteFrames_s3nbm")
 animation = &"25%"
-frame_progress = 0.42893928
+frame_progress = 0.5908679
