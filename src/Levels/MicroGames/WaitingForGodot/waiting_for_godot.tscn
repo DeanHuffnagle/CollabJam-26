@@ -7,5 +7,5 @@
 script = ExtResource("1_xacqk")
 
 [node name="Godot" type="Sprite2D" parent="." unique_id=1089940081]
-position = Vector2(696, 184)
+position = Vector2(652, 130)
 texture = ExtResource("2_g4n7n")
