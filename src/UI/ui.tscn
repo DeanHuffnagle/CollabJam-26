@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cpu5j5pa2umn5"]
+
+[ext_resource type="PackedScene" uid="uid://chlftfdd1nehl" path="res://src/UI/ProgressBar/ui_energy_bar.tscn" id="1_jtxs2"]
+[ext_resource type="PackedScene" uid="uid://diphtttaovikq" path="res://src/UI/BuildingSpawnButton/FrameSpawnButton/frame_spawn_button.tscn" id="2_ro1u1"]
+[ext_resource type="PackedScene" uid="uid://c7eijan4mxuym" path="res://src/UI/BuildingSpawnButton/SolarPanelSpawnButton/solar_panel_spawn_button.tscn" id="3_jtxs2"]
+
+[node name="UI" type="CanvasLayer" unique_id=2054288700]
+
+[node name="UI_EnergyBar" parent="." unique_id=1640103534 instance=ExtResource("1_jtxs2")]
+position = Vector2(612, 32)
+
+[node name="FrameSpawnButton" parent="." unique_id=1825148887 instance=ExtResource("2_ro1u1")]
+offset_left = 578.0
+offset_top = 252.0
+offset_right = 610.0
+offset_bottom = 284.0
+
+[node name="SolarPanelSpawnButton" parent="." unique_id=780024846 instance=ExtResource("3_jtxs2")]
+offset_left = 578.0
+offset_top = 144.0
+offset_right = 610.0
+offset_bottom = 176.0

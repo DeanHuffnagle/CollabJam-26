@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://c7eijan4mxuym"]
+
+[ext_resource type="Script" uid="uid://da0g3c5g44fwo" path="res://src/UI/BuildingSpawnButton/SolarPanelSpawnButton/solar_panel_spawn_button.gd" id="1_00d4w"]
+[ext_resource type="PackedScene" uid="uid://cr3g1q1e76mav" path="res://src/Buildings/SolarPanel/solar_panel_building.tscn" id="2_qi0p8"]
+[ext_resource type="PackedScene" uid="uid://crg0vgudj7acf" path="res://src/UI/BuildingSpawnButton/Shared/button_visuals.tscn" id="3_wmfs6"]
+
+[node name="SolarPanelSpawnButton" type="TextureButton" unique_id=780024846]
+offset_right = 32.0
+offset_bottom = 32.0
+script = ExtResource("1_00d4w")
+energy_cost = 30
+building_scene = ExtResource("2_qi0p8")
+metadata/_custom_type_script = "uid://da0g3c5g44fwo"
+
+[node name="ButtonVisuals" parent="." unique_id=1976614654 instance=ExtResource("3_wmfs6")]

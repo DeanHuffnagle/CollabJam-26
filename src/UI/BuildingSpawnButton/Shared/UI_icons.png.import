@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://p0ilybk470mt"
-path="res://.godot/imported/UI_icons.png-4ebff0c64a0d78cf36efd9a7f3867435.ctex"
+path="res://.godot/imported/UI_icons.png-9886bda95f3cbc9475a51eec267fe069.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/UI/BuildingSpawnButton/UI_icons.png"
-dest_files=["res://.godot/imported/UI_icons.png-4ebff0c64a0d78cf36efd9a7f3867435.ctex"]
+source_file="res://src/UI/BuildingSpawnButton/Shared/UI_icons.png"
+dest_files=["res://.godot/imported/UI_icons.png-9886bda95f3cbc9475a51eec267fe069.ctex"]
 
 [params]
 

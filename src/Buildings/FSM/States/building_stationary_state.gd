@@ -5,3 +5,4 @@ class_name BuildingStationaryState
 func enter():
 	super()
 	building.emit_signal("on_placed")
+	building.is_active=true

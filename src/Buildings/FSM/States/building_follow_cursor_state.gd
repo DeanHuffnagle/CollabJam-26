@@ -28,7 +28,9 @@ func handle_input(event: InputEvent):
 	if Input.is_action_just_pressed("building_rotate_CCW"):
 		rotate_CCW()
 	if Input.is_action_just_pressed("building_cancel_placement"):
-		state_machine.change_state("buildingdeletestate")
+		building.queue_free()
+		Global.add_energy(building.value)
+		Global.placing_building = false
 	
 func on_snap_overlap(target_snap_point:SnapPoint, this_snap_point:SnapPoint):
 		if can_snap:

@@ -3,6 +3,8 @@ extends Node2D
 class_name Building
 
 @export var collider: Collider
+@export var value: int = 10
+@export var is_active = false
 signal on_placed
 
 # Called when the node enters the scene tree for the first time.
