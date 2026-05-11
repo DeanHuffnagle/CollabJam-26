@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://cr5w7fyi31sbq"]
+
+[ext_resource type="Texture2D" uid="uid://ctfirifvp66hd" path="res://src/Buildings/ShieldGenerator/Shield Generator.png" id="1_sf8cc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xw6ie"]
+atlas = ExtResource("1_sf8cc")
+region = Rect2(384, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_muthc"]
+atlas = ExtResource("1_sf8cc")
+region = Rect2(432, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqwkf"]
+atlas = ExtResource("1_sf8cc")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjtc3"]
+atlas = ExtResource("1_sf8cc")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8iaqs"]
+atlas = ExtResource("1_sf8cc")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7mnt"]
+atlas = ExtResource("1_sf8cc")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vp4w2"]
+atlas = ExtResource("1_sf8cc")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1oon3"]
+atlas = ExtResource("1_sf8cc")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_docd3"]
+atlas = ExtResource("1_sf8cc")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whxva"]
+atlas = ExtResource("1_sf8cc")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s3nbm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xw6ie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_muthc")
+}],
+"loop": true,
+"name": &"0%",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fqwkf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjtc3")
+}],
+"loop": true,
+"name": &"100%",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8iaqs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7mnt")
+}],
+"loop": true,
+"name": &"25%",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vp4w2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1oon3")
+}],
+"loop": true,
+"name": &"50%",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_docd3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whxva")
+}],
+"loop": true,
+"name": &"75%",
+"speed": 15.0
+}]
+
+[node name="ShieldGeneratorAnimatedSprite" type="AnimatedSprite2D" unique_id=323616713]
+sprite_frames = SubResource("SpriteFrames_s3nbm")
+animation = &"25%"
+frame_progress = 0.42893928
