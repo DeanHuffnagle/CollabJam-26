@@ -1,8 +1,9 @@
-[gd_scene format=3 uid="uid://cpu5j5pa2umn5"]
+[gd_scene format=3 uid="uid://csav2v3a38vx3"]
 
 [ext_resource type="PackedScene" uid="uid://chlftfdd1nehl" path="res://src/UI/ProgressBar/ui_energy_bar.tscn" id="1_jtxs2"]
 [ext_resource type="PackedScene" uid="uid://diphtttaovikq" path="res://src/UI/BuildingSpawnButton/FrameSpawnButton/frame_spawn_button.tscn" id="2_ro1u1"]
 [ext_resource type="PackedScene" uid="uid://c7eijan4mxuym" path="res://src/UI/BuildingSpawnButton/SolarPanelSpawnButton/solar_panel_spawn_button.tscn" id="3_jtxs2"]
+[ext_resource type="PackedScene" uid="uid://bno2fam5ty53d" path="res://src/UI/BuildingSpawnButton/LaserTurretSpawnButton/laser_turret_spawn_button.tscn" id="4_70r1m"]
 
 [node name="UI" type="CanvasLayer" unique_id=2054288700]
 
@@ -20,3 +21,9 @@ offset_left = 578.0
 offset_top = 144.0
 offset_right = 610.0
 offset_bottom = 176.0
+
+[node name="LaserTurretSpawnButton" parent="." unique_id=983926365 instance=ExtResource("4_70r1m")]
+offset_left = 578.0
+offset_top = 198.0
+offset_right = 610.0
+offset_bottom = 230.0

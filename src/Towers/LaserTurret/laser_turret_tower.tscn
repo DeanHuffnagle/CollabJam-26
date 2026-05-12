@@ -1,0 +1,514 @@
+[gd_scene format=3 uid="uid://cevvvjvxekayl"]
+
+[ext_resource type="Script" uid="uid://d1uuk7g1gkfjj" path="res://src/Towers/tower.gd" id="1_77wer"]
+[ext_resource type="AudioStream" uid="uid://7ki58a0j5oml" path="res://Assets/Audio/SFX/laser.wav" id="2_5iqyi"]
+[ext_resource type="PackedScene" uid="uid://doy2e4nfmfte0" path="res://src/Towers/LaserTurret/laser_turret_animated_sprite.tscn" id="2_hdn51"]
+[ext_resource type="Script" uid="uid://cib5agf8urdu3" path="res://src/Components/NodeCollections/launcher_collection.gd" id="3_5iqyi"]
+[ext_resource type="PackedScene" uid="uid://dxqqn2vmgjbkj" path="res://src/Towers/ProjectileLauncher/projectile_launcher.tscn" id="4_a4erg"]
+[ext_resource type="Script" uid="uid://beqjiqn2c6h2n" path="res://src/Components/EnemyDetectionField/enemy_detection_field.gd" id="5_gebsw"]
+[ext_resource type="Script" uid="uid://cxthrrbdrbahj" path="res://src/Towers/FSM/tower_state_machine.gd" id="6_o3oim"]
+[ext_resource type="Script" uid="uid://bi1mygahrqhqh" path="res://src/Towers/LaserTurret/States/laser_turret_idle_state.gd" id="7_48upd"]
+[ext_resource type="Script" uid="uid://cfyn687p6vuya" path="res://src/Towers/LaserTurret/States/laser_turret_firing_state.gd" id="7_hdn51"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qsgc7"]
+radius = 8.0
+
+[sub_resource type="Animation" id="Animation_77wer"]
+resource_name = "1_barrel_broken"
+length = 0.26666668
+loop_mode = 1
+step = 0.0667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"1 Barrel Broken"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_ewsse"]
+resource_name = "1_barrel_fire"
+length = 0.53333336
+loop_mode = 1
+step = 0.0667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"1 Barrel Shooting"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/AnimatedSprite2D:frame")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.26666668, 0.33333334, 0.4, 0.46666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LauncherCollection/Middle")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fire"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_hdn51"]
+resource_name = "1_barrel_idle"
+length = 0.06666667
+loop_mode = 1
+step = 0.0667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"1 Barrel Idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_a4erg"]
+resource_name = "2_barrrel_broken"
+length = 0.26666668
+loop_mode = 1
+step = 0.0667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"2 Barrel Broken"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_bk28d"]
+resource_name = "2_barrel_fire"
+length = 0.26666668
+loop_mode = 1
+step = 0.0333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"2 Barrel Shooting"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LauncherCollection/Top")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fire"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LauncherCollection/Bottom")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.13333334),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fire"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SFX/AudioStreamPlayer2D")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SFX/AudioStreamPlayer2D:pitch_scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.1, 0.9]
+}
+
+[sub_resource type="Animation" id="Animation_5iqyi"]
+resource_name = "2_barrel_idle"
+step = 0.0667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"2 Barrel Idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_gebsw"]
+resource_name = "3_barrel_broken"
+length = 0.26666668
+loop_mode = 1
+step = 0.0667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"3 Barrel Broken"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_o3oim"]
+resource_name = "3_barrel_fire"
+length = 0.53333336
+loop_mode = 1
+step = 0.0667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"3 Barrel Shooting"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666666, 0.13333334, 0.2, 0.26666668, 0.33333334, 0.4, 0.46666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LauncherCollection/Top")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fire"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LauncherCollection/Middle")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.26666668),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fire"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("LauncherCollection/Bottom")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fire"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_48upd"]
+resource_name = "3_barrel_idle"
+length = 0.06666667
+loop_mode = 1
+step = 0.0667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"3 Barrel Idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_3ttuf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"1 Barrel Shooting"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SFX/AudioStreamPlayer2D:pitch_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5qo3e"]
+_data = {
+&"1_barrel_broken": SubResource("Animation_77wer"),
+&"1_barrel_fire": SubResource("Animation_ewsse"),
+&"1_barrel_idle": SubResource("Animation_hdn51"),
+&"2_barrel_broken": SubResource("Animation_a4erg"),
+&"2_barrel_fire": SubResource("Animation_bk28d"),
+&"2_barrel_idle": SubResource("Animation_5iqyi"),
+&"3_barrel_broken": SubResource("Animation_gebsw"),
+&"3_barrel_fire": SubResource("Animation_o3oim"),
+&"3_barrel_idle": SubResource("Animation_48upd"),
+&"RESET": SubResource("Animation_3ttuf")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rp5vy"]
+radius = 300.0
+
+[node name="LaserTurret" type="CharacterBody2D" unique_id=499751901]
+script = ExtResource("1_77wer")
+current_rank = 2
+metadata/_custom_type_script = "uid://d1uuk7g1gkfjj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=912473968]
+visible = false
+shape = SubResource("CircleShape2D_qsgc7")
+
+[node name="SFX" type="Node2D" parent="." unique_id=2083304562]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SFX" unique_id=1690092443]
+stream = ExtResource("2_5iqyi")
+volume_db = -20.0
+
+[node name="Visuals" type="Node2D" parent="." unique_id=1696550817]
+
+[node name="AnimatedSprite2D" parent="Visuals" unique_id=1509406976 instance=ExtResource("2_hdn51")]
+position = Vector2(16, 0)
+animation = &"1 Barrel Shooting"
+frame = 1
+frame_progress = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visuals" unique_id=1157826303]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_5qo3e")
+
+[node name="LauncherCollection" type="Node2D" parent="." unique_id=1911865547]
+visible = false
+script = ExtResource("3_5iqyi")
+metadata/_custom_type_script = "uid://cib5agf8urdu3"
+
+[node name="Top" parent="LauncherCollection" unique_id=1365522219 instance=ExtResource("4_a4erg")]
+position = Vector2(28, -3)
+
+[node name="Middle" parent="LauncherCollection" unique_id=929565771 instance=ExtResource("4_a4erg")]
+position = Vector2(28, 0)
+
+[node name="Bottom" parent="LauncherCollection" unique_id=1105533774 instance=ExtResource("4_a4erg")]
+position = Vector2(28, 3)
+
+[node name="EnemyDetectionField" type="Area2D" parent="." unique_id=1656317805]
+script = ExtResource("5_gebsw")
+metadata/_custom_type_script = "uid://beqjiqn2c6h2n"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetectionField" unique_id=1243362637]
+shape = SubResource("CircleShape2D_rp5vy")
+debug_color = Color(0.5332431, 0.5703512, 0, 0.41960785)
+
+[node name="TowerStateMachine" type="Node" parent="." unique_id=52450514 node_paths=PackedStringArray("tower", "initial_state")]
+script = ExtResource("6_o3oim")
+tower = NodePath("..")
+initial_state = NodePath("LaserTurretIdleState")
+metadata/_custom_type_script = "uid://cxthrrbdrbahj"
+
+[node name="LaserTurretFiringState" type="Node" parent="TowerStateMachine" unique_id=965646939]
+script = ExtResource("7_hdn51")
+metadata/_custom_type_script = "uid://cfyn687p6vuya"
+
+[node name="LaserTurretIdleState" type="Node" parent="TowerStateMachine" unique_id=422303686]
+script = ExtResource("7_48upd")
+metadata/_custom_type_script = "uid://bi1mygahrqhqh"

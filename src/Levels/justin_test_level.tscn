@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bqp36hwvt7a7i"]
 
-[ext_resource type="PackedScene" uid="uid://cgtte42u3lu2t" path="res://src/Enemies/Blob/enemy_blob.tscn" id="1_kde4k"]
+[ext_resource type="PackedScene" uid="uid://cgtte42u3lu2t" path="res://Deprecated/enemy_blob.tscn" id="1_kde4k"]
 [ext_resource type="PackedScene" uid="uid://bwina5wb67oyo" path="res://src/Components/HurtBox/hurtbox.tscn" id="2_1ffsq"]
 
 [node name="TestEnemy" type="Node2D" unique_id=1461965893]
