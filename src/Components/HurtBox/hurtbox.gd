@@ -2,15 +2,19 @@
 extends Area2D
 class_name HurtBox
 
-@export var is_tower: bool = false
-@export var is_enemy: bool = false
-
-signal hit_by_enemy
-signal hit_by_projectile
+@onready var parent: CharacterBody2D = $".."
+var is_tower: bool = false
+var is_enemy: bool = false
+signal took_damage(amount:float)
+signal hit_by_stun
 
 func _ready():
 	self.area_entered.connect(on_area_entered)
 	self.area_exited.connect(on_area_exited)
+	if parent is Enemy: 
+		is_enemy = true
+	if parent is Tower:
+		is_tower = true
 									
 func on_area_entered(area:Area2D):
 	if area is HitBox:
@@ -21,7 +25,7 @@ func on_area_exited(area:Area2D):
 		area.damage.disconnect(on_take_damage.bind(area))
 	
 func on_take_damage(amount:float, area: HitBox):
-	if area.is_projectile:
-		emit_signal("hit_by_projectile", amount)
-	if area.is_enemy:
-		emit_signal("hit_by_enemy", amount)
+	if area.is_projectile && self.is_enemy:
+		emit_signal("took_damage", amount)
+	if area.is_enemy && self.is_tower:
+		emit_signal("took_damage", amount)

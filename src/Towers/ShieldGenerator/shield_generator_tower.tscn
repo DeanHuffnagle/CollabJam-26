@@ -3,6 +3,11 @@
 [ext_resource type="Script" uid="uid://d1uuk7g1gkfjj" path="res://src/Towers/tower.gd" id="1_id5uv"]
 [ext_resource type="PackedScene" uid="uid://cr5w7fyi31sbq" path="res://src/Towers/ShieldGenerator/shield_generator_animated_sprite.tscn" id="2_ovp0o"]
 [ext_resource type="Script" uid="uid://cxthrrbdrbahj" path="res://src/Towers/FSM/tower_state_machine.gd" id="3_ovp0o"]
+[ext_resource type="Script" uid="uid://bebqfq82ylfx6" path="res://src/Components/HurtBox/hurtbox.gd" id="4_758ge"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3p048"]
+radius = 15.0
+height = 44.0
 
 [node name="ShieldGeneratorTower" type="CharacterBody2D" unique_id=576957675]
 script = ExtResource("1_id5uv")
@@ -13,3 +18,12 @@ metadata/_custom_type_script = "uid://d1uuk7g1gkfjj"
 [node name="TowerStateMachine" type="Node" parent="." unique_id=1466202268]
 script = ExtResource("3_ovp0o")
 metadata/_custom_type_script = "uid://cxthrrbdrbahj"
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=2089324650]
+script = ExtResource("4_758ge")
+metadata/_custom_type_script = "uid://bebqfq82ylfx6"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1539098386]
+position = Vector2(0, -1)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_3p048")

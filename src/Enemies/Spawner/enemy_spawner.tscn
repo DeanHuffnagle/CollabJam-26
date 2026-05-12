@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dnvdhv6q810gy"]
+
+[ext_resource type="Script" uid="uid://d13omkh0mkbyt" path="res://src/Enemies/Spawner/enemy_spawner.gd" id="1_f5gly"]
+[ext_resource type="PackedScene" uid="uid://bqg23d60cojv7" path="res://src/Enemies/Blob/blob_enemy.tscn" id="2_21beh"]
+
+[node name="EnemySpawner" type="Node2D" unique_id=463055737]
+script = ExtResource("1_f5gly")
+spawnCooldown = 0.5
+enemy_scene = ExtResource("2_21beh")
+metadata/_custom_type_script = "uid://d13omkh0mkbyt"

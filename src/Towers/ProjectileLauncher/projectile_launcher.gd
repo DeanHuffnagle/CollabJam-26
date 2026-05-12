@@ -12,7 +12,11 @@ class_name ProjectileLauncher
 func fire():
 	if not active:
 		return
-	var projectile = projectile_scene.instantiate()
-	projectile.direction = directional_ray.target_position.normalized()
+	var projectile: Projectile = projectile_scene.instantiate()
+	var world_target = directional_ray.to_global(directional_ray.target_position)
+	var world_direction = (world_target - global_position).normalized()
+	
+	projectile.direction = world_direction
 	projectile_collection.add_child(projectile)
 	projectile.global_position = self.global_position
+	projectile.rotation = world_direction.angle()

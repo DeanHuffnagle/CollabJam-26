@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bno2fam5ty53d"]
+
+[ext_resource type="Script" uid="uid://c7uxq54j51x87" path="res://src/UI/BuildingSpawnButton/LaserTurretSpawnButton/laser_turret_spawn_button.gd" id="1_3hni5"]
+[ext_resource type="PackedScene" uid="uid://bt5fem2xilsww" path="res://src/Buildings/LaserTurret/laser_turret_building.tscn" id="2_4tx4x"]
+[ext_resource type="PackedScene" uid="uid://crg0vgudj7acf" path="res://src/UI/BuildingSpawnButton/Shared/button_visuals.tscn" id="3_t4kqh"]
+
+[node name="LaserTurretSpawnButton" type="TextureButton" unique_id=983926365]
+offset_right = 32.0
+offset_bottom = 32.0
+script = ExtResource("1_3hni5")
+energy_cost = 20
+building_scene = ExtResource("2_4tx4x")
+metadata/_custom_type_script = "uid://c7uxq54j51x87"
+
+[node name="ButtonVisuals" parent="." unique_id=1976614654 instance=ExtResource("3_t4kqh")]

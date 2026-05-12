@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pmy66xq8yfl4"
-path="res://.godot/imported/minigame_border.png-dfeccb492cbfad8d9b6d2d54f8ba1274.ctex"
+uid="uid://bhk54r0fxwaij"
+path="res://.godot/imported/solar_panel.png-e1ddfdc0eee884abf2194a9a295fbd32.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/Levels/MicroGames/Manager/MicroGameWindow/minigame_border.png"
-dest_files=["res://.godot/imported/minigame_border.png-dfeccb492cbfad8d9b6d2d54f8ba1274.ctex"]
+source_file="res://src/Towers/SolarPanel/solar_panel.png"
+dest_files=["res://.godot/imported/solar_panel.png-e1ddfdc0eee884abf2194a9a295fbd32.ctex"]
 
 [params]
 

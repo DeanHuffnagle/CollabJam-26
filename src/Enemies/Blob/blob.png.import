@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pmy66xq8yfl4"
-path="res://.godot/imported/minigame_border.png-dfeccb492cbfad8d9b6d2d54f8ba1274.ctex"
+uid="uid://bwtm5ewal64id"
+path="res://.godot/imported/blob.png-5a9febfb921a9403c238be7ce5cea876.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/Levels/MicroGames/Manager/MicroGameWindow/minigame_border.png"
-dest_files=["res://.godot/imported/minigame_border.png-dfeccb492cbfad8d9b6d2d54f8ba1274.ctex"]
+source_file="res://src/Enemies/Blob/blob.png"
+dest_files=["res://.godot/imported/blob.png-5a9febfb921a9403c238be7ce5cea876.ctex"]
 
 [params]
 
