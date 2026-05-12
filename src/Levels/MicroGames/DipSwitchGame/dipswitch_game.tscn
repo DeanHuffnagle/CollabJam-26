@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://btejgsontmjru"]
+
+[ext_resource type="Script" uid="uid://dmgr8jhftapve" path="res://src/Levels/MicroGames/DipSwitchGame/dipswitch_game.gd" id="1_0i64x"]
+[ext_resource type="Script" uid="uid://dnl6dbb4h711f" path="res://src/Levels/MicroGames/DipSwitchGame/dipswitches.gd" id="2_h3lbu"]
+
+[node name="DipswitchGame" type="Control" unique_id=877948969]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0i64x")
+switchCount = 8
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2053607275]
+
+[node name="Dipswitches" type="HBoxContainer" parent="." unique_id=1121976369]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 108.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_h3lbu")
+
+[node name="Answer" type="HBoxContainer" parent="." unique_id=1941952759]
+layout_mode = 1
+offset_right = 128.0
+offset_bottom = 16.0
