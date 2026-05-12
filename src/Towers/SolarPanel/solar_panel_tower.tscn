@@ -1,11 +1,141 @@
-[gd_scene format=4 uid="uid://b88uvi856oym8"]
+[gd_scene format=3 uid="uid://b88uvi856oym8"]
 
 [ext_resource type="Script" uid="uid://d1uuk7g1gkfjj" path="res://src/Towers/tower.gd" id="1_mlvcp"]
-[ext_resource type="PackedScene" uid="uid://crngsmrw36q1u" path="res://src/TileMaps/ShipParts/ship_parts_tile_map_v_2.tscn" id="2_gseej"]
+[ext_resource type="Texture2D" uid="uid://bhk54r0fxwaij" path="res://src/Towers/SolarPanel/solar_panel.png" id="2_ir15o"]
 [ext_resource type="Script" uid="uid://wskqsm1yt4f6" path="res://src/Buildings/SolarPanel/energy_spawner.gd" id="3_y8d80"]
 [ext_resource type="PackedScene" uid="uid://bm6o600w7fbd7" path="res://src/Buildings/SolarPanel/energy.tscn" id="4_ir15o"]
 [ext_resource type="Script" uid="uid://cxthrrbdrbahj" path="res://src/Towers/FSM/tower_state_machine.gd" id="5_gseej"]
 [ext_resource type="Script" uid="uid://8pbkcl4u20k4" path="res://src/Towers/SolarPanel/solar_panel_state.gd" id="6_y8d80"]
+[ext_resource type="Script" uid="uid://bebqfq82ylfx6" path="res://src/Components/HurtBox/hurtbox.gd" id="7_ir15o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hu1g"]
+atlas = ExtResource("2_ir15o")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jm5dw"]
+atlas = ExtResource("2_ir15o")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_681u6"]
+atlas = ExtResource("2_ir15o")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aatw1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hu1g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jm5dw")
+}],
+"loop": true,
+"name": &"broken",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_681u6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_l6yl7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"broken"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_q6qpr"]
+resource_name = "brokenb"
+length = 0.25
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"broken"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_4r5gq"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u4rhh"]
+_data = {
+&"RESET": SubResource("Animation_l6yl7"),
+&"broken": SubResource("Animation_q6qpr"),
+&"idle": SubResource("Animation_4r5gq")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7hu1g"]
+size = Vector2(47, 46)
 
 [node name="SolarPanelTower" type="CharacterBody2D" unique_id=78751405]
 script = ExtResource("1_mlvcp")
@@ -14,8 +144,13 @@ metadata/_custom_type_script = "uid://d1uuk7g1gkfjj"
 [node name="Visuals" type="Node2D" parent="." unique_id=196244045]
 position = Vector2(8, -8)
 
-[node name="ShipPartsTileMap_V2" parent="Visuals" unique_id=280711130 instance=ExtResource("2_gseej")]
-tile_map_data = PackedByteArray("AAD//wAAAAAGAA4AAAAAAAAAAAAHAA8AAAD//wEAAAAGABAAAAD+/wAAAAAEAA4AAAAAAAEAAAAHABAAAAD+/wEAAAAEABAAAAD+////AAAEAA0AAAAAAP//AAAHAA0AAAD/////AAAGAA0AAAA=")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals" unique_id=233659638]
+position = Vector2(-8, 8)
+sprite_frames = SubResource("SpriteFrames_aatw1")
+animation = &"broken"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visuals" unique_id=725800267]
+libraries/ = SubResource("AnimationLibrary_u4rhh")
 
 [node name="EnergySpawner" type="Node2D" parent="." unique_id=1209372328 node_paths=PackedStringArray("tower")]
 script = ExtResource("3_y8d80")
@@ -32,3 +167,11 @@ metadata/_custom_type_script = "uid://cxthrrbdrbahj"
 [node name="SolarPanelState" type="Node" parent="TowerStateMachine" unique_id=33740706]
 script = ExtResource("6_y8d80")
 metadata/_custom_type_script = "uid://8pbkcl4u20k4"
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=1702623540]
+script = ExtResource("7_ir15o")
+metadata/_custom_type_script = "uid://bebqfq82ylfx6"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=433687116]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_7hu1g")

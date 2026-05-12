@@ -2,9 +2,18 @@
 extends CharacterBody2D
 class_name Tower
 
+@export var max_rank: int = 3
+@export var current_rank = 1
 @export var building: Building
-@export var vison_radius: float
-@export var is_active: bool
+@export var vision_radius: float = 300
+var is_active: bool
+
+func _ready() -> void:
+	add_to_group("Towers")
 
 func _process(_delta):
 	is_active = building.is_active
+
+func rank_up():
+	if current_rank + 1 <= max_rank:
+		current_rank += 1

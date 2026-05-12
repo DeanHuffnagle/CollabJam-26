@@ -1,14 +1,12 @@
 [gd_scene format=3 uid="uid://cgtte42u3lu2t"]
 
-[ext_resource type="Script" uid="uid://cjwh3jfkkw13m" path="res://src/Components/FSM/finite_state_machine.gd" id="1_spxs2"]
-[ext_resource type="Script" uid="uid://cyy0bnvifu61c" path="res://src/Enemies/enemy.gd" id="1_vy5aq"]
-[ext_resource type="Texture2D" path="res://Assets/TileSets/side-scroller-tileset.png" id="2_7b2qm"]
-[ext_resource type="Script" uid="uid://bami2a3vmwcsn" path="res://src/Enemies/FSM/enemy_attacking_state.gd" id="4_8iqfk"]
-[ext_resource type="Script" uid="uid://c738ntdnfc3jc" path="res://src/Components/HitBox/hitbox.gd" id="6_vy5aq"]
-[ext_resource type="Script" uid="uid://bebqfq82ylfx6" path="res://src/Components/HurtBox/hurtbox.gd" id="6_wxwye"]
+[ext_resource type="Script" uid="uid://cyy0bnvifu61c" path="res://src/Enemies/enemy.gd" id="1_1jkck"]
+[ext_resource type="Script" uid="uid://cjwh3jfkkw13m" path="res://src/Components/FSM/finite_state_machine.gd" id="2_abj24"]
+[ext_resource type="Script" uid="uid://bami2a3vmwcsn" path="res://src/Enemies/FSM/States/enemy_attacking_state.gd" id="3_qdwbi"]
+[ext_resource type="Script" uid="uid://c738ntdnfc3jc" path="res://src/Components/HitBox/hitbox.gd" id="4_m65du"]
+[ext_resource type="Script" uid="uid://bebqfq82ylfx6" path="res://src/Components/HurtBox/hurtbox.gd" id="5_uv0ap"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8rwmy"]
-texture = ExtResource("2_7b2qm")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -67,14 +65,14 @@ radius = 23.021729
 radius = 16.03122
 
 [node name="Blob" type="CharacterBody2D" unique_id=517647881]
-script = ExtResource("1_vy5aq")
+script = ExtResource("1_1jkck")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1323896823]
 tile_map_data = PackedByteArray(0, 0, 0, 0, 1, 0, 0, 0, 10, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 9, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 9, 0, 2, 0, 0, 0)
 tile_set = SubResource("TileSet_kvx5w")
 
 [node name="FiniteStateMachine" type="Node" parent="." unique_id=348776095 node_paths=PackedStringArray("initial_state")]
-script = ExtResource("1_spxs2")
+script = ExtResource("2_abj24")
 initial_state = NodePath("EnemySeekingState")
 metadata/_custom_type_script = "uid://cjwh3jfkkw13m"
 
@@ -82,13 +80,13 @@ metadata/_custom_type_script = "uid://cjwh3jfkkw13m"
 metadata/_custom_type_script = "uid://cj00n1yh2dke"
 
 [node name="EnemyAttackingState" type="Node" parent="FiniteStateMachine" unique_id=1348911364 node_paths=PackedStringArray("enemy", "hitBox")]
-script = ExtResource("4_8iqfk")
+script = ExtResource("3_qdwbi")
 enemy = NodePath("../..")
 hitBox = NodePath("../../HitBox")
 attackCooldown = 1.5
 
 [node name="HitBox" type="Area2D" parent="." unique_id=1298775913]
-script = ExtResource("6_vy5aq")
+script = ExtResource("4_m65du")
 is_enemy = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1371698188]
@@ -98,7 +96,7 @@ debug_color = Color(0.9999998, 0.00835983, 0.07020179, 0.41960785)
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=2007538994]
 position = Vector2(16, 17)
-script = ExtResource("6_wxwye")
+script = ExtResource("5_uv0ap")
 is_enemy = true
 metadata/_custom_type_script = "uid://bebqfq82ylfx6"
 

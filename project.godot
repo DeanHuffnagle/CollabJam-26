@@ -65,6 +65,7 @@ EnemyCollection=""
 BuildingCollection="All Buildings"
 SnapPointCollection=""
 LauncherCollection=""
+Towers=""
 
 [input]
 
