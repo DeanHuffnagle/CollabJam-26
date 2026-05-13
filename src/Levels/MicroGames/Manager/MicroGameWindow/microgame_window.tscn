@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cevncolsafjma"]
 
 [ext_resource type="Script" uid="uid://vo8h743lyv3r" path="res://src/Levels/MicroGames/Manager/MicroGameWindow/microgame_window.gd" id="1_4kihh"]
-[ext_resource type="Texture2D" uid="uid://h1hlckdf1khl" path="res://src/Levels/MicroGames/Manager/MicroGameWindow/minigame_border.png" id="2_nkaiv"]
+[ext_resource type="Texture2D" uid="uid://h1hlckdf1khl" path="res://src/Levels/MicroGames/minigame_border.png" id="2_nkaiv"]
 
 [node name="MicroGameWindow" type="Control" unique_id=1142799466]
 layout_mode = 3
@@ -10,7 +10,24 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_4kihh")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1426960635]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -245.0
+offset_top = -142.0
+offset_right = 245.0
+offset_bottom = 142.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_nkaiv")
 
 [node name="Container" type="Control" parent="." unique_id=40782535]
 layout_mode = 1
@@ -25,6 +42,7 @@ offset_right = 240.0
 offset_bottom = 135.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="Container" unique_id=1450483110]
 layout_mode = 1
@@ -33,25 +51,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-stretch = true
+mouse_filter = 0
 
 [node name="SubViewport" type="SubViewport" parent="Container/SubViewportContainer" unique_id=1213739161]
 unique_name_in_owner = true
 handle_input_locally = false
+physics_object_picking = true
 size = Vector2i(480, 270)
 render_target_update_mode = 4
-
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1426960635]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -240.0
-offset_top = -135.0
-offset_right = 240.0
-offset_bottom = 135.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_nkaiv")
