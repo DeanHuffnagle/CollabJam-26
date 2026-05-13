@@ -65,14 +65,12 @@ position = Vector2(-4, 0)
 sprite_frames = SubResource("SpriteFrames_cnw57")
 frame_progress = 0.7748317
 
-[node name="FiniteStateMachine" type="Node" parent="." unique_id=152919139 node_paths=PackedStringArray("initial_state")]
+[node name="FiniteStateMachine" type="Node2D" parent="." unique_id=1024988999 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("4_eml8y")
 initial_state = NodePath("ProjectileMoveState")
 metadata/_custom_type_script = "uid://cjwh3jfkkw13m"
 
-[node name="ProjectileMoveState" type="Node" parent="FiniteStateMachine" unique_id=520469277 node_paths=PackedStringArray("projectile")]
+[node name="ProjectileMoveState" type="Node2D" parent="FiniteStateMachine" unique_id=1473302661 node_paths=PackedStringArray("projectile")]
 script = ExtResource("5_1ugc8")
 projectile = NodePath("../..")
 metadata/_custom_type_script = "uid://dpaea42s2t48l"
-
-[connection signal="enemy_hit" from="HitBox" to="FiniteStateMachine/ProjectileMoveState" method="_on_hit_box_enemy_hit"]

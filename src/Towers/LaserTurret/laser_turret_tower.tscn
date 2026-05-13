@@ -497,7 +497,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rp5vy"]
-radius = 300.0
+radius = 150.0
 
 [node name="LaserTurret" type="CharacterBody2D" unique_id=499751901]
 script = ExtResource("1_77wer")
@@ -552,7 +552,7 @@ debug_color = Color(0.5332431, 0.5703512, 0, 0.41960785)
 [node name="TowerStateMachine" type="Node2D" parent="." unique_id=1180485253 node_paths=PackedStringArray("tower", "initial_state")]
 script = ExtResource("6_o3oim")
 tower = NodePath("..")
-initial_state = NodePath("")
+initial_state = NodePath("LaserTurretIdleState")
 metadata/_custom_type_script = "uid://cxthrrbdrbahj"
 
 [node name="LaserTurretFiringState" type="Node2D" parent="TowerStateMachine" unique_id=2059615571]

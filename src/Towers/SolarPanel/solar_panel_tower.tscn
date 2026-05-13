@@ -161,7 +161,7 @@ metadata/_custom_type_script = "uid://wskqsm1yt4f6"
 [node name="TowerStateMachine" type="Node2D" parent="." unique_id=1037421132 node_paths=PackedStringArray("tower", "initial_state")]
 script = ExtResource("5_gseej")
 tower = NodePath("..")
-initial_state = NodePath("")
+initial_state = NodePath("SolarPanelState")
 metadata/_custom_type_script = "uid://cxthrrbdrbahj"
 
 [node name="SolarPanelState" type="Node2D" parent="TowerStateMachine" unique_id=1847166461]

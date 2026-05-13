@@ -7,33 +7,40 @@
 [ext_resource type="PackedScene" uid="uid://dg8vugxoc0kh4" path="res://src/Buildings/FSM/building_state_machine.tscn" id="5_2i2n7"]
 [ext_resource type="Script" uid="uid://do0w5c8juwrr" path="res://src/Components/Collider/collider.gd" id="6_3rb1g"]
 
-[node name="Frame" type="Node2D" unique_id=1179845687 node_paths=PackedStringArray("collider")]
+[node name="Frame" type="Node2D" unique_id=1179845687]
 script = ExtResource("1_2yxmv")
-collider = NodePath("Collider")
 
 [node name="Sprite" type="Node2D" parent="." unique_id=740293865]
 position = Vector2(8, -8)
 
 [node name="ShipPartsTileMap_V2" parent="Sprite" unique_id=280711130 instance=ExtResource("1_8ccvr")]
-tile_map_data = PackedByteArray("AAD//wAAAAABAAEAAAD/////AAADAAEAAAD//wEAAAADAAEAAAABAAAAAAABAAMAAAAAAAAAAAABAAMAAAD+/wAAAAABAAMAAAD8/wAAAAAAAAMAAAD9/wAAAAABAAMAAAD///7/AAADAAAAAAD//wIAAAADAAIAAAACAAAAAAACAAMAAAA=")
+tile_map_data = PackedByteArray("AAD//wAAAAABAAMAAAABAAAAAAABAAMAAAAAAAAAAAABAAMAAAD+/wAAAAABAAMAAAD8/wAAAAABAAEAAAD9/wAAAAABAAMAAAACAAAAAAABAAEAAAADAAAAAAACAAMAAAD7/wAAAAAAAAMAAAACAP//AAADAAAAAAACAAEAAAADAAIAAAD8/wEAAAADAAIAAAD8////AAADAAAAAAA=")
 
 [node name="SnapPointCollection" type="Node2D" parent="." unique_id=249367134]
 script = ExtResource("3_fnn4e")
 metadata/_custom_type_script = "uid://dga345wwl3lrl"
 
 [node name="SnapPoint" parent="SnapPointCollection" unique_id=1861624800 instance=ExtResource("2_mg7eu")]
-position = Vector2(0, -40)
+position = Vector2(48, -24)
+rotation = -1.5707964
+
+[node name="SnapPoint5" parent="SnapPointCollection" unique_id=616598525 instance=ExtResource("2_mg7eu")]
+position = Vector2(-48, -24)
 rotation = -1.5707964
 
 [node name="SnapPoint2" parent="SnapPointCollection" unique_id=70037565 instance=ExtResource("2_mg7eu")]
-position = Vector2(56, 0)
+position = Vector2(72, 0)
 
 [node name="SnapPoint3" parent="SnapPointCollection" unique_id=1038724171 instance=ExtResource("2_mg7eu")]
-position = Vector2(0, 40)
+position = Vector2(-48, 24)
+rotation = 1.5707964
+
+[node name="SnapPoint6" parent="SnapPointCollection" unique_id=1198904381 instance=ExtResource("2_mg7eu")]
+position = Vector2(48, 24)
 rotation = 1.5707964
 
 [node name="SnapPoint4" parent="SnapPointCollection" unique_id=1120866923 instance=ExtResource("2_mg7eu")]
-position = Vector2(-56, 0)
+position = Vector2(-72, 0)
 rotation = -3.1415925
 
 [node name="BuildingStateMachine" parent="." unique_id=1006246523 node_paths=PackedStringArray("building") instance=ExtResource("5_2i2n7")]
@@ -44,4 +51,4 @@ script = ExtResource("6_3rb1g")
 metadata/_custom_type_script = "uid://do0w5c8juwrr"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collider" unique_id=1481598243]
-polygon = PackedVector2Array(7, -7, 55, -7, 55, 7, 7, 7, 7, 39, -7, 39, -7, 7, -55, 7, -55, -7, -7, -7, -7, -39, 7, -39)
+polygon = PackedVector2Array(41, -7, 41, -23, 55, -23, 55, -7, 71, -7, 71, 7, 55, 7, 55, 23, 41, 23, 41, 7, -40.890797, 7, -41, 23, -55, 23, -55, 7, -71, 7, -71, -7, -55, -7, -55, -23, -41, -23, -41, -7)
