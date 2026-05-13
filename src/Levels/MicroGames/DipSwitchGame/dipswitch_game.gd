@@ -6,8 +6,12 @@ var dipswitchArray: Array[int]
 
 func _ready():
 	generateConfiguration(answerArray, switchCount)
-	while dipswitchArray != answerArray:
+	generateConfiguration(dipswitchArray, switchCount)
+	while dipswitchArray == answerArray:
+		dipswitchArray.clear()
 		generateConfiguration(dipswitchArray, switchCount)
+	print(answerArray)
+	print(dipswitchArray)
 		
 func _update():
 	if answerArray == dipswitchArray:
