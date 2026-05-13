@@ -12,6 +12,11 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c8s01"]
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_u28kp"]
+random_pitch = 1.3348398
+streams_count = 1
+stream_0/stream = ExtResource("2_u28kp")
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_c8s01"]
 atlas = ExtResource("2_opp5b")
 region = Rect2(0, 0, 32, 32)
@@ -425,9 +430,9 @@ shape = SubResource("CircleShape2D_c8s01")
 [node name="SFX" type="Node2D" parent="." unique_id=1280097243]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SFX" unique_id=939456299]
-stream = ExtResource("2_u28kp")
-volume_db = -11.737
-pitch_scale = 4.0
+stream = SubResource("AudioStreamRandomizer_u28kp")
+volume_db = -20.0
+pitch_scale = 2.0
 
 [node name="Visuals" type="Node2D" parent="." unique_id=2053597056]
 
@@ -439,20 +444,20 @@ animation = &"death"
 root_node = NodePath("../AnimatedSprite2D")
 libraries/ = SubResource("AnimationLibrary_xrr28")
 
-[node name="EnemyStateMachine" type="Node" parent="." unique_id=546519200 node_paths=PackedStringArray("initial_state")]
+[node name="EnemyStateMachine" type="Node2D" parent="." unique_id=1236772232 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_ncue7")
-initial_state = NodePath("EnemyMovingState")
+initial_state = NodePath("")
 metadata/_custom_type_script = "uid://bm16altdfhm3h"
 
-[node name="EnemyMovingState" type="Node" parent="EnemyStateMachine" unique_id=2116163861]
+[node name="EnemyMovingState" type="Node2D" parent="EnemyStateMachine" unique_id=1775143335]
 script = ExtResource("4_v5rtd")
 metadata/_custom_type_script = "uid://cj00n1yh2dke"
 
-[node name="EnemyAttackingState" type="Node" parent="EnemyStateMachine" unique_id=1587512719]
+[node name="EnemyAttackingState" type="Node2D" parent="EnemyStateMachine" unique_id=766846128]
 script = ExtResource("5_c8s01")
 metadata/_custom_type_script = "uid://bami2a3vmwcsn"
 
-[node name="EnemyDeathState" type="Node" parent="EnemyStateMachine" unique_id=239484925]
+[node name="EnemyDeathState" type="Node2D" parent="EnemyStateMachine" unique_id=692623344]
 script = ExtResource("6_1aakt")
 metadata/_custom_type_script = "uid://byacvsevriir8"
 

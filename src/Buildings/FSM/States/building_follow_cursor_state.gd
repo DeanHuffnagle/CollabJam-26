@@ -43,7 +43,7 @@ func rotate_CW() -> void:
 	building.rotate(deg_to_rad(-90))
 	
 func handle_move_to_mouse_pos() -> void:
-	var mouse_pos = get_viewport().get_mouse_position()
+	var mouse_pos = get_global_mouse_position()
 	building.global_position = mouse_pos
 
 func connect_snap_point_signals() -> void:

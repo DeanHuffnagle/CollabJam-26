@@ -5,19 +5,19 @@
 [ext_resource type="Script" uid="uid://b53cfplf8okk4" path="res://src/Buildings/FSM/States/building_snapped_state.gd" id="3_0nbvn"]
 [ext_resource type="Script" uid="uid://bwf5g5fs5x6h6" path="res://src/Buildings/FSM/States/building_stationary_state.gd" id="4_m54ki"]
 
-[node name="BuildingStateMachine" type="Node" unique_id=1006246523 node_paths=PackedStringArray("initial_state")]
+[node name="BuildingStateMachine" type="Node2D" unique_id=332203143 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_8t0vy")
 initial_state = NodePath("BuildingStationaryState")
 metadata/_custom_type_script = "uid://dooxtpq2yc3u7"
 
-[node name="BuildingFollowCursorState" type="Node" parent="." unique_id=1429536126]
+[node name="BuildingFollowCursorState" type="Node2D" parent="." unique_id=1190184434]
 script = ExtResource("2_b0pvd")
 metadata/_custom_type_script = "uid://bodnyvknqi85c"
 
-[node name="BuildingSnappedState" type="Node" parent="." unique_id=1666922110]
+[node name="BuildingSnappedState" type="Node2D" parent="." unique_id=1530663472]
 script = ExtResource("3_0nbvn")
 metadata/_custom_type_script = "uid://b53cfplf8okk4"
 
-[node name="BuildingStationaryState" type="Node" parent="." unique_id=1094378193]
+[node name="BuildingStationaryState" type="Node2D" parent="." unique_id=1056137561]
 script = ExtResource("4_m54ki")
 metadata/_custom_type_script = "uid://bwf5g5fs5x6h6"

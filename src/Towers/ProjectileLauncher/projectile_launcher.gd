@@ -12,6 +12,8 @@ class_name ProjectileLauncher
 func fire():
 	if not active:
 		return
+	if  !projectile_collection:
+		projectile_collection = get_tree().get_first_node_in_group("ProjectileCollection")
 	var projectile: Projectile = projectile_scene.instantiate()
 	var world_target = directional_ray.to_global(directional_ray.target_position)
 	var world_direction = (world_target - global_position).normalized()
