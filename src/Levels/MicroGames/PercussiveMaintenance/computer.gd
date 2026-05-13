@@ -1,23 +1,62 @@
 extends Node2D
 
-@export var height: int = 0
-var size: Vector2:
-	get:
-		return Vector2i(height, height)
+signal player_hit(player_distance: float)
+
+const START_ANGLE: float = -(3 * PI / 4)
+const TURN: float = PI / 2
+
+@export var cosmetic_sensitivity: FloatSlider
+@export var hit_sensitivity: FloatSlider
+@export var goal: Vector2
+
+@onready var size = %ComputerShape.shape.size
+@onready var sprite = $RigidBody2D/Sprite2D
 
 func _ready() -> void:
-	# set sizes
-	$RigidBody2D/CollisionShape2D.shape.size = size
-	$StaticBody2D/CollisionShape2D.shape.size = size * 0.90
+	set_goal()
+	debug_arrow(Vector2.ZERO, goal, Color.BLUE)
+
+func set_goal():
+	var corner: Vector2 = size / 2.5
+	goal = Vector2(
+		randf() * corner.x, # randomise X
+		randf() * corner.y # randomise y
+		).rotated(PI / 2 * randi_range(0, 4))
+
+func _on_rigid_body_2d_mouse_entered() -> void:
+	var mouse_velocity = Input.get_last_mouse_screen_velocity()
+	var mouse_position = get_local_mouse_position()
+	# Orthogonally lock mouse velocity
+	var smack_direction =  get_force_direction(mouse_position.angle_to_point(to_local(position)))
+	var smack_vector = smack_direction * mouse_velocity.length() 
 	
-	# springs
+
+	debug_arrow(mouse_position, mouse_position + (smack_vector * hit_sensitivity.value), Color.GREEN)
+	
+	$RigidBody2D.apply_impulse(smack_vector * cosmetic_sensitivity.value, mouse_position)
+	var player_position = mouse_position + (smack_vector * hit_sensitivity.value)
+	var player_distance = (player_position - goal).length()
+	player_hit.emit(player_distance / (size / 2).length())
+
+func get_force_direction(angle: float):
 	for i in 4:
-		var spring: DampedSpringJoint2D
-		spring.length = 1
-		spring.stiffness = 64
-		spring.damping = 2
-		spring.bias = 0.9
-		spring.node_a = ^"../../../StaticBody2D"
-		spring.node_b = ^"../../../../RigidBody2D"
-		spring.position = size.rotated((PI / 2) * i)
+		if (START_ANGLE + (TURN * i)) < angle and angle <= (START_ANGLE + (TURN * (i + 1))):
+			return Vector2.from_angle((i - 1) * PI / 2)
+	return Vector2.from_angle(-PI)
+
+func debug_arrow(start: Vector2, end: Vector2, color: Color) -> Area2D:
+	var arrow_shape = CollisionShape2D.new()
+	arrow_shape.shape = SeparationRayShape2D.new()
+	arrow_shape.shape.length = (end - start).length()
+	
+	arrow_shape.debug_color = color
+	# print(start, " to ", end)
+	
+	var arrow_collider = Area2D.new()
+	arrow_collider.add_child(arrow_shape)
+	arrow_collider.position = start
+	arrow_collider.rotation = (start - end).angle() + (PI / 2)
 		
+	#add_child(arrow_collider)
+	
+	return arrow_collider

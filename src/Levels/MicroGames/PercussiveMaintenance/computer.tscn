@@ -1,60 +1,77 @@
 [gd_scene format=3 uid="uid://ck4gwlhg4wyik"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l3ec8"]
-size = Vector2(135, 135)
+[ext_resource type="Script" uid="uid://cs7or2636akt" path="res://src/Levels/MicroGames/PercussiveMaintenance/computer.gd" id="1_xw6pt"]
+[ext_resource type="Script" uid="uid://dpti8fr74o4wb" path="res://src/Utils/float_slider.gd" id="2_q4du8"]
+
+[sub_resource type="Resource" id="Resource_q4du8"]
+script = ExtResource("2_q4du8")
+big = -1.0
+metadata/_custom_type_script = "uid://dpti8fr74o4wb"
+
+[sub_resource type="Resource" id="Resource_2q5q4"]
+script = ExtResource("2_q4du8")
+big = -3.0
+metadata/_custom_type_script = "uid://dpti8fr74o4wb"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5xkv"]
 size = Vector2(150, 150)
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_q4du8"]
+
 [node name="Computer" type="Node2D" unique_id=1437025272]
+script = ExtResource("1_xw6pt")
+cosmetic_sensitivity = SubResource("Resource_q4du8")
+hit_sensitivity = SubResource("Resource_2q5q4")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=385354499]
 collision_layer = 0
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=68527468]
-shape = SubResource("RectangleShape2D_l3ec8")
-
-[node name="Node2D" type="Node2D" parent="StaticBody2D" unique_id=1383476146]
-
-[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="StaticBody2D/Node2D" unique_id=1232749014]
-position = Vector2(32, 31)
-node_a = NodePath("../..")
-node_b = NodePath("../../../RigidBody2D")
-bias = 0.9
-length = 1.0
-stiffness = 64.0
-damping = 0.2
-
-[node name="DampedSpringJoint2D2" type="DampedSpringJoint2D" parent="StaticBody2D/Node2D" unique_id=2047419298]
-position = Vector2(-37, -38)
-node_a = NodePath("../..")
-node_b = NodePath("../../../RigidBody2D")
-bias = 0.9
-length = 1.0
-stiffness = 64.0
-damping = 0.2
-
-[node name="DampedSpringJoint2D3" type="DampedSpringJoint2D" parent="StaticBody2D/Node2D" unique_id=345976461]
-position = Vector2(-33, 30)
-node_a = NodePath("../..")
-node_b = NodePath("../../../RigidBody2D")
-bias = 0.9
-length = 1.0
-stiffness = 64.0
-damping = 0.2
-
-[node name="DampedSpringJoint2D4" type="DampedSpringJoint2D" parent="StaticBody2D/Node2D" unique_id=1925568808]
-position = Vector2(34, -37)
-node_a = NodePath("../..")
-node_b = NodePath("../../../RigidBody2D")
-bias = 0.9
-length = 1.0
-stiffness = 64.0
-damping = 0.2
-
 [node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1968105579]
 input_pickable = true
 gravity_scale = 0.0
+linear_damp = 100.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=161728487]
+[node name="ComputerShape" type="CollisionShape2D" parent="RigidBody2D" unique_id=161728487]
+unique_name_in_owner = true
 shape = SubResource("RectangleShape2D_q5xkv")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=203346459]
+position = Vector2(-75, -75)
+scale = Vector2(151, 151)
+texture = SubResource("CanvasTexture_q4du8")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1383476146]
+
+[node name="DampedSpringJoint2D6" type="DampedSpringJoint2D" parent="Node2D" unique_id=1369592322]
+position = Vector2(75, -75)
+node_a = NodePath("../../StaticBody2D")
+node_b = NodePath("../../RigidBody2D")
+length = 10.0
+stiffness = 5.0
+damping = 0.06
+
+[node name="DampedSpringJoint2D7" type="DampedSpringJoint2D" parent="Node2D" unique_id=1478170998]
+position = Vector2(-75, -75)
+node_a = NodePath("../../StaticBody2D")
+node_b = NodePath("../../RigidBody2D")
+length = 10.0
+stiffness = 5.0
+damping = 0.06
+
+[node name="DampedSpringJoint2D8" type="DampedSpringJoint2D" parent="Node2D" unique_id=870869507]
+position = Vector2(-75, 75)
+node_a = NodePath("../../StaticBody2D")
+node_b = NodePath("../../RigidBody2D")
+length = 10.0
+stiffness = 5.0
+damping = 0.06
+
+[node name="DampedSpringJoint2D9" type="DampedSpringJoint2D" parent="Node2D" unique_id=717584868]
+position = Vector2(75, 75)
+node_a = NodePath("../../StaticBody2D")
+node_b = NodePath("../../RigidBody2D")
+length = 10.0
+stiffness = 5.0
+damping = 0.06
+
+[connection signal="mouse_entered" from="RigidBody2D" to="." method="_on_rigid_body_2d_mouse_entered"]
