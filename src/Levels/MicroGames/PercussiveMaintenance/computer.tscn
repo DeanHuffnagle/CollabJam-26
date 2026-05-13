@@ -13,10 +13,10 @@ script = ExtResource("2_q4du8")
 big = -3.0
 metadata/_custom_type_script = "uid://dpti8fr74o4wb"
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_q4du8"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5xkv"]
 size = Vector2(150, 150)
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_q4du8"]
 
 [node name="Computer" type="Node2D" unique_id=1437025272]
 script = ExtResource("1_xw6pt")
@@ -31,14 +31,13 @@ input_pickable = true
 gravity_scale = 0.0
 linear_damp = 100.0
 
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=203346459]
+scale = Vector2(150, 150)
+texture = SubResource("CanvasTexture_q4du8")
+
 [node name="ComputerShape" type="CollisionShape2D" parent="RigidBody2D" unique_id=161728487]
 unique_name_in_owner = true
 shape = SubResource("RectangleShape2D_q5xkv")
-
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=203346459]
-position = Vector2(-75, -75)
-scale = Vector2(151, 151)
-texture = SubResource("CanvasTexture_q4du8")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1383476146]
 

@@ -21,7 +21,7 @@ script = ExtResource("1_4028w")
 gradient = SubResource("GradientTexture1D_fw5ay")
 
 [node name="Computer" parent="." unique_id=1437025272 instance=ExtResource("1_3wsfv")]
-position = Vector2(301, 174)
+position = Vector2(255, 122)
 hit_sensitivity = SubResource("Resource_tmsok")
 
 [connection signal="player_hit" from="Computer" to="." method="_on_computer_player_force"]
