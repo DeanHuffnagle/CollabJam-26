@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://jlmpn3l0g67"]
+
+[ext_resource type="PackedScene" uid="uid://ck4gwlhg4wyik" path="res://src/Levels/MicroGames/PercussiveMaintenance/computer.tscn" id="1_3wsfv"]
+[ext_resource type="Script" uid="uid://xe3uby0masp6" path="res://src/Levels/MicroGames/PercussiveMaintenance/microgame.gd" id="1_4028w"]
+[ext_resource type="Script" uid="uid://dpti8fr74o4wb" path="res://src/Utils/float_slider.gd" id="2_tmsok"]
+
+[sub_resource type="Gradient" id="Gradient_tmsok"]
+offsets = PackedFloat32Array(0, 0.12962963, 0.7962963, 0.9814815)
+colors = PackedColorArray(0.41787615, 0.71914655, 0.16020802, 1, 0.41960785, 0.7176471, 0.16078432, 1, 1, 0.7176471, 0.2901961, 0.99607843, 0.96, 0.24, 0.24, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fw5ay"]
+gradient = SubResource("Gradient_tmsok")
+
+[sub_resource type="Resource" id="Resource_tmsok"]
+script = ExtResource("2_tmsok")
+big = -4.0
+metadata/_custom_type_script = "uid://dpti8fr74o4wb"
+
+[node name="MicroGame" type="Node2D" unique_id=1846526693]
+script = ExtResource("1_4028w")
+gradient = SubResource("GradientTexture1D_fw5ay")
+
+[node name="Computer" parent="." unique_id=1437025272 instance=ExtResource("1_3wsfv")]
+position = Vector2(255, 122)
+hit_sensitivity = SubResource("Resource_tmsok")
+
+[connection signal="player_hit" from="Computer" to="." method="_on_computer_player_force"]
