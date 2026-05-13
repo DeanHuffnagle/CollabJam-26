@@ -9,6 +9,8 @@ class_name EnergySpawner
 
 func spawn_energy():
 	if tower.is_active:
+		if !projectile_collection:
+			projectile_collection = get_tree().get_first_node_in_group("ProjectileCollection")
 		var energy = energy_scene.instantiate()
 		projectile_collection.add_child(energy)
 		energy.global_position = self.global_position

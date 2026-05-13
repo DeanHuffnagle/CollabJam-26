@@ -50,11 +50,11 @@ script = ExtResource("1_gb5ko")
 sprite = NodePath("AnimatedSprite2D")
 hit_box = NodePath("HitBox")
 direction = Vector2(1, 0)
+movement_speed = 30000.0
 metadata/_custom_type_script = "uid://metjdx44oswd"
 
 [node name="HitBox" type="Area2D" parent="." unique_id=1271120897]
 script = ExtResource("2_hhah4")
-is_projectile = true
 metadata/_custom_type_script = "uid://c738ntdnfc3jc"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=270356122]

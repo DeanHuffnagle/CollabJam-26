@@ -2,7 +2,7 @@
 extends Node2D
 class_name Building
 
-@export var collider: Collider
+@onready var collider: Collider = $Collider
 @export var value: int = 10
 @export var is_active = false
 signal on_placed

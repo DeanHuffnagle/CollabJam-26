@@ -1,9 +1,9 @@
 [gd_scene format=4 uid="uid://bbe7snx7ng4h3"]
 
 [ext_resource type="PackedScene" uid="uid://012qvvbiemsn" path="res://src/TileMaps/SpaceBackground/space_tile_map.tscn" id="1_b1xlc"]
-[ext_resource type="PackedScene" uid="uid://cgtte42u3lu2t" path="res://src/Enemies/Blob/enemy_blob.tscn" id="2_itc74"]
+[ext_resource type="PackedScene" uid="uid://cgtte42u3lu2t" path="res://Deprecated/enemy_blob.tscn" id="2_itc74"]
 [ext_resource type="PackedScene" uid="uid://crngsmrw36q1u" path="res://src/TileMaps/ShipParts/ship_parts_tile_map_v_2.tscn" id="3_uqmlq"]
-[ext_resource type="PackedScene" uid="uid://cevvvjvxekayl" path="res://src/Towers/LaserTurret/laser_turret.tscn" id="4_yx8tt"]
+[ext_resource type="PackedScene" uid="uid://cevvvjvxekayl" path="res://src/Towers/LaserTurret/laser_turret_tower.tscn" id="4_yx8tt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7i1ub"]
 
