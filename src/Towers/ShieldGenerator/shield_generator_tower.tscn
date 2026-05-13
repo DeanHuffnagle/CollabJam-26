@@ -15,8 +15,9 @@ metadata/_custom_type_script = "uid://d1uuk7g1gkfjj"
 
 [node name="ShieldGeneratorAnimatedSprite" parent="." unique_id=323616713 instance=ExtResource("2_ovp0o")]
 
-[node name="TowerStateMachine" type="Node" parent="." unique_id=1466202268]
+[node name="TowerStateMachine" type="Node2D" parent="." unique_id=2118854280 node_paths=PackedStringArray("tower")]
 script = ExtResource("3_ovp0o")
+tower = NodePath("..")
 metadata/_custom_type_script = "uid://cxthrrbdrbahj"
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=2089324650]

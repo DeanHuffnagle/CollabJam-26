@@ -9,7 +9,6 @@ var projectile_speed: int = 200
 
 func enter():
 	super()
-	enemy_detection_field.enemy_detected.connect(_on_enemy_detected)
 	handle_animation()
 	
 func update(delta: float):
@@ -18,8 +17,6 @@ func update(delta: float):
 	else:
 		handle_disengage()
 	
-func _on_enemy_detected(body: Node2D) -> void:
-	state_machine.change_state("laserturretfiringstate")
 
 func handle_animation():
 	var animation_name = ("{rank}_barrel_fire".format({"rank":tower.current_rank}))
