@@ -13,17 +13,25 @@ func _ready():
 	print(answerArray)
 	print(dipswitchArray)
 	
-	for i in range (dipswitchArray.size() - 1):
+	for i in range (dipswitchArray.size()):
 		if dipswitchArray[i] == 1:
 			get_node("DipswitchLayout/Dipswitches/Dipswitch" + str(i + 1)).button_pressed = true
 			
-	for i in range (answerArray.size() - 1):
+	for i in range (answerArray.size()):
 		if answerArray[i] == 1:
 			get_node("DipswitchLayout/Answer/Answer" + str(i + 1)).button_pressed = true
 		
 		
-func _update():
+func _process(_delta):
+	for i in range (dipswitchArray.size()):
+		if get_node("DipswitchLayout/Dipswitches/Dipswitch" + str(i + 1)).button_pressed == true:
+			dipswitchArray[i] = 1
+		else:
+			dipswitchArray[i] = 0
+			
 	if answerArray == dipswitchArray:
+		answerArray.clear()
+		dipswitchArray.clear()
 		ended.emit()		
 
 func generateConfiguration(array, length):
