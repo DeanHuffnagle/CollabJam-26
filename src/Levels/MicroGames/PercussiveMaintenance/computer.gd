@@ -9,8 +9,10 @@ const TURN: float = PI / 2
 @export var hit_sensitivity: FloatSlider
 @export var goal: Vector2
 
-@onready var size = %ComputerShape.shape.size
-@onready var sprite = $RigidBody2D/Sprite2D
+@onready var size = %Shape.shape.size
+@onready var sprite = $RigidBody2D/Face
+@onready var screen = $RigidBody2D/Screen
+@onready var timer = $RigidBody2D/Face/Timer
 
 func _ready() -> void:
 	set_goal()
@@ -43,6 +45,15 @@ func get_force_direction(angle: float):
 		if (START_ANGLE + (TURN * i)) < angle and angle <= (START_ANGLE + (TURN * (i + 1))):
 			return Vector2.from_angle((i - 1) * PI / 2)
 	return Vector2.from_angle(-PI)
+	
+func animate(animation: String):
+	sprite.play(animation) 
+	timer.start()
+
+func reset_animation():
+	sprite.animation = "default"
+	sprite.pause()
+	
 
 func debug_arrow(start: Vector2, end: Vector2, color: Color) -> Area2D:
 	var arrow_shape = CollisionShape2D.new()
@@ -57,6 +68,6 @@ func debug_arrow(start: Vector2, end: Vector2, color: Color) -> Area2D:
 	arrow_collider.position = start
 	arrow_collider.rotation = (start - end).angle() + (PI / 2)
 		
-	#add_child(arrow_collider)
+	add_child(arrow_collider)
 	
 	return arrow_collider
