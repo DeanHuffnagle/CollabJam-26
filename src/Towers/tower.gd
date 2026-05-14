@@ -5,7 +5,6 @@ class_name Tower
 @export var max_rank: int = 3
 @export var current_rank = 1
 @export var building: Building
-@export var vision_radius: float = 300
 var is_active: bool
 
 func _ready() -> void:

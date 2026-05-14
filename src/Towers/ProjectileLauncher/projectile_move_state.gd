@@ -23,7 +23,7 @@ func calculate_movement_vector(delta):
 	var movement_vector: Vector2 = projectile.direction
 	return movement_vector * projectile.movement_speed * delta
 	
-func on_enemy_hit():
+func on_enemy_hit(area):
 	projectile.hit_box.emit_damage_signal()
 	projectile.queue_free()
 

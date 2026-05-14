@@ -1,5 +1,5 @@
 @icon("res://Assets/Icons/fsm.png")
-extends Node
+extends Node2D
 class_name FiniteStateMachine
 
 @export var initial_state: State

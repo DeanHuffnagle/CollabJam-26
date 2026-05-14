@@ -6,12 +6,19 @@
 [ext_resource type="Script" uid="uid://cib5agf8urdu3" path="res://src/Components/NodeCollections/launcher_collection.gd" id="3_5iqyi"]
 [ext_resource type="PackedScene" uid="uid://dxqqn2vmgjbkj" path="res://src/Towers/ProjectileLauncher/projectile_launcher.tscn" id="4_a4erg"]
 [ext_resource type="Script" uid="uid://beqjiqn2c6h2n" path="res://src/Components/EnemyDetectionField/enemy_detection_field.gd" id="5_gebsw"]
+[ext_resource type="Script" uid="uid://bebqfq82ylfx6" path="res://src/Components/HurtBox/hurtbox.gd" id="6_a4erg"]
 [ext_resource type="Script" uid="uid://cxthrrbdrbahj" path="res://src/Towers/FSM/tower_state_machine.gd" id="6_o3oim"]
 [ext_resource type="Script" uid="uid://bi1mygahrqhqh" path="res://src/Towers/LaserTurret/States/laser_turret_idle_state.gd" id="7_48upd"]
 [ext_resource type="Script" uid="uid://cfyn687p6vuya" path="res://src/Towers/LaserTurret/States/laser_turret_firing_state.gd" id="7_hdn51"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qsgc7"]
 radius = 8.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_5iqyi"]
+random_pitch = 1.7817973
+random_volume_offset_db = 2.0
+streams_count = 1
+stream_0/stream = ExtResource("2_5iqyi")
 
 [sub_resource type="Animation" id="Animation_77wer"]
 resource_name = "1_barrel_broken"
@@ -86,6 +93,20 @@ tracks/2/keys = {
 "method": &"fire"
 }]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SFX/AudioStreamPlayer2D")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_hdn51"]
 resource_name = "1_barrel_idle"
@@ -149,9 +170,9 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_bk28d"]
 resource_name = "2_barrel_fire"
-length = 0.26666668
+length = 0.53333336
 loop_mode = 1
-step = 0.0333
+step = 0.0667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -171,7 +192,7 @@ tracks/1/path = NodePath("Visuals/AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333),
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.26666668, 0.33333334, 0.4, 0.46666667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
@@ -197,7 +218,7 @@ tracks/3/path = NodePath("LauncherCollection/Bottom")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.13333334),
+"times": PackedFloat32Array(0.26666668),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -211,7 +232,7 @@ tracks/4/path = NodePath("SFX/AudioStreamPlayer2D")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.13333334),
+"times": PackedFloat32Array(0, 0.26666668),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [0.0],
@@ -228,7 +249,7 @@ tracks/5/path = NodePath("SFX/AudioStreamPlayer2D:pitch_scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.13333334),
+"times": PackedFloat32Array(0, 0.26666668),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [1.1, 0.9]
@@ -363,6 +384,35 @@ tracks/4/keys = {
 "method": &"fire"
 }]
 }
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SFX/AudioStreamPlayer2D")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SFX/AudioStreamPlayer2D:pitch_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.25, 1.0]
+}
 
 [sub_resource type="Animation" id="Animation_48upd"]
 resource_name = "3_barrel_idle"
@@ -452,7 +502,7 @@ radius = 300.0
 
 [node name="LaserTurret" type="CharacterBody2D" unique_id=499751901]
 script = ExtResource("1_77wer")
-current_rank = 2
+current_rank = 3
 metadata/_custom_type_script = "uid://d1uuk7g1gkfjj"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=912473968]
@@ -462,7 +512,7 @@ shape = SubResource("CircleShape2D_qsgc7")
 [node name="SFX" type="Node2D" parent="." unique_id=2083304562]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SFX" unique_id=1690092443]
-stream = ExtResource("2_5iqyi")
+stream = SubResource("AudioStreamRandomizer_5iqyi")
 volume_db = -20.0
 
 [node name="Visuals" type="Node2D" parent="." unique_id=1696550817]
@@ -491,6 +541,10 @@ position = Vector2(28, 0)
 [node name="Bottom" parent="LauncherCollection" unique_id=1105533774 instance=ExtResource("4_a4erg")]
 position = Vector2(28, 3)
 
+[node name="HurtBox" type="Area2D" parent="." unique_id=596934682]
+script = ExtResource("6_a4erg")
+metadata/_custom_type_script = "uid://bebqfq82ylfx6"
+
 [node name="EnemyDetectionField" type="Area2D" parent="." unique_id=1656317805]
 script = ExtResource("5_gebsw")
 metadata/_custom_type_script = "uid://beqjiqn2c6h2n"
@@ -499,16 +553,16 @@ metadata/_custom_type_script = "uid://beqjiqn2c6h2n"
 shape = SubResource("CircleShape2D_rp5vy")
 debug_color = Color(0.5332431, 0.5703512, 0, 0.41960785)
 
-[node name="TowerStateMachine" type="Node" parent="." unique_id=52450514 node_paths=PackedStringArray("tower", "initial_state")]
+[node name="TowerStateMachine" type="Node2D" parent="." unique_id=1180485253 node_paths=PackedStringArray("tower", "initial_state")]
 script = ExtResource("6_o3oim")
 tower = NodePath("..")
 initial_state = NodePath("LaserTurretIdleState")
 metadata/_custom_type_script = "uid://cxthrrbdrbahj"
 
-[node name="LaserTurretFiringState" type="Node" parent="TowerStateMachine" unique_id=965646939]
+[node name="LaserTurretFiringState" type="Node2D" parent="TowerStateMachine" unique_id=2059615571]
 script = ExtResource("7_hdn51")
 metadata/_custom_type_script = "uid://cfyn687p6vuya"
 
-[node name="LaserTurretIdleState" type="Node" parent="TowerStateMachine" unique_id=422303686]
+[node name="LaserTurretIdleState" type="Node2D" parent="TowerStateMachine" unique_id=991880870]
 script = ExtResource("7_48upd")
 metadata/_custom_type_script = "uid://bi1mygahrqhqh"

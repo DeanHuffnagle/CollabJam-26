@@ -1,6 +1,7 @@
 extends State
 
 class_name SolarPanelState
+@onready var animation_player: AnimationPlayer = $"../../Visuals/AnimationPlayer"
 @onready var energySpawner: EnergySpawner = $"../../EnergySpawner"
 @export var timer_wait_time: float = 3
 var energy_timer: Timer
@@ -8,7 +9,7 @@ var energy_timer: Timer
 
 func enter():
 	create_timer()
-	print("enter state")
+	animation_player.play("idle")
 	
 func exit():
 	energy_timer.queue_free()

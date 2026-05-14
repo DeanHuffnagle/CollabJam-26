@@ -14,20 +14,6 @@ script = ExtResource("1_xceu5")
 value = 20
 metadata/_custom_type_script = "uid://dbyydvnk6x8wc"
 
-[node name="Visuals" type="Node2D" parent="." unique_id=1852039722]
-position = Vector2(8, -8)
-
-[node name="ShipPartsTileMap_V2" parent="Visuals" unique_id=280711130 instance=ExtResource("2_ejcbh")]
-tile_map_data = PackedByteArray("AAAAAAEAAAAHAAMAAAAAAAAAAAAHAAIAAAAAAP//AAAHAAAAAAD//wEAAAAFAAMAAAD//wAAAAAFAAIAAAD/////AAAGAAAAAAD+/wEAAAAEAAMAAAD+/wAAAAAEAAEAAAD+////AAAEAAAAAAD//wIAAAADAAIAAAD///7/AAADAAAAAAABAAAAAAACAAMAAAD9/wAAAAAAAAMAAAA=")
-
-[node name="TurretBaseAnimatedSprite" parent="." unique_id=1390162166 instance=ExtResource("3_ogjfd")]
-
-[node name="LaserTurret" parent="." unique_id=499751901 node_paths=PackedStringArray("building") instance=ExtResource("4_3yr7c")]
-building = NodePath("..")
-
-[node name="BuildingStateMachine" parent="." unique_id=1006246523 node_paths=PackedStringArray("building") instance=ExtResource("5_2c032")]
-building = NodePath("..")
-
 [node name="SnapPointCollection" type="Node2D" parent="." unique_id=400922917]
 position = Vector2(8, -8)
 script = ExtResource("6_m1f7n")
@@ -48,6 +34,12 @@ rotation = 1.5707964
 position = Vector2(-8, -32)
 rotation = -1.5707964
 
+[node name="Visuals" type="Node2D" parent="." unique_id=1852039722]
+position = Vector2(8, -8)
+
+[node name="ShipPartsTileMap_V2" parent="Visuals" unique_id=280711130 instance=ExtResource("2_ejcbh")]
+tile_map_data = PackedByteArray("AAAAAAEAAAAHAAMAAAAAAAAAAAAHAAIAAAAAAP//AAAHAAAAAAD//wEAAAAFAAMAAAD//wAAAAAFAAIAAAD/////AAAGAAAAAAD+/wEAAAAEAAMAAAD+/wAAAAAEAAEAAAD+////AAAEAAAAAAD//wIAAAADAAIAAAD///7/AAADAAAAAAABAAAAAAACAAMAAAD9/wAAAAAAAAMAAAA=")
+
 [node name="Collider" type="Area2D" parent="." unique_id=300636327]
 visible = false
 script = ExtResource("8_ejcbh")
@@ -55,3 +47,11 @@ metadata/_custom_type_script = "uid://do0w5c8juwrr"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collider" unique_id=244808604]
 polygon = PackedVector2Array(39, -7, 39, 7, 23, 7, 23, 23, 7, 23, 7, 39, -7, 39, -7, 23, -23, 23, -23, 7, -39, 7, -39, -7, -23, -7, -23, -23, -7, -23, -7, -39, 7, -39, 7, -23, 23, -23, 23, -7)
+
+[node name="TurretBaseAnimatedSprite" parent="." unique_id=1390162166 instance=ExtResource("3_ogjfd")]
+
+[node name="LaserTurret" parent="." unique_id=499751901 node_paths=PackedStringArray("building") instance=ExtResource("4_3yr7c")]
+building = NodePath("..")
+
+[node name="BuildingStateMachine" parent="." unique_id=1006246523 node_paths=PackedStringArray("building") instance=ExtResource("5_2c032")]
+building = NodePath("..")

@@ -48,7 +48,7 @@ func handle_snap_to_point() -> void:
 		building.global_position = target_position
 	
 func check_for_mouse_distance() -> float:
-	var mouse_pos = get_viewport().get_mouse_position()
+	var mouse_pos = get_global_mouse_position()
 	var distance: Vector2 = (building.global_position - mouse_pos)
 	return distance.length()
 

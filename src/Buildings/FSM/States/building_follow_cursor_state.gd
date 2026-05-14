@@ -23,9 +23,9 @@ func update(delta: float):
 	can_snap = true
 		
 func handle_input(event: InputEvent):
-	if Input.is_action_just_pressed("building_rotate_CW"):
+	if Input.is_action_pressed("building_rotate_CW"):
 		rotate_CW()
-	if Input.is_action_just_pressed("building_rotate_CCW"):
+	if Input.is_action_pressed("building_rotate_CCW"):
 		rotate_CCW()
 	if Input.is_action_just_pressed("building_cancel_placement"):
 		building.queue_free()
@@ -37,13 +37,13 @@ func on_snap_overlap(target_snap_point:SnapPoint, this_snap_point:SnapPoint):
 			state_machine.change_state("buildingsnappedstate")
 	
 func rotate_CCW() -> void:
-	building.rotate(deg_to_rad(90))
-	
-func rotate_CW() -> void:
 	building.rotate(deg_to_rad(-90))
 	
+func rotate_CW() -> void:
+	building.rotate(deg_to_rad(90))
+	
 func handle_move_to_mouse_pos() -> void:
-	var mouse_pos = get_viewport().get_mouse_position()
+	var mouse_pos = get_global_mouse_position()
 	building.global_position = mouse_pos
 
 func connect_snap_point_signals() -> void:

@@ -3,7 +3,224 @@
 [ext_resource type="Script" uid="uid://d1uuk7g1gkfjj" path="res://src/Towers/tower.gd" id="1_id5uv"]
 [ext_resource type="PackedScene" uid="uid://cr5w7fyi31sbq" path="res://src/Towers/ShieldGenerator/shield_generator_animated_sprite.tscn" id="2_ovp0o"]
 [ext_resource type="Script" uid="uid://cxthrrbdrbahj" path="res://src/Towers/FSM/tower_state_machine.gd" id="3_ovp0o"]
+[ext_resource type="Script" uid="uid://jwho8mrl7ovd" path="res://src/Towers/ShieldGenerator/States/shield_generator_state.gd" id="4_3p048"]
 [ext_resource type="Script" uid="uid://bebqfq82ylfx6" path="res://src/Components/HurtBox/hurtbox.gd" id="4_758ge"]
+
+[sub_resource type="Animation" id="Animation_r3qp2"]
+resource_name = "broken"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShieldGeneratorAnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"broken"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShieldGeneratorAnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_758ge"]
+resource_name = "0%"
+length = 0.25
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShieldGeneratorAnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"0%"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShieldGeneratorAnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_bb3jh"]
+resource_name = "25%"
+length = 0.25
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShieldGeneratorAnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"25%"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShieldGeneratorAnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_kfj7a"]
+resource_name = "50%"
+length = 0.25
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShieldGeneratorAnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"50%"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShieldGeneratorAnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_2tve2"]
+resource_name = "75%"
+length = 0.25
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShieldGeneratorAnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"75%"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShieldGeneratorAnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_3p048"]
+resource_name = "100%"
+length = 0.25
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShieldGeneratorAnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"100%"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShieldGeneratorAnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_vb5g2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShieldGeneratorAnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"25%"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShieldGeneratorAnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6xs15"]
+_data = {
+&"0": SubResource("Animation_r3qp2"),
+&"1": SubResource("Animation_758ge"),
+&"2": SubResource("Animation_bb3jh"),
+&"3": SubResource("Animation_kfj7a"),
+&"4": SubResource("Animation_2tve2"),
+&"5": SubResource("Animation_3p048"),
+&"RESET": SubResource("Animation_vb5g2")
+}
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3p048"]
 radius = 15.0
@@ -13,11 +230,23 @@ height = 44.0
 script = ExtResource("1_id5uv")
 metadata/_custom_type_script = "uid://d1uuk7g1gkfjj"
 
-[node name="ShieldGeneratorAnimatedSprite" parent="." unique_id=323616713 instance=ExtResource("2_ovp0o")]
+[node name="Visuals" type="Node2D" parent="." unique_id=1014687496]
 
-[node name="TowerStateMachine" type="Node" parent="." unique_id=1466202268]
+[node name="ShieldGeneratorAnimatedSprite" parent="Visuals" unique_id=323616713 instance=ExtResource("2_ovp0o")]
+animation = &"25%"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visuals" unique_id=1417846370]
+libraries/ = SubResource("AnimationLibrary_6xs15")
+
+[node name="TowerStateMachine" type="Node2D" parent="." unique_id=2118854280 node_paths=PackedStringArray("tower", "initial_state")]
 script = ExtResource("3_ovp0o")
+tower = NodePath("..")
+initial_state = NodePath("ShieldGeneratorState")
 metadata/_custom_type_script = "uid://cxthrrbdrbahj"
+
+[node name="ShieldGeneratorState" type="Node2D" parent="TowerStateMachine" unique_id=1959854917]
+script = ExtResource("4_3p048")
+metadata/_custom_type_script = "uid://jwho8mrl7ovd"
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=2089324650]
 script = ExtResource("4_758ge")

@@ -18,8 +18,10 @@ func _ready():
 func spawn():
 	if not not not not active:
 		var enemy: Enemy = enemy_scene.instantiate()
-		enemy_collection.add_child(enemy)
 		enemy.global_position = self.global_position
+		enemy_collection.add_child(enemy)
+		lower_cooldown()
+		
 
 
 func createTimer():
@@ -31,3 +33,11 @@ func createTimer():
 	
 func on_timer_timeout():
 	spawn()
+
+func lower_cooldown():
+	if spawnCooldown > 1:
+		spawnCooldown-= 1
+	else:
+		spawnCooldown = 0.5
+	spawnTimer.queue_free()
+	createTimer()
