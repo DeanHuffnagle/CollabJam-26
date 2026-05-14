@@ -1,0 +1,231 @@
+[gd_scene format=3 uid="uid://ck4gwlhg4wyik"]
+
+[ext_resource type="Script" uid="uid://cs7or2636akt" path="res://src/Levels/MicroGames/PercussiveMaintenance/computer.gd" id="1_xw6pt"]
+[ext_resource type="Script" uid="uid://dpti8fr74o4wb" path="res://src/Utils/float_slider.gd" id="2_q4du8"]
+[ext_resource type="Texture2D" uid="uid://b6ythc0nn27tf" path="res://src/Levels/MicroGames/PercussiveMaintenance/crt.png" id="3_2q5q4"]
+
+[sub_resource type="Resource" id="Resource_q4du8"]
+script = ExtResource("2_q4du8")
+big = -1.0
+metadata/_custom_type_script = "uid://dpti8fr74o4wb"
+
+[sub_resource type="Resource" id="Resource_2q5q4"]
+script = ExtResource("2_q4du8")
+big = -3.0
+metadata/_custom_type_script = "uid://dpti8fr74o4wb"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q5xkv"]
+size = Vector2(160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88m42"]
+atlas = ExtResource("3_2q5q4")
+region = Rect2(160, 160, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12oyx"]
+atlas = ExtResource("3_2q5q4")
+region = Rect2(320, 160, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77iei"]
+atlas = ExtResource("3_2q5q4")
+region = Rect2(480, 160, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur7k8"]
+atlas = ExtResource("3_2q5q4")
+region = Rect2(160, 320, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4s1q6"]
+atlas = ExtResource("3_2q5q4")
+region = Rect2(320, 320, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6yxu"]
+atlas = ExtResource("3_2q5q4")
+region = Rect2(320, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2q5q4"]
+atlas = ExtResource("3_2q5q4")
+region = Rect2(320, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdiug"]
+atlas = ExtResource("3_2q5q4")
+region = Rect2(0, 320, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i35rt"]
+atlas = ExtResource("3_2q5q4")
+region = Rect2(480, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0cxia"]
+atlas = ExtResource("3_2q5q4")
+region = Rect2(0, 160, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xk5sn"]
+atlas = ExtResource("3_2q5q4")
+region = Rect2(480, 320, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_riwse"]
+atlas = ExtResource("3_2q5q4")
+region = Rect2(0, 480, 160, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sawig"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_88m42")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_12oyx")
+}],
+"loop": true,
+"name": &"angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77iei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ur7k8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ur7k8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4s1q6")
+}],
+"loop": true,
+"name": &"crying",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6yxu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_77iei")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_2q5q4")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_fdiug")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_2q5q4")
+}],
+"loop": true,
+"name": &"glitch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i35rt")
+}, {
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_0cxia")
+}],
+"loop": true,
+"name": &"neutral",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ur7k8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xk5sn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_riwse")
+}],
+"loop": true,
+"name": &"win",
+"speed": 5.0
+}]
+
+[node name="Computer" type="Node2D" unique_id=1437025272]
+script = ExtResource("1_xw6pt")
+cosmetic_sensitivity = SubResource("Resource_q4du8")
+hit_sensitivity = SubResource("Resource_2q5q4")
+
+[node name="Base" type="Sprite2D" parent="." unique_id=941726264]
+position = Vector2(0, 41)
+texture = ExtResource("3_2q5q4")
+hframes = 4
+vframes = 4
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=385354499]
+visible = false
+collision_layer = 0
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1968105579]
+input_pickable = true
+gravity_scale = 0.0
+linear_damp = 100.0
+metadata/_edit_group_ = true
+
+[node name="Shape" type="CollisionShape2D" parent="RigidBody2D" unique_id=161728487]
+unique_name_in_owner = true
+shape = SubResource("RectangleShape2D_q5xkv")
+
+[node name="Screen" type="Sprite2D" parent="RigidBody2D" unique_id=630281739]
+texture = ExtResource("3_2q5q4")
+hframes = 4
+vframes = 4
+frame = 1
+
+[node name="Frame" type="Sprite2D" parent="RigidBody2D" unique_id=417090238]
+texture = ExtResource("3_2q5q4")
+hframes = 4
+vframes = 4
+frame = 2
+
+[node name="Face" type="AnimatedSprite2D" parent="RigidBody2D" unique_id=1009834914]
+sprite_frames = SubResource("SpriteFrames_sawig")
+animation = &"win"
+frame = 2
+frame_progress = 1.0
+
+[node name="Timer" type="Timer" parent="RigidBody2D/Face" unique_id=1685256555]
+wait_time = 2.0
+one_shot = true
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1383476146]
+
+[node name="DampedSpringJoint2D6" type="DampedSpringJoint2D" parent="Node2D" unique_id=1369592322]
+position = Vector2(75, -75)
+node_a = NodePath("../../StaticBody2D")
+node_b = NodePath("../../RigidBody2D")
+length = 10.0
+stiffness = 5.0
+damping = 0.06
+
+[node name="DampedSpringJoint2D7" type="DampedSpringJoint2D" parent="Node2D" unique_id=1478170998]
+position = Vector2(-75, -75)
+node_a = NodePath("../../StaticBody2D")
+node_b = NodePath("../../RigidBody2D")
+length = 10.0
+stiffness = 5.0
+damping = 0.06
+
+[node name="DampedSpringJoint2D8" type="DampedSpringJoint2D" parent="Node2D" unique_id=870869507]
+position = Vector2(-75, 75)
+node_a = NodePath("../../StaticBody2D")
+node_b = NodePath("../../RigidBody2D")
+length = 10.0
+stiffness = 5.0
+damping = 0.06
+
+[node name="DampedSpringJoint2D9" type="DampedSpringJoint2D" parent="Node2D" unique_id=717584868]
+position = Vector2(75, 75)
+node_a = NodePath("../../StaticBody2D")
+node_b = NodePath("../../RigidBody2D")
+length = 10.0
+stiffness = 5.0
+damping = 0.06
+
+[connection signal="mouse_entered" from="RigidBody2D" to="." method="_on_rigid_body_2d_mouse_entered"]
+[connection signal="timeout" from="RigidBody2D/Face/Timer" to="." method="reset_animation"]
