@@ -19,3 +19,6 @@ func remove_energy(amount: int):
 		current_energy = min_energy
 	else:
 		current_energy = calculated_energy
+
+func game_over():
+	get_tree().quit()
