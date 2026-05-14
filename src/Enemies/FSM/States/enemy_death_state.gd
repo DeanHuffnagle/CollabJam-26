@@ -8,6 +8,7 @@ class_name EnemyDeathState
  
 func enter():
 	super()
+	(hurt_box.get_child(0) as CollisionShape2D).disabled = true
 	if animation_player:
 		animation_player.play("Death")
 	
