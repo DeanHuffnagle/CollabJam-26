@@ -1,7 +1,8 @@
 extends Node
 
 const GAMES: Array[String] = [
-	"res://src/Levels/MicroGames/WaitingForGodot/waiting_for_godot.tscn"
+	"res://src/Levels/MicroGames/WaitingForGodot/waiting_for_godot.tscn",
+	"res://src/Levels/MicroGames/DipSwitchGame/dipswitch_game.tscn"
 ]
 
 const window_scene: PackedScene = preload(

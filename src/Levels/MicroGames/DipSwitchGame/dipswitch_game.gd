@@ -12,6 +12,15 @@ func _ready():
 		generateConfiguration(dipswitchArray, switchCount)
 	print(answerArray)
 	print(dipswitchArray)
+	
+	for i in range (dipswitchArray.size() - 1):
+		if dipswitchArray[i] == 1:
+			get_node("DipswitchLayout/Dipswitches/Dipswitch" + str(i + 1)).button_pressed = true
+			
+	for i in range (answerArray.size() - 1):
+		if answerArray[i] == 1:
+			get_node("DipswitchLayout/Answer/Answer" + str(i + 1)).button_pressed = true
+		
 		
 func _update():
 	if answerArray == dipswitchArray:

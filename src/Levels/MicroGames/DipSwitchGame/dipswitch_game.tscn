@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://btejgsontmjru"]
 
 [ext_resource type="Script" uid="uid://dmgr8jhftapve" path="res://src/Levels/MicroGames/DipSwitchGame/dipswitch_game.gd" id="1_0i64x"]
-[ext_resource type="Script" uid="uid://dnl6dbb4h711f" path="res://src/Levels/MicroGames/DipSwitchGame/dipswitches.gd" id="2_h3lbu"]
-[ext_resource type="Script" uid="uid://yccyouo6xpc0" path="res://src/Levels/MicroGames/DipSwitchGame/answer.gd" id="3_h3lbu"]
 
 [node name="DipswitchGame" type="Node2D" unique_id=1563874163]
 script = ExtResource("1_0i64x")
@@ -30,7 +28,6 @@ offset_right = 214.0
 offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("2_h3lbu")
 
 [node name="Dipswitch1" type="CheckButton" parent="DipswitchLayout/Dipswitches" unique_id=1236093793]
 layout_mode = 2
@@ -60,36 +57,27 @@ layout_mode = 2
 layout_mode = 0
 offset_right = 380.0
 offset_bottom = 24.0
-script = ExtResource("3_h3lbu")
 
 [node name="Answer1" type="CheckButton" parent="DipswitchLayout/Answer" unique_id=107056902]
 layout_mode = 2
-toggle_mode = false
 
 [node name="Answer2" type="CheckButton" parent="DipswitchLayout/Answer" unique_id=2101198232]
 layout_mode = 2
-toggle_mode = false
 
 [node name="Answer3" type="CheckButton" parent="DipswitchLayout/Answer" unique_id=389873820]
 layout_mode = 2
-toggle_mode = false
 
 [node name="Answer4" type="CheckButton" parent="DipswitchLayout/Answer" unique_id=294784405]
 layout_mode = 2
-toggle_mode = false
 
 [node name="Answer5" type="CheckButton" parent="DipswitchLayout/Answer" unique_id=1990983487]
 layout_mode = 2
-toggle_mode = false
 
 [node name="Answer6" type="CheckButton" parent="DipswitchLayout/Answer" unique_id=1000320947]
 layout_mode = 2
-toggle_mode = false
 
 [node name="Answer7" type="CheckButton" parent="DipswitchLayout/Answer" unique_id=1437305322]
 layout_mode = 2
-toggle_mode = false
 
 [node name="Answer8" type="CheckButton" parent="DipswitchLayout/Answer" unique_id=2070493754]
 layout_mode = 2
-toggle_mode = false
