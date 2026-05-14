@@ -1,8 +1,10 @@
 extends MicroGame
 
-
 @export var gradient: GradientTexture1D
-@export var goal: Vector2
+
+func _physics_process(delta: float) -> void:
+	$Sprite2D.look_at($Computer.global_position)
+	$Sprite2D.global_position = lerp($Sprite2D.global_position, get_global_mouse_position(), 20 * delta)
 
 func _on_computer_player_force(player_distance: float) -> void:
 	if player_distance > 1.5:

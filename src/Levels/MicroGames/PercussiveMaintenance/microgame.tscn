@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ck4gwlhg4wyik" path="res://src/Levels/MicroGames/PercussiveMaintenance/computer.tscn" id="1_3wsfv"]
 [ext_resource type="Script" uid="uid://xe3uby0masp6" path="res://src/Levels/MicroGames/PercussiveMaintenance/microgame.gd" id="1_4028w"]
 [ext_resource type="Script" uid="uid://dpti8fr74o4wb" path="res://src/Utils/float_slider.gd" id="2_tmsok"]
+[ext_resource type="Texture2D" uid="uid://b72d00xp02c2u" path="res://src/Levels/MicroGames/PercussiveMaintenance/fist_cursor.png" id="4_fw5ay"]
 
 [sub_resource type="Gradient" id="Gradient_tmsok"]
 offsets = PackedFloat32Array(0, 0.12962963, 0.7962963, 0.9814815)
@@ -21,10 +22,15 @@ script = ExtResource("1_4028w")
 gradient = SubResource("GradientTexture1D_fw5ay")
 
 [node name="Computer" parent="." unique_id=1437025272 instance=ExtResource("1_3wsfv")]
-position = Vector2(290, 123)
+position = Vector2(193, 115)
 hit_sensitivity = SubResource("Resource_tmsok")
 
 [node name="Timer" type="Timer" parent="." unique_id=1906978067]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1254228780]
+texture = ExtResource("4_fw5ay")
+flip_h = true
+flip_v = true
 
 [connection signal="player_hit" from="Computer" to="." method="_on_computer_player_force"]
 [connection signal="timeout" from="Timer" to="." method="end_game"]
