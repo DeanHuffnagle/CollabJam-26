@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://cib5agf8urdu3" path="res://src/Components/NodeCollections/launcher_collection.gd" id="3_5iqyi"]
 [ext_resource type="PackedScene" uid="uid://dxqqn2vmgjbkj" path="res://src/Towers/ProjectileLauncher/projectile_launcher.tscn" id="4_a4erg"]
 [ext_resource type="Script" uid="uid://beqjiqn2c6h2n" path="res://src/Components/EnemyDetectionField/enemy_detection_field.gd" id="5_gebsw"]
+[ext_resource type="Script" uid="uid://bebqfq82ylfx6" path="res://src/Components/HurtBox/hurtbox.gd" id="6_a4erg"]
 [ext_resource type="Script" uid="uid://cxthrrbdrbahj" path="res://src/Towers/FSM/tower_state_machine.gd" id="6_o3oim"]
 [ext_resource type="Script" uid="uid://bi1mygahrqhqh" path="res://src/Towers/LaserTurret/States/laser_turret_idle_state.gd" id="7_48upd"]
 [ext_resource type="Script" uid="uid://cfyn687p6vuya" path="res://src/Towers/LaserTurret/States/laser_turret_firing_state.gd" id="7_hdn51"]
@@ -497,12 +498,11 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rp5vy"]
-radius = 150.0
+radius = 300.0
 
 [node name="LaserTurret" type="CharacterBody2D" unique_id=499751901]
 script = ExtResource("1_77wer")
 current_rank = 3
-vision_radius = 150.0
 metadata/_custom_type_script = "uid://d1uuk7g1gkfjj"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=912473968]
@@ -540,6 +540,10 @@ position = Vector2(28, 0)
 
 [node name="Bottom" parent="LauncherCollection" unique_id=1105533774 instance=ExtResource("4_a4erg")]
 position = Vector2(28, 3)
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=596934682]
+script = ExtResource("6_a4erg")
+metadata/_custom_type_script = "uid://bebqfq82ylfx6"
 
 [node name="EnemyDetectionField" type="Area2D" parent="." unique_id=1656317805]
 script = ExtResource("5_gebsw")

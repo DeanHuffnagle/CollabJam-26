@@ -16,6 +16,7 @@ func enter():
 	createTimer()
 	hit_box.tower_hit.connect(on_target_detected)
 	hurt_box.took_damage.connect(_on_take_damage)
+	hurt_box.hit_by_stun.connect(_on_hit_by_stun)
 
 func exit():
 	attackTimer.stop()
@@ -23,6 +24,7 @@ func exit():
 	attackTimer.queue_free()
 	hit_box.tower_hit.disconnect(on_target_detected)
 	hurt_box.took_damage.disconnect(_on_take_damage)
+	hurt_box.hit_by_stun.disconnect(_on_hit_by_stun)
 
 func update(delta: float):
 	rotate_to_face_target(delta)
@@ -57,6 +59,6 @@ func rotate_to_face_target(delta):
 func _on_take_damage():
 	state_machine.change_state("enemydeathstate")
 
-
-func _on_hurt_box_took_damage(amount: float) -> void:
-	state_machine.change_state("enemydeathstate")
+func _on_hit_by_stun():
+	print("on hit by stun")
+	state_machine.change_state("enemystunnedstate")

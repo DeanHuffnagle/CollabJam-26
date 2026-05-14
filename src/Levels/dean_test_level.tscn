@@ -10,7 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://cr3g1q1e76mav" path="res://src/Buildings/SolarPanel/solar_panel_building.tscn" id="5_3lpyh"]
 [ext_resource type="PackedScene" uid="uid://cqlot3ufjidkc" path="res://src/Buildings/ShieldGenerator/shield_generator_building.tscn" id="6_q22x4"]
 [ext_resource type="PackedScene" uid="uid://dnvdhv6q810gy" path="res://src/Enemies/Spawner/enemy_spawner.tscn" id="9_jk3uy"]
+[ext_resource type="Script" uid="uid://dp38uyt1x11hm" path="res://src/Components/NodeCollections/area_of_effect_collection.gd" id="10_uwksr"]
 [ext_resource type="PackedScene" uid="uid://bt5fem2xilsww" path="res://src/Buildings/LaserTurret/laser_turret_building.tscn" id="11_3lpyh"]
+[ext_resource type="PackedScene" uid="uid://crxtul224pjou" path="res://src/Buildings/EMP/emp_building.tscn" id="13_1lavf"]
 
 [node name="TestWorld" type="WorldEnvironment" unique_id=40971707]
 
@@ -27,6 +29,10 @@ tile_map_data = PackedByteArray("AAAVABYAAQADAAkAAAAVABUAAQAJAAEAAAAVABQAAQAKAAk
 
 [node name="BuildingCollection" type="Node2D" parent="." unique_id=2083253201]
 script = ExtResource("2_q22x4")
+
+[node name="EMPBuilding" parent="BuildingCollection" unique_id=239099661 instance=ExtResource("13_1lavf")]
+position = Vector2(64, -48)
+is_active = true
 
 [node name="Frame" parent="BuildingCollection" unique_id=1179845687 instance=ExtResource("3_jk3uy")]
 position = Vector2(112, 0)
@@ -49,6 +55,10 @@ metadata/_custom_type_script = "uid://bikrj45d65axy"
 [node name="ProjectileCollection" type="Node2D" parent="." unique_id=1751299761]
 script = ExtResource("1_l7m7a")
 
+[node name="AreaOfEffectCollection" type="Node2D" parent="." unique_id=542843499]
+script = ExtResource("10_uwksr")
+metadata/_custom_type_script = "uid://dp38uyt1x11hm"
+
 [node name="EnemySpawner" parent="." unique_id=463055737 instance=ExtResource("9_jk3uy")]
 position = Vector2(-655, 367)
 
@@ -56,7 +66,7 @@ position = Vector2(-655, 367)
 position = Vector2(655, -367)
 
 [node name="EnemySpawner3" parent="." unique_id=2071327456 instance=ExtResource("9_jk3uy")]
-position = Vector2(-655, -367)
+position = Vector2(92, -43)
 
 [node name="EnemySpawner4" parent="." unique_id=1518808476 instance=ExtResource("9_jk3uy")]
 position = Vector2(655, 367)

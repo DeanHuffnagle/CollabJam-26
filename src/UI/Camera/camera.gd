@@ -20,3 +20,5 @@ func _process(delta: float) -> void:
 		direction.y = 1
 
 	position += direction * scroll_speed * delta
+	position.x = clamp(position.x, limit_left, limit_right)
+	position.y = clamp(position.y, limit_top, limit_bottom)

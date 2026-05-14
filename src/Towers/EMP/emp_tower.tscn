@@ -1,0 +1,200 @@
+[gd_scene format=3 uid="uid://caq1tkylxx2tc"]
+
+[ext_resource type="Script" uid="uid://d1uuk7g1gkfjj" path="res://src/Towers/tower.gd" id="1_03dfq"]
+[ext_resource type="Script" uid="uid://bnlk1yaggkydw" path="res://src/Towers/AreaOfEffectEmitter/area_of_effect_emitter.gd" id="2_agibg"]
+[ext_resource type="PackedScene" uid="uid://c53x0csqldsae" path="res://src/Towers/EMP/emp_animated_sprite_2d.tscn" id="2_lbg2u"]
+[ext_resource type="PackedScene" uid="uid://d25q84qcj6ig2" path="res://src/Towers/EMP/Pulse/emp_pulse.tscn" id="3_it10l"]
+[ext_resource type="AudioStream" uid="uid://7ki58a0j5oml" path="res://Assets/Audio/SFX/laser.wav" id="3_j8p2k"]
+[ext_resource type="Script" uid="uid://beqjiqn2c6h2n" path="res://src/Components/EnemyDetectionField/enemy_detection_field.gd" id="4_r77ad"]
+[ext_resource type="Script" uid="uid://cxthrrbdrbahj" path="res://src/Towers/FSM/tower_state_machine.gd" id="5_msq85"]
+[ext_resource type="Script" uid="uid://bv0btr880yvf1" path="res://src/Towers/EMP/States/EMP_broken_state.gd" id="6_msq85"]
+[ext_resource type="Script" uid="uid://dkbx6k61olidy" path="res://src/Towers/EMP/States/EMP_idle_state.gd" id="7_v2fyl"]
+[ext_resource type="Script" uid="uid://be86mptryuhrp" path="res://src/Towers/EMP/States/EMP_emit_pulse_state.gd" id="8_agibg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lagah"]
+radius = 8.0
+
+[sub_resource type="Animation" id="Animation_j8p2k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EMPAnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EMPAnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_3272g"]
+resource_name = "broken"
+length = 0.25
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EMPAnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"broken"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EMPAnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_r77ad"]
+resource_name = "default"
+
+[sub_resource type="Animation" id="Animation_msq85"]
+resource_name = "emit_pulse"
+length = 0.53333336
+step = 0.0667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EMPAnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"emit_pulse"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EMPAnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.26666668, 0.33333334, 0.4, 0.46666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0, 1, 2, 3]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../SFX/AudioStreamPlayer2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../AreaOfEffectEmitter")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"emit_area_of_effect"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lagah"]
+_data = {
+&"RESET": SubResource("Animation_j8p2k"),
+&"broken": SubResource("Animation_3272g"),
+&"default": SubResource("Animation_r77ad"),
+&"emit_pulse": SubResource("Animation_msq85")
+}
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3272g"]
+random_pitch = 1.0594631
+streams_count = 1
+stream_0/stream = ExtResource("3_j8p2k")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r77ad"]
+radius = 40.0
+
+[node name="EMPTower" type="CharacterBody2D" unique_id=965525957]
+script = ExtResource("1_03dfq")
+metadata/_custom_type_script = "uid://d1uuk7g1gkfjj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1344328052]
+shape = SubResource("CircleShape2D_lagah")
+debug_color = Color(0.96625286, 0.42957896, 0.6060454, 0.41960785)
+
+[node name="AreaOfEffectEmitter" type="Node2D" parent="." unique_id=534112352]
+script = ExtResource("2_agibg")
+area_of_effect_scene = ExtResource("3_it10l")
+metadata/_custom_type_script = "uid://bnlk1yaggkydw"
+
+[node name="Visuals" type="Node2D" parent="." unique_id=1405237046]
+
+[node name="EMPAnimatedSprite2D" parent="Visuals" unique_id=1605871518 instance=ExtResource("2_lbg2u")]
+frame_progress = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visuals" unique_id=1176481549]
+libraries/ = SubResource("AnimationLibrary_lagah")
+
+[node name="SFX" type="Node2D" parent="." unique_id=1718979770]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SFX" unique_id=345123791]
+stream = SubResource("AudioStreamRandomizer_3272g")
+pitch_scale = 0.2
+
+[node name="EnemyDetectionField" type="Area2D" parent="." unique_id=864047398]
+script = ExtResource("4_r77ad")
+metadata/_custom_type_script = "uid://beqjiqn2c6h2n"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetectionField" unique_id=1983312847]
+shape = SubResource("CircleShape2D_r77ad")
+
+[node name="TowerStateMachine" type="Node2D" parent="." unique_id=100401927 node_paths=PackedStringArray("tower", "initial_state")]
+script = ExtResource("5_msq85")
+tower = NodePath("..")
+initial_state = NodePath("EMPIdleState")
+metadata/_custom_type_script = "uid://cxthrrbdrbahj"
+
+[node name="EMPBrokenState" type="Node2D" parent="TowerStateMachine" unique_id=161841498]
+script = ExtResource("6_msq85")
+metadata/_custom_type_script = "uid://bv0btr880yvf1"
+
+[node name="EMPIdleState" type="Node2D" parent="TowerStateMachine" unique_id=1488209797]
+script = ExtResource("7_v2fyl")
+metadata/_custom_type_script = "uid://dkbx6k61olidy"
+
+[node name="EMPEmitPulseState" type="Node2D" parent="TowerStateMachine" unique_id=297828697]
+script = ExtResource("8_agibg")
+metadata/_custom_type_script = "uid://be86mptryuhrp"

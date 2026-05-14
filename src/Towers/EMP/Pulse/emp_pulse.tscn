@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://d25q84qcj6ig2"]
+
+[ext_resource type="Script" uid="uid://t5qcwrnng0bo" path="res://src/Towers/AreaOfEffectEmitter/area_of_effect.gd" id="1_ou1cd"]
+[ext_resource type="Script" uid="uid://c738ntdnfc3jc" path="res://src/Components/HitBox/hitbox.gd" id="2_0p1ms"]
+[ext_resource type="PackedScene" uid="uid://5g86f5ehs1jo" path="res://src/Towers/EMP/Pulse/emp_pulse_animated_sprite.tscn" id="2_ovr6v"]
+[ext_resource type="Script" uid="uid://cjwh3jfkkw13m" path="res://src/Components/FSM/finite_state_machine.gd" id="3_0p1ms"]
+[ext_resource type="Script" uid="uid://boymnf15ft7qm" path="res://src/Towers/EMP/Pulse/EMP_pulse_state.gd" id="5_pkmrn"]
+
+[sub_resource type="Animation" id="Animation_pkmrn"]
+resource_name = "Pulse"
+step = 0.0667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EMPPulseAnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"pulse"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EMPPulseAnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.26666668, 0.33333334, 0.4, 0.46666667, 0.53333336, 0.6, 0.6666667, 0.73333335, 0.8, 0.8666667, 0.93333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_t3n68"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EMPPulseAnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"pulse"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EMPPulseAnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2yopf"]
+_data = {
+&"Pulse": SubResource("Animation_pkmrn"),
+&"RESET": SubResource("Animation_t3n68")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ox7dx"]
+radius = 40.0
+
+[node name="EMPPulse" type="CharacterBody2D" unique_id=880889291]
+input_pickable = true
+script = ExtResource("1_ou1cd")
+metadata/_custom_type_script = "uid://t5qcwrnng0bo"
+
+[node name="Visuals" type="Node2D" parent="." unique_id=870602698]
+
+[node name="EMPPulseAnimatedSprite" parent="Visuals" unique_id=416355261 instance=ExtResource("2_ovr6v")]
+frame_progress = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visuals" unique_id=582060074]
+libraries/ = SubResource("AnimationLibrary_2yopf")
+
+[node name="HitBox" type="Area2D" parent="." unique_id=1904238135]
+script = ExtResource("2_0p1ms")
+metadata/_custom_type_script = "uid://c738ntdnfc3jc"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=758259931]
+shape = SubResource("CircleShape2D_ox7dx")
+
+[node name="FiniteStateMachine" type="Node2D" parent="." unique_id=362599428 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_0p1ms")
+initial_state = NodePath("EMPPulseState")
+metadata/_custom_type_script = "uid://cjwh3jfkkw13m"
+
+[node name="EMPPulseState" type="Node2D" parent="FiniteStateMachine" unique_id=717433429]
+script = ExtResource("5_pkmrn")
+metadata/_custom_type_script = "uid://boymnf15ft7qm"

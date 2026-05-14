@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b1lqceainjlwf"]
+
+[ext_resource type="Script" uid="uid://bud0b13wwmret" path="res://src/UI/BuildingSpawnButton/EMPSpawnButton/emp_spawn_button.gd" id="1_aybj3"]
+[ext_resource type="PackedScene" uid="uid://crxtul224pjou" path="res://src/Buildings/EMP/emp_building.tscn" id="2_2800d"]
+[ext_resource type="PackedScene" uid="uid://crg0vgudj7acf" path="res://src/UI/BuildingSpawnButton/Shared/button_visuals.tscn" id="3_2tvbv"]
+
+[node name="EMPSpawnButton" type="TextureButton" unique_id=1315893970]
+offset_right = 32.0
+offset_bottom = 32.0
+script = ExtResource("1_aybj3")
+energy_cost = 40
+building_scene = ExtResource("2_2800d")
+metadata/_custom_type_script = "uid://bud0b13wwmret"
+
+[node name="ButtonVisuals" parent="." unique_id=1976614654 instance=ExtResource("3_2tvbv")]

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://upjjp7gpwejh"
-path="res://.godot/imported/EMP_pulse.png-0caf2110c014290aa3f2267074175d5c.ctex"
+path="res://.godot/imported/EMP_pulse.png-cdb59fcc0a460c519421b29353b5bb9c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/Towers/EMP/EMP_pulse.png"
-dest_files=["res://.godot/imported/EMP_pulse.png-0caf2110c014290aa3f2267074175d5c.ctex"]
+source_file="res://src/Towers/EMP/Pulse/EMP_pulse.png"
+dest_files=["res://.godot/imported/EMP_pulse.png-cdb59fcc0a460c519421b29353b5bb9c.ctex"]
 
 [params]
 

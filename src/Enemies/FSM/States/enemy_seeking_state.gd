@@ -14,12 +14,14 @@ func enter():
 	move_speed = enemy.move_speed
 	hit_box.tower_hit.connect(_on_target_detected)
 	hurt_box.took_damage.connect(_on_take_damage)
+	hurt_box.hit_by_stun.connect(_on_hit_by_stun)
 	target = pick_target()
 	animation_player.play("Idle")
 
 func exit():
 	hit_box.tower_hit.disconnect(_on_target_detected)
 	hurt_box.took_damage.disconnect(_on_take_damage)
+	hurt_box.hit_by_stun.disconnect(_on_hit_by_stun)
 	target = null
 	
 func physics_update(delta: float):
@@ -48,4 +50,5 @@ func move_to_target(delta):
 func _on_take_damage():
 	state_machine.change_state("enemydeathstate")
 	
-		
+func _on_hit_by_stun():
+	state_machine.change_state("enemystunnedstate")

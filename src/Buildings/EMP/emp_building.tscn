@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://crxtul224pjou"]
+
+[ext_resource type="Script" uid="uid://dbyydvnk6x8wc" path="res://src/Buildings/building.gd" id="1_mykb8"]
+[ext_resource type="PackedScene" uid="uid://crngsmrw36q1u" path="res://src/TileMaps/ShipParts/ship_parts_tile_map_v_2.tscn" id="2_376s6"]
+[ext_resource type="PackedScene" uid="uid://caq1tkylxx2tc" path="res://src/Towers/EMP/emp_tower.tscn" id="3_2g3fw"]
+[ext_resource type="PackedScene" uid="uid://dg8vugxoc0kh4" path="res://src/Buildings/FSM/building_state_machine.tscn" id="4_abi70"]
+[ext_resource type="Script" uid="uid://do0w5c8juwrr" path="res://src/Components/Collider/collider.gd" id="5_oqyqt"]
+[ext_resource type="Script" uid="uid://dga345wwl3lrl" path="res://src/Components/NodeCollections/snap_point_collection.gd" id="6_xf83t"]
+[ext_resource type="PackedScene" uid="uid://0viojdup3dhj" path="res://src/Components/SnapPoint/snap_point.tscn" id="7_6aegh"]
+
+[node name="EMPBuilding" type="Node2D" unique_id=239099661]
+script = ExtResource("1_mykb8")
+value = 40
+metadata/_custom_type_script = "uid://dbyydvnk6x8wc"
+
+[node name="SnapPointCollection" type="Node2D" parent="." unique_id=2067221371]
+position = Vector2(8, -8)
+script = ExtResource("6_xf83t")
+metadata/_custom_type_script = "uid://dga345wwl3lrl"
+
+[node name="SnapPoint" parent="SnapPointCollection" unique_id=616598525 instance=ExtResource("7_6aegh")]
+position = Vector2(-8, 32)
+rotation = 1.5707964
+
+[node name="Visuals" type="Node2D" parent="." unique_id=1493010090]
+position = Vector2(8, -8)
+
+[node name="ShipPartsTileMap_V2" parent="Visuals" unique_id=280711130 instance=ExtResource("2_376s6")]
+tile_map_data = PackedByteArray(0, 0, 255, 255, 0, 0, 0, 0, 3, 0, 3, 0, 0, 0, 255, 255, 1, 0, 0, 0, 3, 0, 2, 0, 0, 0)
+
+[node name="EMPTower" parent="." unique_id=965525957 node_paths=PackedStringArray("building") instance=ExtResource("3_2g3fw")]
+building = NodePath("..")
+
+[node name="BuildingStateMachine" parent="." unique_id=332203143 node_paths=PackedStringArray("building") instance=ExtResource("4_abi70")]
+building = NodePath("..")
+
+[node name="Collider" type="Area2D" parent="." unique_id=1623253190]
+position = Vector2(8, -8)
+script = ExtResource("5_oqyqt")
+metadata/_custom_type_script = "uid://do0w5c8juwrr"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collider" unique_id=375467673]
+polygon = PackedVector2Array(-1, 1, -1, 31, -15, 31, -15, 1)
