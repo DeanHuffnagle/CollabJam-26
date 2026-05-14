@@ -42,6 +42,10 @@ region = Rect2(96, 0, 48, 48)
 atlas = ExtResource("1_sf8cc")
 region = Rect2(144, 0, 48, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktyps"]
+atlas = ExtResource("1_sf8cc")
+region = Rect2(480, 0, 48, 48)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_s3nbm"]
 animations = [{
 "frames": [{
@@ -98,9 +102,16 @@ animations = [{
 "loop": true,
 "name": &"75%",
 "speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktyps")
+}],
+"loop": true,
+"name": &"broken",
+"speed": 5.0
 }]
 
 [node name="ShieldGeneratorAnimatedSprite" type="AnimatedSprite2D" unique_id=323616713]
 sprite_frames = SubResource("SpriteFrames_s3nbm")
-animation = &"25%"
-frame_progress = 0.5908679
+animation = &"broken"
