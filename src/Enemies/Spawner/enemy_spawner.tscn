@@ -5,6 +5,5 @@
 
 [node name="EnemySpawner" type="Node2D" unique_id=463055737]
 script = ExtResource("1_f5gly")
-spawnCooldown = 0.5
 enemy_scene = ExtResource("2_21beh")
 metadata/_custom_type_script = "uid://d13omkh0mkbyt"

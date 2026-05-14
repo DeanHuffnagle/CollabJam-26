@@ -66,6 +66,7 @@ BuildingCollection="All Buildings"
 SnapPointCollection=""
 LauncherCollection=""
 Towers=""
+AreaOfEffectCollection=""
 
 [input]
 

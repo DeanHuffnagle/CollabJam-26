@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://c53x0csqldsae"]
+
+[ext_resource type="Texture2D" uid="uid://cm35pgdu7d6l4" path="res://src/Towers/EMP/emp_tower.png" id="1_psrgm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1tkyv"]
+atlas = ExtResource("1_psrgm")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndw5w"]
+atlas = ExtResource("1_psrgm")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sarp0"]
+atlas = ExtResource("1_psrgm")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjniy"]
+atlas = ExtResource("1_psrgm")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvl0d"]
+atlas = ExtResource("1_psrgm")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrqcl"]
+atlas = ExtResource("1_psrgm")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0vye"]
+atlas = ExtResource("1_psrgm")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lxagc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1tkyv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndw5w")
+}],
+"loop": true,
+"name": &"broken",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sarp0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjniy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvl0d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrqcl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0vye")
+}],
+"loop": true,
+"name": &"emit_pulse",
+"speed": 15.0
+}]
+
+[node name="EMPAnimatedSprite2D" type="AnimatedSprite2D" unique_id=1605871518]
+sprite_frames = SubResource("SpriteFrames_lxagc")
+frame_progress = 0.97571725

@@ -9,12 +9,8 @@ signal enemy_detected(body: Enemy)
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
 func _ready():
-	set_radius(tower.vision_radius)
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
-
-func set_radius(radius: float):
-	(collision_shape.shape as CircleShape2D).radius = radius
 
 func _on_body_entered(body: Node2D):
 	if body is Enemy:
