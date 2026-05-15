@@ -3,6 +3,7 @@ extends State
 class_name SolarPanelState
 @onready var animation_player: AnimationPlayer = $"../../Visuals/AnimationPlayer"
 @onready var energySpawner: EnergySpawner = $"../../EnergySpawner"
+@onready var hurt_box: HurtBox = $"../../HurtBox"
 @export var timer_wait_time: float = 3
 var energy_timer: Timer
 
@@ -10,9 +11,10 @@ var energy_timer: Timer
 func enter():
 	create_timer()
 	animation_player.play("idle")
-	
+	hurt_box.took_damage.connect(_on_take_damage)
 func exit():
 	energy_timer.queue_free()
+	hurt_box.took_damage.connect(_on_take_damage)
 	
 func create_timer():
 	energy_timer = Timer.new()
@@ -24,4 +26,7 @@ func create_timer():
 func on_timer_timeout():
 	print("on timer timeout")
 	energySpawner.spawn_energy()
+	
+func _on_take_damage():
+	state_machine.change_state("solarpanelbrokenstate")
 	
