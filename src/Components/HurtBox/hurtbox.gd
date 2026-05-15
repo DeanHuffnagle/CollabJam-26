@@ -29,8 +29,9 @@ func on_area_exited(area:Area2D):
 	
 func on_take_damage(area: HitBox):
 	print("on_take_damage called, is_projectile: ", area.is_projectile, " is_enemy: ", area.is_enemy, " self.is_enemy: ", self.is_enemy, " self.is_tower: ", self.is_tower)
-	if area.is_projectile && self.is_enemy:
-		emit_signal("took_damage")
+	if self.is_enemy:
+		if area.is_area_of_effect || area.is_projectile:
+			emit_signal("took_damage")
 	if area.is_enemy && self.is_tower:
 		emit_signal("took_damage")
 

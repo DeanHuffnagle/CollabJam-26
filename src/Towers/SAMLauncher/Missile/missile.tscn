@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://ck4d2wh72toa6"]
+
+[ext_resource type="Script" uid="uid://metjdx44oswd" path="res://src/Towers/ProjectileLauncher/projectile.gd" id="1_ux46x"]
+[ext_resource type="Script" uid="uid://bnlk1yaggkydw" path="res://src/Towers/AreaOfEffectEmitter/area_of_effect_emitter.gd" id="2_aolbu"]
+[ext_resource type="Script" uid="uid://c738ntdnfc3jc" path="res://src/Components/HitBox/hitbox.gd" id="2_qj87j"]
+[ext_resource type="Texture2D" uid="uid://dgn4pk36pds2r" path="res://src/Towers/SAMLauncher/Missile/missile.png" id="3_aolbu"]
+[ext_resource type="PackedScene" uid="uid://tr1g42qh0q2g" path="res://src/Towers/SAMLauncher/Explosion/explosion.tscn" id="3_kynp3"]
+[ext_resource type="Script" uid="uid://cjwh3jfkkw13m" path="res://src/Components/FSM/finite_state_machine.gd" id="4_kynp3"]
+[ext_resource type="Script" uid="uid://cauonvsjy5has" path="res://src/Towers/SAMLauncher/Missile/missile_move_state.gd" id="6_kynp3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kynp3"]
+radius = 7.0
+height = 32.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4y18"]
+atlas = ExtResource("3_aolbu")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6x7oy"]
+atlas = ExtResource("3_aolbu")
+region = Rect2(64, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_laogj"]
+atlas = ExtResource("3_aolbu")
+region = Rect2(96, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_52pj0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4y18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6x7oy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_laogj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Missile" type="CharacterBody2D" unique_id=1270733659 node_paths=PackedStringArray("sprite", "hit_box")]
+script = ExtResource("1_ux46x")
+sprite = NodePath("AnimatedSprite2D")
+hit_box = NodePath("HitBox")
+movement_speed = 20000.0
+metadata/_custom_type_script = "uid://metjdx44oswd"
+
+[node name="AreaOfEffectEmitter" type="Node2D" parent="." unique_id=2118217021]
+script = ExtResource("2_aolbu")
+area_of_effect_scene = ExtResource("3_kynp3")
+metadata/_custom_type_script = "uid://bnlk1yaggkydw"
+
+[node name="HitBox" type="Area2D" parent="." unique_id=41868743]
+script = ExtResource("2_qj87j")
+metadata/_custom_type_script = "uid://c738ntdnfc3jc"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1048143908]
+position = Vector2(-16, 1)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_kynp3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2118021092]
+position = Vector2(-16, 1)
+sprite_frames = SubResource("SpriteFrames_52pj0")
+
+[node name="FiniteStateMachine" type="Node2D" parent="." unique_id=1678407805 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("4_kynp3")
+initial_state = NodePath("MissileMoveState")
+metadata/_custom_type_script = "uid://cjwh3jfkkw13m"
+
+[node name="MissileMoveState" type="Node2D" parent="FiniteStateMachine" unique_id=281720444 node_paths=PackedStringArray("projectile")]
+script = ExtResource("6_kynp3")
+projectile = NodePath("../..")
+metadata/_custom_type_script = "uid://cauonvsjy5has"
