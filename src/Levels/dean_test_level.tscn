@@ -48,12 +48,12 @@ is_active = true
 position = Vector2(-80, 0)
 is_active = true
 
+[node name="ProjectileCollection" type="Node2D" parent="." unique_id=1751299761]
+script = ExtResource("1_l7m7a")
+
 [node name="EnemyCollection" type="Node2D" parent="." unique_id=1393854456]
 script = ExtResource("3_bdv3i")
 metadata/_custom_type_script = "uid://bikrj45d65axy"
-
-[node name="ProjectileCollection" type="Node2D" parent="." unique_id=1751299761]
-script = ExtResource("1_l7m7a")
 
 [node name="AreaOfEffectCollection" type="Node2D" parent="." unique_id=542843499]
 script = ExtResource("10_uwksr")

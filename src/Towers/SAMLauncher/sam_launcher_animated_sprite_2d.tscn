@@ -1,0 +1,181 @@
+[gd_scene format=3 uid="uid://dqv1og45l1axw"]
+
+[ext_resource type="Texture2D" uid="uid://bck2qgmk26crt" path="res://src/Towers/SAMLauncher/SAM_launcher.png" id="1_wypxr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dd6av"]
+atlas = ExtResource("1_wypxr")
+region = Rect2(0, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcbmf"]
+atlas = ExtResource("1_wypxr")
+region = Rect2(48, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xoc6q"]
+atlas = ExtResource("1_wypxr")
+region = Rect2(96, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8e6xg"]
+atlas = ExtResource("1_wypxr")
+region = Rect2(144, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6oxck"]
+atlas = ExtResource("1_wypxr")
+region = Rect2(96, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dkrb"]
+atlas = ExtResource("1_wypxr")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fin4q"]
+atlas = ExtResource("1_wypxr")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1y78d"]
+atlas = ExtResource("1_wypxr")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d88q4"]
+atlas = ExtResource("1_wypxr")
+region = Rect2(144, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ua8ca"]
+atlas = ExtResource("1_wypxr")
+region = Rect2(192, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_scfpu"]
+atlas = ExtResource("1_wypxr")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8r31w"]
+atlas = ExtResource("1_wypxr")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oq81t"]
+atlas = ExtResource("1_wypxr")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xejfq"]
+atlas = ExtResource("1_wypxr")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8yl7"]
+atlas = ExtResource("1_wypxr")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fe4a"]
+atlas = ExtResource("1_wypxr")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yr4id"]
+atlas = ExtResource("1_wypxr")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dtxsb"]
+atlas = ExtResource("1_wypxr")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_knlle"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dd6av")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcbmf")
+}],
+"loop": true,
+"name": &"1_broken",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xoc6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8e6xg")
+}],
+"loop": true,
+"name": &"1_fire",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6oxck")
+}],
+"loop": true,
+"name": &"1_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5dkrb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fin4q")
+}],
+"loop": true,
+"name": &"2_broken",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1y78d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d88q4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ua8ca")
+}],
+"loop": true,
+"name": &"2_fire",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_scfpu")
+}],
+"loop": true,
+"name": &"2_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8r31w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oq81t")
+}],
+"loop": true,
+"name": &"3_broken",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xejfq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8yl7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fe4a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yr4id")
+}],
+"loop": true,
+"name": &"3_fire",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dtxsb")
+}],
+"loop": true,
+"name": &"3_idle",
+"speed": 5.0
+}]
+
+[node name="SAMLauncherAnimatedSprite2D" type="AnimatedSprite2D" unique_id=647838601]
+sprite_frames = SubResource("SpriteFrames_knlle")
+animation = &"3_idle"

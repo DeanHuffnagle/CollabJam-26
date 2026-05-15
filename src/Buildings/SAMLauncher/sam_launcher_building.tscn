@@ -1,0 +1,56 @@
+[gd_scene format=4 uid="uid://bs0qq5744y2be"]
+
+[ext_resource type="Script" uid="uid://dbyydvnk6x8wc" path="res://src/Buildings/building.gd" id="1_vjsmy"]
+[ext_resource type="Script" uid="uid://dga345wwl3lrl" path="res://src/Components/NodeCollections/snap_point_collection.gd" id="2_dg3rt"]
+[ext_resource type="PackedScene" uid="uid://0viojdup3dhj" path="res://src/Components/SnapPoint/snap_point.tscn" id="3_4grly"]
+[ext_resource type="Script" uid="uid://do0w5c8juwrr" path="res://src/Components/Collider/collider.gd" id="3_yoym5"]
+[ext_resource type="PackedScene" uid="uid://crngsmrw36q1u" path="res://src/TileMaps/ShipParts/ship_parts_tile_map_v_2.tscn" id="4_sqpsk"]
+[ext_resource type="PackedScene" uid="uid://4itxrg40j2kp" path="res://src/Towers/SAMLauncher/sam_launcher_tower.tscn" id="5_dg3rt"]
+[ext_resource type="PackedScene" uid="uid://cmilm2luekn1a" path="res://src/Towers/TowerBase/tower_base_animated_sprite.tscn" id="5_sqpsk"]
+[ext_resource type="PackedScene" uid="uid://dg8vugxoc0kh4" path="res://src/Buildings/FSM/building_state_machine.tscn" id="8_sqpsk"]
+
+[node name="SAMLauncherBuilding" type="Node2D" unique_id=408089364]
+script = ExtResource("1_vjsmy")
+value = 50
+metadata/_custom_type_script = "uid://dbyydvnk6x8wc"
+
+[node name="SnapPointCollection" type="Node2D" parent="." unique_id=901386105]
+script = ExtResource("2_dg3rt")
+metadata/_custom_type_script = "uid://dga345wwl3lrl"
+
+[node name="SnapPoint" parent="SnapPointCollection" unique_id=616598525 instance=ExtResource("3_4grly")]
+position = Vector2(-40, 0)
+rotation = 3.1415927
+
+[node name="SnapPoint2" parent="SnapPointCollection" unique_id=1828254775 instance=ExtResource("3_4grly")]
+position = Vector2(0, -40)
+rotation = -1.5707964
+
+[node name="SnapPoint3" parent="SnapPointCollection" unique_id=1447085479 instance=ExtResource("3_4grly")]
+position = Vector2(40, 0)
+
+[node name="SnapPoint4" parent="SnapPointCollection" unique_id=177786823 instance=ExtResource("3_4grly")]
+position = Vector2(0, 40)
+rotation = 1.5707964
+
+[node name="Visuals" type="Node2D" parent="." unique_id=932896851]
+position = Vector2(8, -8)
+
+[node name="ShipPartsTileMap_V2" parent="Visuals" unique_id=280711130 instance=ExtResource("4_sqpsk")]
+tile_map_data = PackedByteArray("AAAAAAEAAAAHAAMAAAAAAAAAAAAHAAIAAAAAAP//AAAHAAAAAAD//wEAAAAFAAMAAAD//wAAAAAFAAIAAAD/////AAAGAAAAAAD+/wEAAAAEAAMAAAD+/wAAAAAEAAEAAAD+////AAAEAAAAAAABAAAAAAACAAMAAAD9/wAAAAAAAAMAAAD///7/AAADAAAAAAD//wIAAAADAAIAAAA=")
+
+[node name="TurretBaseAnimatedSprite" parent="Visuals" unique_id=1390162166 instance=ExtResource("5_sqpsk")]
+position = Vector2(-8, 8)
+
+[node name="SAMLauncherTower" parent="." unique_id=1595497716 node_paths=PackedStringArray("building") instance=ExtResource("5_dg3rt")]
+building = NodePath("..")
+
+[node name="Collider" type="Area2D" parent="." unique_id=818606709]
+script = ExtResource("3_yoym5")
+metadata/_custom_type_script = "uid://do0w5c8juwrr"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collider" unique_id=1933536646]
+polygon = PackedVector2Array(39, -7, 39, 7, 23, 7, 23, 23, 7, 23, 7, 39, -7, 39, -7, 23, -23, 23, -23, 7, -39, 7, -39, -7, -23, -7, -23, -23, -7, -23, -7, -39, 7, -39, 7, -23, 23, -23, 23, -7)
+
+[node name="BuildingStateMachine" parent="." unique_id=332203143 node_paths=PackedStringArray("building") instance=ExtResource("8_sqpsk")]
+building = NodePath("..")

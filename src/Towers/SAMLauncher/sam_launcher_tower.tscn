@@ -1,0 +1,554 @@
+[gd_scene format=3 uid="uid://4itxrg40j2kp"]
+
+[ext_resource type="Script" uid="uid://d1uuk7g1gkfjj" path="res://src/Towers/tower.gd" id="1_05nku"]
+[ext_resource type="PackedScene" uid="uid://dqv1og45l1axw" path="res://src/Towers/SAMLauncher/sam_launcher_animated_sprite_2d.tscn" id="2_rtefv"]
+[ext_resource type="AudioStream" uid="uid://6btmmicr1tg2" path="res://Assets/Audio/SFX/rocket-launcher.wav" id="2_tfvsx"]
+[ext_resource type="Script" uid="uid://cib5agf8urdu3" path="res://src/Components/NodeCollections/launcher_collection.gd" id="3_xggpc"]
+[ext_resource type="PackedScene" uid="uid://dxqqn2vmgjbkj" path="res://src/Towers/ProjectileLauncher/projectile_launcher.tscn" id="4_wilvj"]
+[ext_resource type="PackedScene" uid="uid://ck4d2wh72toa6" path="res://src/Towers/SAMLauncher/Missile/missile.tscn" id="5_wilvj"]
+[ext_resource type="Script" uid="uid://cxthrrbdrbahj" path="res://src/Towers/FSM/tower_state_machine.gd" id="6_on6h7"]
+[ext_resource type="Script" uid="uid://jvh8nv457wmk" path="res://src/Towers/SAMLauncher/States/SAM_launcher_idle_state.gd" id="7_24adh"]
+[ext_resource type="Script" uid="uid://beqjiqn2c6h2n" path="res://src/Components/EnemyDetectionField/enemy_detection_field.gd" id="7_f6wk7"]
+[ext_resource type="Script" uid="uid://6slv4u05apmv" path="res://src/Towers/SAMLauncher/States/SAM_launcher_firing_state.gd" id="8_bmpso"]
+[ext_resource type="Script" uid="uid://bebqfq82ylfx6" path="res://src/Components/HurtBox/hurtbox.gd" id="8_l3rx2"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_q4f0b"]
+random_pitch = 1.0594631
+streams_count = 1
+stream_0/stream = ExtResource("2_tfvsx")
+
+[sub_resource type="Animation" id="Animation_on6h7"]
+resource_name = "1_broken"
+length = 0.25
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SAMLauncherAnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"1_broken"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SAMLauncherAnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_f6wk7"]
+resource_name = "1_fire"
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SAMLauncherAnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"1_fire"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SAMLauncherAnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../LauncherCollection/ProjectileLauncher3")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fire"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../LauncherCollection/ProjectileLauncher4")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fire"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../SFX/AudioStreamPlayer2D")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_24adh"]
+resource_name = "1_idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SAMLauncherAnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"1_idle"]
+}
+
+[sub_resource type="Animation" id="Animation_l3rx2"]
+resource_name = "2_broken"
+length = 0.25
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SAMLauncherAnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"2_broken"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SAMLauncherAnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_bmpso"]
+resource_name = "2_fire"
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SAMLauncherAnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"2_fire"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SAMLauncherAnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../LauncherCollection/ProjectileLauncher3")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fire"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../LauncherCollection/ProjectileLauncher4")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fire"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../LauncherCollection/ProjectileLauncher2")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fire"
+}]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../LauncherCollection/ProjectileLauncher5")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fire"
+}]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../SFX/AudioStreamPlayer2D")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [0.4],
+"method": &"play"
+}, {
+"args": [0.4],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_tfvsx"]
+resource_name = "2_idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SAMLauncherAnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"2_idle"]
+}
+
+[sub_resource type="Animation" id="Animation_q4f0b"]
+resource_name = "3_broken"
+
+[sub_resource type="Animation" id="Animation_y5lrg"]
+resource_name = "3_fire"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SAMLauncherAnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"3_fire"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SAMLauncherAnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../LauncherCollection/ProjectileLauncher3")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fire"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../LauncherCollection/ProjectileLauncher4")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fire"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../LauncherCollection/ProjectileLauncher2")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fire"
+}]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../LauncherCollection/ProjectileLauncher5")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fire"
+}]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../LauncherCollection/ProjectileLauncher1")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.75),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fire"
+}]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../LauncherCollection/ProjectileLauncher6")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.75),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fire"
+}]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../SFX/AudioStreamPlayer2D")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [0.4],
+"method": &"play"
+}, {
+"args": [0.4],
+"method": &"play"
+}, {
+"args": [0.4],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_7quq8"]
+resource_name = "3_idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SAMLauncherAnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"3_idle"]
+}
+
+[sub_resource type="Animation" id="Animation_wilvj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SAMLauncherAnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"3_idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SAMLauncherAnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hr0mh"]
+_data = {
+&"1_broken": SubResource("Animation_on6h7"),
+&"1_fire": SubResource("Animation_f6wk7"),
+&"1_idle": SubResource("Animation_24adh"),
+&"2_broken": SubResource("Animation_l3rx2"),
+&"2_fire": SubResource("Animation_bmpso"),
+&"2_idle": SubResource("Animation_tfvsx"),
+&"3_broken": SubResource("Animation_q4f0b"),
+&"3_fire": SubResource("Animation_y5lrg"),
+&"3_idle": SubResource("Animation_7quq8"),
+&"RESET": SubResource("Animation_wilvj")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bmpso"]
+size = Vector2(26, 46)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_24adh"]
+radius = 300.0
+
+[node name="SAMLauncherTower" type="CharacterBody2D" unique_id=1595497716]
+script = ExtResource("1_05nku")
+metadata/_custom_type_script = "uid://d1uuk7g1gkfjj"
+
+[node name="SFX" type="Node2D" parent="." unique_id=2111117125]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SFX" unique_id=1328494649]
+stream = SubResource("AudioStreamRandomizer_q4f0b")
+volume_db = -5.027
+
+[node name="Visuals" type="Node2D" parent="." unique_id=944256030]
+
+[node name="SAMLauncherAnimatedSprite2D" parent="Visuals" unique_id=647838601 instance=ExtResource("2_rtefv")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visuals" unique_id=1029330749]
+libraries/ = SubResource("AnimationLibrary_hr0mh")
+
+[node name="LauncherCollection" type="Node2D" parent="." unique_id=1451462640]
+script = ExtResource("3_xggpc")
+metadata/_custom_type_script = "uid://cib5agf8urdu3"
+
+[node name="ProjectileLauncher1" parent="LauncherCollection" unique_id=1365522219 instance=ExtResource("4_wilvj")]
+position = Vector2(16, -20)
+projectile_scene = ExtResource("5_wilvj")
+
+[node name="ProjectileLauncher2" parent="LauncherCollection" unique_id=901390539 instance=ExtResource("4_wilvj")]
+position = Vector2(16, -13)
+projectile_scene = ExtResource("5_wilvj")
+
+[node name="ProjectileLauncher3" parent="LauncherCollection" unique_id=1299451544 instance=ExtResource("4_wilvj")]
+position = Vector2(16, -6)
+projectile_scene = ExtResource("5_wilvj")
+
+[node name="ProjectileLauncher4" parent="LauncherCollection" unique_id=1809470253 instance=ExtResource("4_wilvj")]
+position = Vector2(16, 5)
+projectile_scene = ExtResource("5_wilvj")
+
+[node name="ProjectileLauncher5" parent="LauncherCollection" unique_id=672089118 instance=ExtResource("4_wilvj")]
+position = Vector2(16, 12)
+projectile_scene = ExtResource("5_wilvj")
+
+[node name="ProjectileLauncher6" parent="LauncherCollection" unique_id=2090280593 instance=ExtResource("4_wilvj")]
+position = Vector2(16, 19)
+projectile_scene = ExtResource("5_wilvj")
+
+[node name="TowerStateMachine" type="Node2D" parent="." unique_id=1602756908 node_paths=PackedStringArray("tower", "initial_state")]
+script = ExtResource("6_on6h7")
+tower = NodePath("..")
+initial_state = NodePath("SAMLauncherIdleState")
+metadata/_custom_type_script = "uid://cxthrrbdrbahj"
+
+[node name="SAMLauncherIdleState" type="Node2D" parent="TowerStateMachine" unique_id=14033225]
+script = ExtResource("7_24adh")
+metadata/_custom_type_script = "uid://jvh8nv457wmk"
+
+[node name="SAMLauncherFiringState" type="Node2D" parent="TowerStateMachine" unique_id=79225049]
+script = ExtResource("8_bmpso")
+metadata/_custom_type_script = "uid://6slv4u05apmv"
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=1483894548]
+script = ExtResource("8_l3rx2")
+metadata/_custom_type_script = "uid://bebqfq82ylfx6"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1110274207]
+shape = SubResource("RectangleShape2D_bmpso")
+debug_color = Color(0.58707905, 0.5489249, 0.04947952, 0.41960785)
+
+[node name="EnemyDetectionField" type="Area2D" parent="." unique_id=581186783]
+script = ExtResource("7_f6wk7")
+metadata/_custom_type_script = "uid://beqjiqn2c6h2n"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetectionField" unique_id=1963166566]
+shape = SubResource("CircleShape2D_24adh")
+debug_color = Color(0.6657602, 0.51185906, 0, 0.41960785)

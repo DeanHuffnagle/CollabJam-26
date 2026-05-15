@@ -497,12 +497,13 @@ _data = {
 &"RESET": SubResource("Animation_3ttuf")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_a4erg"]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_rp5vy"]
 radius = 300.0
 
 [node name="LaserTurret" type="CharacterBody2D" unique_id=499751901]
 script = ExtResource("1_77wer")
-current_rank = 3
 metadata/_custom_type_script = "uid://d1uuk7g1gkfjj"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=912473968]
@@ -544,6 +545,9 @@ position = Vector2(28, 3)
 [node name="HurtBox" type="Area2D" parent="." unique_id=596934682]
 script = ExtResource("6_a4erg")
 metadata/_custom_type_script = "uid://bebqfq82ylfx6"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=196531979]
+shape = SubResource("CircleShape2D_a4erg")
 
 [node name="EnemyDetectionField" type="Area2D" parent="." unique_id=1656317805]
 script = ExtResource("5_gebsw")

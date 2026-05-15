@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c7eijan4mxuym" path="res://src/UI/BuildingSpawnButton/SolarPanelSpawnButton/solar_panel_spawn_button.tscn" id="3_jtxs2"]
 [ext_resource type="PackedScene" uid="uid://bno2fam5ty53d" path="res://src/UI/BuildingSpawnButton/LaserTurretSpawnButton/laser_turret_spawn_button.tscn" id="4_70r1m"]
 [ext_resource type="PackedScene" uid="uid://b1lqceainjlwf" path="res://src/UI/BuildingSpawnButton/EMPSpawnButton/emp_spawn_button.tscn" id="5_kkwrj"]
+[ext_resource type="PackedScene" uid="uid://c3joklth0hwd3" path="res://src/UI/BuildingSpawnButton/SAMLauncherSpawnButton/sam_launcher_spawn_button.tscn" id="6_2u8ob"]
 
 [node name="UI" type="CanvasLayer" unique_id=2054288700]
 
@@ -34,3 +35,9 @@ offset_left = 578.0
 offset_top = 91.0
 offset_right = 610.0
 offset_bottom = 123.0
+
+[node name="SAMLauncherSpawnButton" parent="." unique_id=1342083977 instance=ExtResource("6_2u8ob")]
+offset_left = 578.0
+offset_top = 36.0
+offset_right = 610.0
+offset_bottom = 68.0
