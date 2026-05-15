@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://cxthrrbdrbahj" path="res://src/Towers/FSM/tower_state_machine.gd" id="6_o3oim"]
 [ext_resource type="Script" uid="uid://bi1mygahrqhqh" path="res://src/Towers/LaserTurret/States/laser_turret_idle_state.gd" id="7_48upd"]
 [ext_resource type="Script" uid="uid://cfyn687p6vuya" path="res://src/Towers/LaserTurret/States/laser_turret_firing_state.gd" id="7_hdn51"]
+[ext_resource type="Script" uid="uid://oph2dddx3vpe" path="res://src/Towers/LaserTurret/States/laser_turret_broken_state.gd" id="11_gebsw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qsgc7"]
 radius = 8.0
@@ -548,6 +549,7 @@ metadata/_custom_type_script = "uid://bebqfq82ylfx6"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=196531979]
 shape = SubResource("CircleShape2D_a4erg")
+debug_color = Color(0.9962433, 0, 0.19907838, 0.41960785)
 
 [node name="EnemyDetectionField" type="Area2D" parent="." unique_id=1656317805]
 script = ExtResource("5_gebsw")
@@ -570,3 +572,7 @@ metadata/_custom_type_script = "uid://cfyn687p6vuya"
 [node name="LaserTurretIdleState" type="Node2D" parent="TowerStateMachine" unique_id=991880870]
 script = ExtResource("7_48upd")
 metadata/_custom_type_script = "uid://bi1mygahrqhqh"
+
+[node name="LaserTurretBrokenState" type="Node2D" parent="TowerStateMachine" unique_id=1636785546]
+script = ExtResource("11_gebsw")
+metadata/_custom_type_script = "uid://oph2dddx3vpe"

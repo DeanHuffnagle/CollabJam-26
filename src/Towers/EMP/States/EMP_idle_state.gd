@@ -6,6 +6,7 @@ class_name EMPIdleState
 @onready  var enemy_detection_field: EnemyDetectionField = $"../../EnemyDetectionField"
 @onready var turret_body: CharacterBody2D = $"../.."
 @export var pulse_cooldown: float = 5
+@onready var hurt_box: HurtBox = $"../../HurtBox"
 var can_emit_pulse = false
 var pulse_timer: Timer
 
@@ -13,11 +14,13 @@ func enter():
 	can_emit_pulse = false
 	super()
 	create_timer()
+	hurt_box.took_damage.connect(_on_take_damage)
 	enemy_detection_field.enemy_detected.connect(_on_enemy_detected)
 	handle_animation()
 	
 func exit():
 	pulse_timer.queue_free()
+	hurt_box.took_damage.disconnect(_on_take_damage)
 	enemy_detection_field.enemy_detected.disconnect(_on_enemy_detected)
 	can_emit_pulse = false
 		
@@ -40,5 +43,7 @@ func on_timer_timeout():
 	print("on timer timeout")
 	can_emit_pulse = true
 	
-
+func _on_take_damage():
+	state_machine.change_state("empbrokenstate")
+	
 	

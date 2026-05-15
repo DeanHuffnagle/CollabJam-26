@@ -5,12 +5,17 @@ class_name LaserTurretFiringState
 @onready var animation_player = $"../../Visuals/AnimationPlayer"
 @onready  var enemy_detection_field: EnemyDetectionField = $"../../EnemyDetectionField"
 @onready  var turret_body: CharacterBody2D = $"../.."
+@onready var hurt_box: HurtBox = $"../../HurtBox"
 var projectile_speed: int = 200
 
 func enter():
 	super()
+	hurt_box.took_damage.connect(_on_take_damage)
 	handle_animation()
-	
+
+func exit():
+	hurt_box.took_damage.disconnect(_on_take_damage)
+		
 func update(delta: float):
 	if enemy_detection_field.enemies_present:
 		target_enemies()
@@ -31,3 +36,5 @@ func target_enemies():
 		var rotation = tower.global_position.direction_to(target.global_position)
 		tower.rotation = rotation.angle()
 	
+func _on_take_damage():
+	state_machine.change_state("laserturretbrokenstate")

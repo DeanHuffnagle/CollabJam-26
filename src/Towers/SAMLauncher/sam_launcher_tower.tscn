@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://beqjiqn2c6h2n" path="res://src/Components/EnemyDetectionField/enemy_detection_field.gd" id="7_f6wk7"]
 [ext_resource type="Script" uid="uid://6slv4u05apmv" path="res://src/Towers/SAMLauncher/States/SAM_launcher_firing_state.gd" id="8_bmpso"]
 [ext_resource type="Script" uid="uid://bebqfq82ylfx6" path="res://src/Components/HurtBox/hurtbox.gd" id="8_l3rx2"]
+[ext_resource type="Script" uid="uid://cmopsen02fjlr" path="res://src/Towers/SAMLauncher/States/SAM_launcher_broken_state.gd" id="10_q4f0b"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_q4f0b"]
 random_pitch = 1.0594631
@@ -536,6 +537,10 @@ metadata/_custom_type_script = "uid://jvh8nv457wmk"
 [node name="SAMLauncherFiringState" type="Node2D" parent="TowerStateMachine" unique_id=79225049]
 script = ExtResource("8_bmpso")
 metadata/_custom_type_script = "uid://6slv4u05apmv"
+
+[node name="SAMLauncherBrokenState" type="Node2D" parent="TowerStateMachine" unique_id=439994630]
+script = ExtResource("10_q4f0b")
+metadata/_custom_type_script = "uid://cmopsen02fjlr"
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=1483894548]
 script = ExtResource("8_l3rx2")

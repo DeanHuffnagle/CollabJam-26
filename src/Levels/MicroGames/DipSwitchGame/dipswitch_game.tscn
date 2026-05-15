@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://btejgsontmjru"]
+
+[ext_resource type="Script" uid="uid://dmgr8jhftapve" path="res://src/Levels/MicroGames/DipSwitchGame/dipswitch_game.gd" id="1_0i64x"]
+
+[node name="DipswitchGame" type="Node2D" unique_id=1563874163]
+script = ExtResource("1_0i64x")
+switchCount = 8
+metadata/_custom_type_script = "uid://5w4x5jwbktta"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2053607275]
+
+[node name="DipswitchLayout" type="Control" parent="." unique_id=702530477]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 480.0
+offset_bottom = 270.0
+
+[node name="Dipswitches" type="HBoxContainer" parent="DipswitchLayout" unique_id=1121976369]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -166.0
+offset_top = -44.0
+offset_right = 214.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dipswitch1" type="CheckButton" parent="DipswitchLayout/Dipswitches" unique_id=1236093793]
+layout_mode = 2
+
+[node name="Dipswitch2" type="CheckButton" parent="DipswitchLayout/Dipswitches" unique_id=860356238]
+layout_mode = 2
+
+[node name="Dipswitch3" type="CheckButton" parent="DipswitchLayout/Dipswitches" unique_id=247381804]
+layout_mode = 2
+
+[node name="Dipswitch4" type="CheckButton" parent="DipswitchLayout/Dipswitches" unique_id=95299034]
+layout_mode = 2
+
+[node name="Dipswitch5" type="CheckButton" parent="DipswitchLayout/Dipswitches" unique_id=684564696]
+layout_mode = 2
+
+[node name="Dipswitch6" type="CheckButton" parent="DipswitchLayout/Dipswitches" unique_id=1233965034]
+layout_mode = 2
+
+[node name="Dipswitch7" type="CheckButton" parent="DipswitchLayout/Dipswitches" unique_id=1770025547]
+layout_mode = 2
+
+[node name="Dipswitch8" type="CheckButton" parent="DipswitchLayout/Dipswitches" unique_id=370113740]
+layout_mode = 2
+
+[node name="Answer" type="HBoxContainer" parent="DipswitchLayout" unique_id=1941952759]
+layout_mode = 0
+offset_right = 380.0
+offset_bottom = 24.0
+
+[node name="Answer1" type="CheckButton" parent="DipswitchLayout/Answer" unique_id=107056902]
+layout_mode = 2
+
+[node name="Answer2" type="CheckButton" parent="DipswitchLayout/Answer" unique_id=2101198232]
+layout_mode = 2
+
+[node name="Answer3" type="CheckButton" parent="DipswitchLayout/Answer" unique_id=389873820]
+layout_mode = 2
+
+[node name="Answer4" type="CheckButton" parent="DipswitchLayout/Answer" unique_id=294784405]
+layout_mode = 2
+
+[node name="Answer5" type="CheckButton" parent="DipswitchLayout/Answer" unique_id=1990983487]
+layout_mode = 2
+
+[node name="Answer6" type="CheckButton" parent="DipswitchLayout/Answer" unique_id=1000320947]
+layout_mode = 2
+
+[node name="Answer7" type="CheckButton" parent="DipswitchLayout/Answer" unique_id=1437305322]
+layout_mode = 2
+
+[node name="Answer8" type="CheckButton" parent="DipswitchLayout/Answer" unique_id=2070493754]
+layout_mode = 2
