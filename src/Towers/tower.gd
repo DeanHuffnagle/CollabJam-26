@@ -10,7 +10,14 @@ class_name Tower
 var is_active: bool
 var is_broken: bool
 
+signal tower_break(tower_position: Vector2, repair_handler: Callable)
+
 func _ready() -> void:
+	# Subcribe to broken tower state
+	state_machine.broken_state.connect(_on_broken_state)
+	
+	# Broadcast to Notification manager
+	tower_break.connect(NotificationManager._on_tower_break)
 	add_to_group("Towers")
 
 func _process(_delta):
@@ -19,3 +26,6 @@ func _process(_delta):
 func rank_up():
 	if current_rank + 1 <= max_rank:
 		current_rank += 1
+
+func _on_broken_state(state: State) -> void:
+	tower_break.emit(global_position, state.repair)
