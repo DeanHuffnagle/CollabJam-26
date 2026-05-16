@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d1uuk7g1gkfjj" path="res://src/Towers/tower.gd" id="1_03dfq"]
 [ext_resource type="Script" uid="uid://bnlk1yaggkydw" path="res://src/Towers/AreaOfEffectEmitter/area_of_effect_emitter.gd" id="2_agibg"]
-[ext_resource type="PackedScene" uid="uid://c53x0csqldsae" path="res://src/Towers/EMP/emp_animated_sprite_2d.tscn" id="2_lbg2u"]
+[ext_resource type="PackedScene" path="res://src/Towers/EMP/emp_animated_sprite_2d.tscn" id="2_lbg2u"]
 [ext_resource type="PackedScene" uid="uid://d25q84qcj6ig2" path="res://src/Towers/EMP/Pulse/emp_pulse.tscn" id="3_it10l"]
 [ext_resource type="AudioStream" uid="uid://7ki58a0j5oml" path="res://Assets/Audio/SFX/laser.wav" id="3_j8p2k"]
 [ext_resource type="Script" uid="uid://beqjiqn2c6h2n" path="res://src/Components/EnemyDetectionField/enemy_detection_field.gd" id="4_r77ad"]
@@ -151,8 +151,9 @@ radius = 8.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_r77ad"]
 radius = 40.0
 
-[node name="EMPTower" type="CharacterBody2D" unique_id=965525957]
+[node name="EMPTower" type="CharacterBody2D" unique_id=965525957 node_paths=PackedStringArray("state_machine")]
 script = ExtResource("1_03dfq")
+state_machine = NodePath("TowerStateMachine")
 metadata/_custom_type_script = "uid://d1uuk7g1gkfjj"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1344328052]

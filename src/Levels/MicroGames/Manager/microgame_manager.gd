@@ -12,10 +12,11 @@ const window_scene: PackedScene = preload(
 
 signal micro_game_start(micro_game: MicroGameWindow)
 
-func _on_game_start() -> void:
+func _on_game_start(end_handler: Callable) -> void:
 	var microgame: MicroGame = select_microgame()
 	var window: MicroGameWindow = intialise_window(microgame)
 	
+	microgame.ended.connect(end_handler)
 	micro_game_start.emit(window)
 	
 func select_microgame() -> MicroGame:
