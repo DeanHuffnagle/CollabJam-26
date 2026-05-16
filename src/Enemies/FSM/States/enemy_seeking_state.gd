@@ -32,20 +32,27 @@ func physics_update(delta: float):
 
 	
 func _on_target_detected(hurtBox):
-	state_machine.change_state("enemyattackingstate")
+	var target = (hurtBox.get_parent() as Tower)
+	if not target.is_broken:
+		state_machine.change_state("enemyattackingstate")
 	
 func pick_target() -> Tower:
-	return get_tree().get_nodes_in_group("Towers").pick_random() as Tower
+	var target = get_tree().get_nodes_in_group("Towers").pick_random() as Tower
+	if target.is_active && !target.is_broken:
+		return target
+	else: return null
 
 func rotate_to_face_target(delta):
-	var move_vector = enemy.global_position.direction_to(target.global_position)
-	var offset_rotation = move_vector.rotated(deg_to_rad(-90))
-	enemy.rotation = offset_rotation.angle()
+	if target:
+		var move_vector = enemy.global_position.direction_to(target.global_position)
+		var offset_rotation = move_vector.rotated(deg_to_rad(-90))
+		enemy.rotation = offset_rotation.angle()
 	
 func move_to_target(delta):
-	var move_vector = enemy.global_position.direction_to(target.global_position)
-	enemy.velocity = move_vector * enemy.move_speed * delta
-	enemy.move_and_slide()
+	if target:
+		var move_vector = enemy.global_position.direction_to(target.global_position)
+		enemy.velocity = move_vector * enemy.move_speed * delta
+		enemy.move_and_slide()
 	
 func _on_take_damage():
 	state_machine.change_state("enemydeathstate")

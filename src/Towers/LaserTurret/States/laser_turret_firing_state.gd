@@ -34,7 +34,7 @@ func target_enemies():
 	if enemy_detection_field.enemies_present:
 		var target = enemy_detection_field.enemy_array.pick_random()
 		var rotation = tower.global_position.direction_to(target.global_position)
-		tower.rotation = rotation.angle()
+		tower.global_rotation = rotation.angle()
 	
 func _on_take_damage():
 	state_machine.change_state("laserturretbrokenstate")

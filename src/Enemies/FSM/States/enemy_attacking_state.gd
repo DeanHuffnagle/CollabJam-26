@@ -1,7 +1,7 @@
 extends EnemyState
 class_name EnemyAttackingState
 
-var target: Node2D
+var target: Tower
 var attackTimer: Timer
 var can_attack: bool
 
@@ -30,9 +30,12 @@ func update(delta: float):
 	rotate_to_face_target(delta)
 	if can_attack:
 		attack()	
+		if target:
+			if target.is_broken:
+				state_machine.change_state("enemymovingstate")
 
 func on_target_detected(hurtBox):
-	target = hurtBox.get_parent()
+	target = (hurtBox.get_parent() as Tower)
 	
 func createTimer():
 	attackTimer = Timer.new()

@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://crg0vgudj7acf" path="res://src/UI/BuildingSpawnButton/Shared/button_visuals.tscn" id="3_wmfs6"]
 
 [node name="SolarPanelSpawnButton" type="TextureButton" unique_id=780024846]
+custom_minimum_size = Vector2(32, 32)
 offset_right = 32.0
 offset_bottom = 32.0
 script = ExtResource("1_00d4w")

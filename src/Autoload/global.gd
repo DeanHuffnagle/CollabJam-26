@@ -1,7 +1,7 @@
 extends Node
 
 var placing_building = false
-@export var starting_energy: int = 50
+@export var starting_energy: int = 25
 @export var min_energy: int = 0
 @export var max_energy: int = 50
 @onready var current_energy: int = starting_energy

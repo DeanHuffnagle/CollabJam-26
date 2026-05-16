@@ -10,7 +10,7 @@
 
 [node name="EMPBuilding" type="Node2D" unique_id=239099661]
 script = ExtResource("1_mykb8")
-value = 40
+value = 30
 metadata/_custom_type_script = "uid://dbyydvnk6x8wc"
 
 [node name="SnapPointCollection" type="Node2D" parent="." unique_id=2067221371]
@@ -21,6 +21,17 @@ metadata/_custom_type_script = "uid://dga345wwl3lrl"
 [node name="SnapPoint" parent="SnapPointCollection" unique_id=616598525 instance=ExtResource("7_6aegh")]
 position = Vector2(-8, 32)
 rotation = 1.5707964
+
+[node name="SnapPoint2" parent="SnapPointCollection" unique_id=724789384 instance=ExtResource("7_6aegh")]
+position = Vector2(-8, 0)
+rotation = -1.5707964
+
+[node name="SnapPoint3" parent="SnapPointCollection" unique_id=1206981683 instance=ExtResource("7_6aegh")]
+position = Vector2(-16, 8)
+rotation = 3.1415927
+
+[node name="SnapPoint4" parent="SnapPointCollection" unique_id=2010039362 instance=ExtResource("7_6aegh")]
+position = Vector2(0, 8)
 
 [node name="Visuals" type="Node2D" parent="." unique_id=1493010090]
 position = Vector2(8, -8)

@@ -7,6 +7,7 @@ class_name SAMLauncherBrokenState
 
 func enter():
 	super()
+	tower.is_broken = true
 	handle_animation()
 	
 func handle_animation():

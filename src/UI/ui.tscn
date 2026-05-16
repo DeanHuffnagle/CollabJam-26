@@ -12,32 +12,29 @@
 [node name="UI_EnergyBar" parent="." unique_id=1640103534 instance=ExtResource("1_jtxs2")]
 position = Vector2(612, 32)
 
-[node name="FrameSpawnButton" parent="." unique_id=1825148887 instance=ExtResource("2_ro1u1")]
-offset_left = 578.0
-offset_top = 252.0
-offset_right = 610.0
-offset_bottom = 284.0
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1543060282]
+offset_left = 577.0
+offset_top = 37.0
+offset_right = 609.0
+offset_bottom = 289.0
+mouse_behavior_recursive = 2
+theme_override_constants/separation = 22
 
-[node name="SolarPanelSpawnButton" parent="." unique_id=780024846 instance=ExtResource("3_jtxs2")]
-offset_left = 578.0
-offset_top = 144.0
-offset_right = 610.0
-offset_bottom = 176.0
+[node name="SAMLauncherSpawnButton" parent="VBoxContainer" unique_id=1342083977 instance=ExtResource("6_2u8ob")]
+layout_mode = 2
+size_flags_vertical = 0
+size_flags_stretch_ratio = 9.14
 
-[node name="LaserTurretSpawnButton" parent="." unique_id=983926365 instance=ExtResource("4_70r1m")]
-offset_left = 578.0
-offset_top = 198.0
-offset_right = 610.0
-offset_bottom = 230.0
+[node name="SolarPanelSpawnButton" parent="VBoxContainer" unique_id=780024846 instance=ExtResource("3_jtxs2")]
+layout_mode = 2
+energy_cost = 40
 
-[node name="EMPSpawnButton" parent="." unique_id=1315893970 instance=ExtResource("5_kkwrj")]
-offset_left = 578.0
-offset_top = 91.0
-offset_right = 610.0
-offset_bottom = 123.0
+[node name="EMPSpawnButton" parent="VBoxContainer" unique_id=1315893970 instance=ExtResource("5_kkwrj")]
+layout_mode = 2
+energy_cost = 30
 
-[node name="SAMLauncherSpawnButton" parent="." unique_id=1342083977 instance=ExtResource("6_2u8ob")]
-offset_left = 578.0
-offset_top = 36.0
-offset_right = 610.0
-offset_bottom = 68.0
+[node name="LaserTurretSpawnButton" parent="VBoxContainer" unique_id=983926365 instance=ExtResource("4_70r1m")]
+layout_mode = 2
+
+[node name="FrameSpawnButton" parent="VBoxContainer" unique_id=1825148887 instance=ExtResource("2_ro1u1")]
+layout_mode = 2

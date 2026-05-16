@@ -6,6 +6,7 @@ class_name Tower
 @export var current_rank = 1
 @export var building: Building
 var is_active: bool
+var is_broken: bool
 
 func _ready() -> void:
 	add_to_group("Towers")

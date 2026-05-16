@@ -6,8 +6,10 @@ class_name LaserTurretIdleState
 @onready  var enemy_detection_field: EnemyDetectionField = $"../../EnemyDetectionField"
 @onready  var turret_body: CharacterBody2D = $"../.."
 @onready var hurt_box: HurtBox = $"../../HurtBox"
+
 func enter():
 	super()
+	tower.is_broken = false
 	enemy_detection_field.enemy_detected.connect(_on_enemy_detected)
 	hurt_box.took_damage.connect(_on_take_damage)
 	handle_animation()

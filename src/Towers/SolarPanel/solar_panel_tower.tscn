@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://d1uuk7g1gkfjj" path="res://src/Towers/tower.gd" id="1_mlvcp"]
 [ext_resource type="Texture2D" uid="uid://bhk54r0fxwaij" path="res://src/Towers/SolarPanel/solar_panel.png" id="2_ir15o"]
-[ext_resource type="Script" uid="uid://wskqsm1yt4f6" path="res://src/Buildings/SolarPanel/energy_spawner.gd" id="3_y8d80"]
-[ext_resource type="PackedScene" uid="uid://bm6o600w7fbd7" path="res://src/Buildings/SolarPanel/energy.tscn" id="4_ir15o"]
+[ext_resource type="Script" uid="uid://wskqsm1yt4f6" path="res://src/Towers/SolarPanel/EnergySpawner/energy_spawner.gd" id="3_y8d80"]
+[ext_resource type="PackedScene" uid="uid://bm6o600w7fbd7" path="res://src/Towers/SolarPanel/EnergySpawner/energy.tscn" id="4_ir15o"]
 [ext_resource type="Script" uid="uid://cxthrrbdrbahj" path="res://src/Towers/FSM/tower_state_machine.gd" id="5_gseej"]
 [ext_resource type="Script" uid="uid://8pbkcl4u20k4" path="res://src/Towers/SolarPanel/States/solar_panel_state.gd" id="6_y8d80"]
 [ext_resource type="Script" uid="uid://kj5gv30j786u" path="res://src/Towers/SolarPanel/States/solar_panel_broken_state.gd" id="7_7hu1g"]
@@ -167,6 +167,8 @@ metadata/_custom_type_script = "uid://cxthrrbdrbahj"
 
 [node name="SolarPanelState" type="Node2D" parent="TowerStateMachine" unique_id=1847166461]
 script = ExtResource("6_y8d80")
+timer_wait_time = 15.0
+energy_gain = 3
 metadata/_custom_type_script = "uid://8pbkcl4u20k4"
 
 [node name="SolarPanelBrokenState" type="Node2D" parent="TowerStateMachine" unique_id=1203422915]

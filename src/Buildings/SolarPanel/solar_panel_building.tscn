@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cr3g1q1e76mav"]
+[gd_scene format=4 uid="uid://cr3g1q1e76mav"]
 
 [ext_resource type="Script" uid="uid://dbyydvnk6x8wc" path="res://src/Buildings/building.gd" id="1_7kbng"]
 [ext_resource type="PackedScene" uid="uid://crngsmrw36q1u" path="res://src/TileMaps/ShipParts/ship_parts_tile_map_v_2.tscn" id="2_rwjj1"]
@@ -8,16 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://dg8vugxoc0kh4" path="res://src/Buildings/FSM/building_state_machine.tscn" id="6_70r7i"]
 [ext_resource type="Script" uid="uid://do0w5c8juwrr" path="res://src/Components/Collider/collider.gd" id="7_iexax"]
 
-[node name="SolarPanelBuilding" type="Node2D" unique_id=1652176954 node_paths=PackedStringArray("collider")]
+[node name="SolarPanelBuilding" type="Node2D" unique_id=1652176954]
 script = ExtResource("1_7kbng")
-collider = NodePath("Collider")
-value = 30
+value = 40
 
-[node name="Sprite" type="Node2D" parent="." unique_id=862275723]
+[node name="Visuals" type="Node2D" parent="." unique_id=862275723]
 position = Vector2(8, -8)
 
-[node name="ShipPartsTileMap_V2" parent="Sprite" unique_id=280711130 instance=ExtResource("2_rwjj1")]
-tile_map_data = PackedByteArray(0, 0, 255, 255, 0, 0, 0, 0, 3, 0, 2, 0, 0, 0, 255, 255, 255, 255, 0, 0, 3, 0, 1, 0, 0, 0, 255, 255, 254, 255, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 254, 255, 0, 0, 2, 0, 3, 0, 0, 0, 254, 255, 254, 255, 0, 0, 0, 0, 3, 0, 0, 0)
+[node name="ShipPartsTileMap_V2" parent="Visuals" unique_id=280711130 instance=ExtResource("2_rwjj1")]
+tile_map_data = PackedByteArray("AAD//wAAAAADAAIAAAD/////AAADAAEAAAD///7/AAABAAEAAAAAAP7/AAACAAMAAAD+//7/AAAAAAMAAAD///3/AAADAAAAAAA=")
 
 [node name="SnapPointCollection" type="Node2D" parent="." unique_id=1968163063]
 script = ExtResource("4_w1o3i")
@@ -25,6 +24,10 @@ script = ExtResource("4_w1o3i")
 [node name="SnapPoint" parent="SnapPointCollection" unique_id=1861624800 instance=ExtResource("5_xrr05")]
 position = Vector2(0, 8)
 rotation = 1.5707964
+
+[node name="SnapPoint2" parent="SnapPointCollection" unique_id=616598525 instance=ExtResource("5_xrr05")]
+position = Vector2(0, -56)
+rotation = -1.5707964
 
 [node name="BuildingStateMachine" parent="." unique_id=1006246523 node_paths=PackedStringArray("building") instance=ExtResource("6_70r7i")]
 building = NodePath("..")
@@ -35,7 +38,7 @@ metadata/_custom_type_script = "uid://do0w5c8juwrr"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collider" unique_id=1261873114]
 position = Vector2(8, -8)
-polygon = PackedVector2Array(-1, -17, -1, 15, -15, 15, -15, -17, -34, -17, -34, -2, -78, -2, -78, -46, -34, -46, -34, -31, 18, -31, 18, -46, 62, -46, 62, -2, 18, -2, 18, -17)
+polygon = PackedVector2Array(-1, -17, -1, 15, -15, 15, -15, -17, -34, -17, -34, -2, -78, -2, -78, -46, -34, -46, -34, -31, -14.740646, -31, -15, -47, -1, -47, -1, -31, 18, -31, 18, -46, 62, -46, 62, -2, 18, -2, 18, -17)
 
 [node name="SolarPanelTower" parent="." unique_id=78751405 node_paths=PackedStringArray("building") instance=ExtResource("3_2sqbf")]
 position = Vector2(-48, -32)

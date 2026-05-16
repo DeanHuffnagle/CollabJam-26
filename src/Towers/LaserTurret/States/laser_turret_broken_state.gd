@@ -8,6 +8,7 @@ class_name LaserTurretBrokenState
 @onready var hurt_box: HurtBox = $"../../HurtBox"
 func enter():
 	super()
+	tower.is_broken=true
 	handle_animation()
 
 func handle_animation():

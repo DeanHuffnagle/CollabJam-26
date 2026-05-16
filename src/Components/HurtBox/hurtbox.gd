@@ -3,6 +3,7 @@ extends Area2D
 class_name HurtBox
 
 @onready var parent: CharacterBody2D = $".."
+@onready var shape: CollisionShape2D = $CollisionShape2D
 var is_tower: bool = false
 var is_enemy: bool = false
 signal took_damage
@@ -15,7 +16,11 @@ func _ready():
 		is_enemy = true
 	if parent is Tower:
 		is_tower = true
-									
+							
+							
+func _process(delta: float) -> void:
+	if self.is_tower:
+		shape.disabled = !(parent as Tower).is_active	
 func on_area_entered(area:Area2D):
 	if area is HitBox:
 		area.damage.connect(on_take_damage.bind(area))
