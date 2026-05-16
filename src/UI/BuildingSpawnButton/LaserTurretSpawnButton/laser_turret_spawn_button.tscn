@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://crg0vgudj7acf" path="res://src/UI/BuildingSpawnButton/Shared/button_visuals.tscn" id="3_t4kqh"]
 
 [node name="LaserTurretSpawnButton" type="TextureButton" unique_id=983926365]
+custom_minimum_size = Vector2(32, 32)
 offset_right = 32.0
 offset_bottom = 32.0
 script = ExtResource("1_3hni5")

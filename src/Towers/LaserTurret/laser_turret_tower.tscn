@@ -12,9 +12,6 @@
 [ext_resource type="Script" uid="uid://cfyn687p6vuya" path="res://src/Towers/LaserTurret/States/laser_turret_firing_state.gd" id="7_hdn51"]
 [ext_resource type="Script" uid="uid://oph2dddx3vpe" path="res://src/Towers/LaserTurret/States/laser_turret_broken_state.gd" id="11_gebsw"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_qsgc7"]
-radius = 8.0
-
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_5iqyi"]
 random_pitch = 1.7817973
 random_volume_offset_db = 2.0
@@ -506,10 +503,6 @@ radius = 300.0
 [node name="LaserTurret" type="CharacterBody2D" unique_id=499751901]
 script = ExtResource("1_77wer")
 metadata/_custom_type_script = "uid://d1uuk7g1gkfjj"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=912473968]
-visible = false
-shape = SubResource("CircleShape2D_qsgc7")
 
 [node name="SFX" type="Node2D" parent="." unique_id=2083304562]
 

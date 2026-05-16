@@ -8,6 +8,7 @@ class_name EMPBrokenState
 
 func enter():
 	super()
+	tower.is_broken = true
 	handle_animation()
 
 func handle_animation():
@@ -15,4 +16,5 @@ func handle_animation():
 
 
 func repair():
+	tower.is_broken = false
 	state_machine.change_state("empidlestate")

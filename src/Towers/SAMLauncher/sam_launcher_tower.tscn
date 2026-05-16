@@ -50,7 +50,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_f6wk7"]
 resource_name = "1_fire"
-loop_mode = 1
+length = 10.0
 step = 0.125
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -166,8 +166,8 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_bmpso"]
 resource_name = "2_fire"
-loop_mode = 1
-step = 0.125
+length = 10.0
+step = 1.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -187,7 +187,7 @@ tracks/1/path = NodePath("SAMLauncherAnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5),
+"times": PackedFloat32Array(0, 1, 5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [0, 1, 2]
@@ -199,7 +199,7 @@ tracks/2/path = NodePath("../LauncherCollection/ProjectileLauncher3")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.25),
+"times": PackedFloat32Array(1),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -213,7 +213,7 @@ tracks/3/path = NodePath("../LauncherCollection/ProjectileLauncher4")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.25),
+"times": PackedFloat32Array(1),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -227,7 +227,7 @@ tracks/4/path = NodePath("../LauncherCollection/ProjectileLauncher2")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.5),
+"times": PackedFloat32Array(5),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -241,7 +241,7 @@ tracks/5/path = NodePath("../LauncherCollection/ProjectileLauncher5")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.5),
+"times": PackedFloat32Array(5),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -286,8 +286,8 @@ resource_name = "3_broken"
 
 [sub_resource type="Animation" id="Animation_y5lrg"]
 resource_name = "3_fire"
-loop_mode = 1
-step = 0.25
+length = 10.0
+step = 1.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -307,7 +307,7 @@ tracks/1/path = NodePath("SAMLauncherAnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"times": PackedFloat32Array(0, 1, 4, 7),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
@@ -319,7 +319,7 @@ tracks/2/path = NodePath("../LauncherCollection/ProjectileLauncher3")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.25),
+"times": PackedFloat32Array(1),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -333,7 +333,7 @@ tracks/3/path = NodePath("../LauncherCollection/ProjectileLauncher4")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.25),
+"times": PackedFloat32Array(1),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -347,7 +347,7 @@ tracks/4/path = NodePath("../LauncherCollection/ProjectileLauncher2")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.5),
+"times": PackedFloat32Array(4),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -361,7 +361,7 @@ tracks/5/path = NodePath("../LauncherCollection/ProjectileLauncher5")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.5),
+"times": PackedFloat32Array(4),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -375,7 +375,7 @@ tracks/6/path = NodePath("../LauncherCollection/ProjectileLauncher1")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0.75),
+"times": PackedFloat32Array(7),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -389,7 +389,7 @@ tracks/7/path = NodePath("../LauncherCollection/ProjectileLauncher6")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0.75),
+"times": PackedFloat32Array(7),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -474,7 +474,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bmpso"]
-size = Vector2(26, 46)
+size = Vector2(28, 48)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_24adh"]
 radius = 300.0
@@ -548,7 +548,7 @@ metadata/_custom_type_script = "uid://bebqfq82ylfx6"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1110274207]
 shape = SubResource("RectangleShape2D_bmpso")
-debug_color = Color(0.58707905, 0.5489249, 0.04947952, 0.41960785)
+debug_color = Color(0.99089175, 0, 0.28744835, 0.41960785)
 
 [node name="EnemyDetectionField" type="Area2D" parent="." unique_id=581186783]
 script = ExtResource("7_f6wk7")

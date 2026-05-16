@@ -19,25 +19,21 @@ script = ExtResource("2_dg3rt")
 metadata/_custom_type_script = "uid://dga345wwl3lrl"
 
 [node name="SnapPoint" parent="SnapPointCollection" unique_id=616598525 instance=ExtResource("3_4grly")]
-position = Vector2(-40, 0)
+position = Vector2(-40, -16)
 rotation = 3.1415927
 
 [node name="SnapPoint2" parent="SnapPointCollection" unique_id=1828254775 instance=ExtResource("3_4grly")]
-position = Vector2(0, -40)
-rotation = -1.5707964
-
-[node name="SnapPoint3" parent="SnapPointCollection" unique_id=1447085479 instance=ExtResource("3_4grly")]
-position = Vector2(40, 0)
-
-[node name="SnapPoint4" parent="SnapPointCollection" unique_id=177786823 instance=ExtResource("3_4grly")]
 position = Vector2(0, 40)
 rotation = 1.5707964
+
+[node name="SnapPoint3" parent="SnapPointCollection" unique_id=1447085479 instance=ExtResource("3_4grly")]
+position = Vector2(40, -16)
 
 [node name="Visuals" type="Node2D" parent="." unique_id=932896851]
 position = Vector2(8, -8)
 
 [node name="ShipPartsTileMap_V2" parent="Visuals" unique_id=280711130 instance=ExtResource("4_sqpsk")]
-tile_map_data = PackedByteArray("AAAAAAEAAAAHAAMAAAAAAAAAAAAHAAIAAAAAAP//AAAHAAAAAAD//wEAAAAFAAMAAAD//wAAAAAFAAIAAAD/////AAAGAAAAAAD+/wEAAAAEAAMAAAD+/wAAAAAEAAEAAAD+////AAAEAAAAAAABAAAAAAACAAMAAAD9/wAAAAAAAAMAAAD///7/AAADAAAAAAD//wIAAAADAAIAAAA=")
+tile_map_data = PackedByteArray("AAAAAAEAAAAHAAMAAAAAAAAAAAAHAAEAAAAAAP//AAAHAAAAAAD//wEAAAAFAAMAAAD//wAAAAAFAAIAAAD/////AAAFAAAAAAD+/wEAAAAEAAMAAAD+/wAAAAAEAAIAAAD+////AAAEAAAAAAABAP//AAACAAMAAAD9////AAAAAAMAAAD//wIAAAADAAIAAAA=")
 
 [node name="TurretBaseAnimatedSprite" parent="Visuals" unique_id=1390162166 instance=ExtResource("5_sqpsk")]
 position = Vector2(-8, 8)
@@ -50,7 +46,7 @@ script = ExtResource("3_yoym5")
 metadata/_custom_type_script = "uid://do0w5c8juwrr"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collider" unique_id=1933536646]
-polygon = PackedVector2Array(39, -7, 39, 7, 23, 7, 23, 23, 7, 23, 7, 39, -7, 39, -7, 23, -23, 23, -23, 7, -39, 7, -39, -7, -23, -7, -23, -23, -7, -23, -7, -39, 7, -39, 7, -23, 23, -23, 23, -7)
+polygon = PackedVector2Array(39, -9, 23, -9, 23, 23, 7, 23, 7, 39, -7, 39, -7, 23, -23, 23, -23, -9, -39, -9, -39, -23, -23, -23, 23, -23, 39, -23)
 
 [node name="BuildingStateMachine" parent="." unique_id=332203143 node_paths=PackedStringArray("building") instance=ExtResource("8_sqpsk")]
 building = NodePath("..")

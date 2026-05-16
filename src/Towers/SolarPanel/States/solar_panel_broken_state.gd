@@ -1,4 +1,4 @@
-extends State
+extends TowerState
 
 class_name SolarPanelBrokenState
 @onready var animation_player: AnimationPlayer = $"../../Visuals/AnimationPlayer"
@@ -8,6 +8,8 @@ var energy_timer: Timer
 
 
 func enter():
+	super()
+	tower.is_broken = true
 	animation_player.play("broken")
 	
 

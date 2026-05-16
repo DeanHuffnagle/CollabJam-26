@@ -6,6 +6,7 @@ class_name Energy
 @export var movement_speed: float = 10000
 @export var timer_wait_time: float = 1.5
 var energy_timer: Timer
+var value: int = 1
 
 
 func _ready():
@@ -31,7 +32,7 @@ func on_timer_timeout():
 	self.queue_free()
 
 func add_energy():
-	Global.add_energy(1)
+	Global.add_energy(self.value)
 	
 	
 

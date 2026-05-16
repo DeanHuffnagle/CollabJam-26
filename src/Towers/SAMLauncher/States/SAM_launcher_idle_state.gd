@@ -7,6 +7,7 @@ class_name SAMLauncherIdleState
 
 func enter():
 	super()
+	tower.is_broken = false
 	enemy_detection_field.enemy_detected.connect(_on_enemy_detected)
 	hurt_box.took_damage.connect(_on_take_damage)
 	handle_animation()
