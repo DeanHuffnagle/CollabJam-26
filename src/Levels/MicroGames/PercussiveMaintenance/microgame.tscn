@@ -3,11 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://ck4gwlhg4wyik" path="res://src/Levels/MicroGames/PercussiveMaintenance/computer.tscn" id="1_3wsfv"]
 [ext_resource type="Script" uid="uid://xe3uby0masp6" path="res://src/Levels/MicroGames/PercussiveMaintenance/microgame.gd" id="1_4028w"]
 [ext_resource type="Script" uid="uid://dpti8fr74o4wb" path="res://src/Utils/float_slider.gd" id="2_tmsok"]
-[ext_resource type="Texture2D" uid="uid://b72d00xp02c2u" path="res://src/Levels/MicroGames/PercussiveMaintenance/fist_cursor.png" id="4_fw5ay"]
+[ext_resource type="Texture2D" uid="uid://c5gocpair1k4a" path="res://src/Levels/MicroGames/PercussiveMaintenance/fist_cursor.png" id="4_fw5ay"]
 
 [sub_resource type="Gradient" id="Gradient_tmsok"]
-offsets = PackedFloat32Array(0, 0.12962963, 0.7962963, 0.9814815)
-colors = PackedColorArray(0.44313726, 0.7058824, 0.19607843, 1, 0.44313726, 0.7058824, 0.19607843, 1, 0.95686275, 0.7647059, 0, 1, 0.7882353, 0.3647059, 0.21960784, 1)
+offsets = PackedFloat32Array(0, 0.13068181, 0.59090906, 1)
+colors = PackedColorArray(0.44313726, 0.7058824, 0.19607843, 1, 0.8073505, 0.7475862, 0.05706574, 1, 0.95686275, 0.7647059, 0, 1, 0.7882353, 0.3647059, 0.21960784, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_fw5ay"]
 gradient = SubResource("Gradient_tmsok")
