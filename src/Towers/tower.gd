@@ -9,7 +9,7 @@ class_name Tower
 
 var is_active: bool
 var is_broken: bool
-
+signal upgraded
 signal tower_break(tower_position: Vector2, repair_handler: Callable)
 
 func _ready() -> void:
@@ -24,8 +24,12 @@ func _process(_delta):
 	is_active = building.is_active
 
 func rank_up():
-	if current_rank + 1 <= max_rank:
+	if current_rank < max_rank:
 		current_rank += 1
+		upgraded.emit()
 
 func _on_broken_state(state: State) -> void:
 	tower_break.emit(global_position, state.repair)
+
+func emit_upgrade_signal():
+	tower_break.emit(global_position, self.rank_up)
