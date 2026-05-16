@@ -226,8 +226,9 @@ _data = {
 radius = 15.0
 height = 44.0
 
-[node name="ShieldGeneratorTower" type="CharacterBody2D" unique_id=576957675]
+[node name="ShieldGeneratorTower" type="CharacterBody2D" unique_id=576957675 node_paths=PackedStringArray("state_machine")]
 script = ExtResource("1_id5uv")
+state_machine = NodePath("TowerStateMachine")
 metadata/_custom_type_script = "uid://d1uuk7g1gkfjj"
 
 [node name="Visuals" type="Node2D" parent="." unique_id=1014687496]

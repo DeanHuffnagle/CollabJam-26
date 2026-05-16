@@ -6,6 +6,8 @@ class_name FiniteStateMachine
 var current_state: State
 var states: Dictionary = {}
 
+signal changed_state(state: State)
+
 func _ready() -> void:
 	for child in get_children():
 		if child is State:
@@ -33,6 +35,6 @@ func change_state(new_state_name: String) -> void:
 	current_state = states.get(new_state_name.to_lower())
 	
 	if current_state:
+		changed_state.emit(current_state)
 		current_state.enter()
 		
-	 

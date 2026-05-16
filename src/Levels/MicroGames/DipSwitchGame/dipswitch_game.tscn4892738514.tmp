@@ -6,7 +6,22 @@
 [ext_resource type="Texture2D" uid="uid://cd7jghaffljp6" path="res://src/Levels/MicroGames/DipSwitchGame/switch_off.png" id="3_fjx0h"]
 [ext_resource type="Texture2D" uid="uid://c3nmiuvnjhke7" path="res://src/Levels/MicroGames/DipSwitchGame/switch_on.png" id="4_n27d1"]
 [ext_resource type="Texture2D" uid="uid://dwrnx5uiv1q5d" path="res://src/Levels/MicroGames/DipSwitchGame/switch_drawing.png" id="6_n27d1"]
-[ext_resource type="AudioStream" uid="uid://cx47wjcxguc8i" path="res://Assets/Audio/SFX/click.wav" id="7_i552f"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i552f"]
+texture = ExtResource("3_fjx0h")
+texture_margin_left = 16.0
+expand_margin_right = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nm4hv"]
+texture = ExtResource("4_n27d1")
+texture_margin_left = 16.0
+expand_margin_right = 16.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fjx0h"]
+bg_color = Color(0.6, 0.6, 0.6, 0.2627451)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n27d1"]
+bg_color = Color(0.6, 0.6, 0.6, 0.2627451)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n27d1"]
 atlas = ExtResource("6_n27d1")
@@ -76,12 +91,8 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 0.0
+"speed": 5.0
 }]
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_n27d1"]
-streams_count = 1
-stream_0/stream = ExtResource("7_i552f")
 
 [node name="DipswitchGame" type="Node2D" unique_id=1563874163]
 script = ExtResource("1_0i64x")
@@ -106,69 +117,71 @@ offset_right = 411.0
 offset_bottom = 167.0
 theme_override_constants/separation = 16
 
-[node name="Dipswitch1" type="TextureButton" parent="DipswitchLayout/Dipswitches" unique_id=1981300374]
+[node name="Dipswitch1" type="Button" parent="DipswitchLayout/Dipswitches" unique_id=261026240]
 custom_minimum_size = Vector2(16, 48)
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_i552f")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_nm4hv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fjx0h")
+theme_override_styles/focus = SubResource("StyleBoxFlat_n27d1")
 toggle_mode = true
-texture_normal = ExtResource("3_fjx0h")
-texture_pressed = ExtResource("4_n27d1")
 
-[node name="Dipswitch2" type="TextureButton" parent="DipswitchLayout/Dipswitches" unique_id=1535480487]
+[node name="Dipswitch2" type="Button" parent="DipswitchLayout/Dipswitches" unique_id=122879611]
 custom_minimum_size = Vector2(16, 48)
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_i552f")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_nm4hv")
 toggle_mode = true
-texture_normal = ExtResource("3_fjx0h")
-texture_pressed = ExtResource("4_n27d1")
 
-[node name="Dipswitch3" type="TextureButton" parent="DipswitchLayout/Dipswitches" unique_id=1341869205]
+[node name="Dipswitch3" type="Button" parent="DipswitchLayout/Dipswitches" unique_id=575369216]
 custom_minimum_size = Vector2(16, 48)
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_i552f")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_nm4hv")
 toggle_mode = true
-texture_normal = ExtResource("3_fjx0h")
-texture_pressed = ExtResource("4_n27d1")
 
-[node name="Dipswitch4" type="TextureButton" parent="DipswitchLayout/Dipswitches" unique_id=370192041]
+[node name="Dipswitch4" type="Button" parent="DipswitchLayout/Dipswitches" unique_id=620182615]
 custom_minimum_size = Vector2(16, 48)
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_i552f")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_nm4hv")
 toggle_mode = true
-texture_normal = ExtResource("3_fjx0h")
-texture_pressed = ExtResource("4_n27d1")
 
-[node name="Dipswitch5" type="TextureButton" parent="DipswitchLayout/Dipswitches" unique_id=1994355541]
+[node name="Dipswitch5" type="Button" parent="DipswitchLayout/Dipswitches" unique_id=154730817]
 custom_minimum_size = Vector2(16, 48)
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_i552f")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_nm4hv")
 toggle_mode = true
-texture_normal = ExtResource("3_fjx0h")
-texture_pressed = ExtResource("4_n27d1")
 
-[node name="Dipswitch6" type="TextureButton" parent="DipswitchLayout/Dipswitches" unique_id=644579353]
+[node name="Dipswitch6" type="Button" parent="DipswitchLayout/Dipswitches" unique_id=281523628]
 custom_minimum_size = Vector2(16, 48)
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_i552f")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_nm4hv")
 toggle_mode = true
-texture_normal = ExtResource("3_fjx0h")
-texture_pressed = ExtResource("4_n27d1")
 
-[node name="Dipswitch7" type="TextureButton" parent="DipswitchLayout/Dipswitches" unique_id=712825410]
+[node name="Dipswitch7" type="Button" parent="DipswitchLayout/Dipswitches" unique_id=1577588986]
 custom_minimum_size = Vector2(16, 48)
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_i552f")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_nm4hv")
 toggle_mode = true
-texture_normal = ExtResource("3_fjx0h")
-texture_pressed = ExtResource("4_n27d1")
 
-[node name="Dipswitch8" type="TextureButton" parent="DipswitchLayout/Dipswitches" unique_id=374349267]
+[node name="Dipswitch8" type="Button" parent="DipswitchLayout/Dipswitches" unique_id=383517516]
 custom_minimum_size = Vector2(16, 48)
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_i552f")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_nm4hv")
 toggle_mode = true
-texture_normal = ExtResource("3_fjx0h")
-texture_pressed = ExtResource("4_n27d1")
 
 [node name="AnswerBG" type="Sprite2D" parent="DipswitchLayout" unique_id=1784831965]
 texture = ExtResource("3_1eajc")
@@ -183,40 +196,34 @@ offset_right = 116.0
 offset_bottom = 94.0
 
 [node name="Answer1" type="AnimatedSprite2D" parent="DipswitchLayout/Answers" unique_id=1066904835]
-position = Vector2(3, 35)
+position = Vector2(3, 6)
 sprite_frames = SubResource("SpriteFrames_gex11")
 frame_progress = 0.61805385
 
 [node name="Answer2" type="AnimatedSprite2D" parent="DipswitchLayout/Answers" unique_id=1889295815]
-position = Vector2(15, 35)
+position = Vector2(15, 6)
 sprite_frames = SubResource("SpriteFrames_gex11")
 
 [node name="Answer3" type="AnimatedSprite2D" parent="DipswitchLayout/Answers" unique_id=735383414]
-position = Vector2(26, 35)
+position = Vector2(26, 7)
 sprite_frames = SubResource("SpriteFrames_gex11")
 
 [node name="Answer4" type="AnimatedSprite2D" parent="DipswitchLayout/Answers" unique_id=1880139978]
-position = Vector2(36, 35)
+position = Vector2(36, 7)
 sprite_frames = SubResource("SpriteFrames_gex11")
 
 [node name="Answer5" type="AnimatedSprite2D" parent="DipswitchLayout/Answers" unique_id=1236538485]
-position = Vector2(47, 35)
+position = Vector2(47, 7)
 sprite_frames = SubResource("SpriteFrames_gex11")
 
 [node name="Answer6" type="AnimatedSprite2D" parent="DipswitchLayout/Answers" unique_id=1464326775]
-position = Vector2(58, 35)
+position = Vector2(58, 7)
 sprite_frames = SubResource("SpriteFrames_gex11")
 
 [node name="Answer7" type="AnimatedSprite2D" parent="DipswitchLayout/Answers" unique_id=862007478]
-position = Vector2(69, 35)
+position = Vector2(69, 7)
 sprite_frames = SubResource("SpriteFrames_gex11")
 
-[node name="Answer8" type="AnimatedSprite2D" parent="DipswitchLayout/Answers" unique_id=1256449650]
-position = Vector2(79, 35)
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="DipswitchLayout/Answers" unique_id=1256449650]
+position = Vector2(79, 8)
 sprite_frames = SubResource("SpriteFrames_gex11")
-
-[node name="SFX" type="Node2D" parent="." unique_id=1824015486]
-
-[node name="ButtonSound" type="AudioStreamPlayer2D" parent="SFX" unique_id=2017096466]
-stream = SubResource("AudioStreamRandomizer_n27d1")
-pitch_scale = 1.5

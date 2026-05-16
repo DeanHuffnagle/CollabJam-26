@@ -1,13 +1,15 @@
-[gd_scene format=3 uid="uid://csav2v3a38vx3"]
+[gd_scene format=3 uid="uid://cpu5j5pa2umn5"]
 
+[ext_resource type="Script" uid="uid://ir7b0hqwc667" path="res://src/UI/ui.gd" id="1_4five"]
 [ext_resource type="PackedScene" uid="uid://chlftfdd1nehl" path="res://src/UI/ProgressBar/ui_energy_bar.tscn" id="1_jtxs2"]
 [ext_resource type="PackedScene" uid="uid://diphtttaovikq" path="res://src/UI/BuildingSpawnButton/FrameSpawnButton/frame_spawn_button.tscn" id="2_ro1u1"]
 [ext_resource type="PackedScene" uid="uid://c7eijan4mxuym" path="res://src/UI/BuildingSpawnButton/SolarPanelSpawnButton/solar_panel_spawn_button.tscn" id="3_jtxs2"]
 [ext_resource type="PackedScene" uid="uid://bno2fam5ty53d" path="res://src/UI/BuildingSpawnButton/LaserTurretSpawnButton/laser_turret_spawn_button.tscn" id="4_70r1m"]
-[ext_resource type="PackedScene" uid="uid://b1lqceainjlwf" path="res://src/UI/BuildingSpawnButton/EMPSpawnButton/emp_spawn_button.tscn" id="5_kkwrj"]
-[ext_resource type="PackedScene" uid="uid://c3joklth0hwd3" path="res://src/UI/BuildingSpawnButton/SAMLauncherSpawnButton/sam_launcher_spawn_button.tscn" id="6_2u8ob"]
+[ext_resource type="PackedScene" path="res://src/UI/BuildingSpawnButton/EMPSpawnButton/emp_spawn_button.tscn" id="5_kkwrj"]
+[ext_resource type="PackedScene" path="res://src/UI/BuildingSpawnButton/SAMLauncherSpawnButton/sam_launcher_spawn_button.tscn" id="6_2u8ob"]
 
 [node name="UI" type="CanvasLayer" unique_id=2054288700]
+script = ExtResource("1_4five")
 
 [node name="UI_EnergyBar" parent="." unique_id=1640103534 instance=ExtResource("1_jtxs2")]
 position = Vector2(612, 32)

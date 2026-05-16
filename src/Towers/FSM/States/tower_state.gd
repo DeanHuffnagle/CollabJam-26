@@ -7,6 +7,7 @@ var tower: Tower
 
 
 func enter():
+	super()
 	tower_state_machine = get_state_machine()
 	tower = tower_state_machine.tower
 

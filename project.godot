@@ -68,6 +68,7 @@ LauncherCollection=""
 Towers=""
 AreaOfEffectCollection=""
 SpawnPointCollection=""
+NotificationCollection=""
 
 [input]
 

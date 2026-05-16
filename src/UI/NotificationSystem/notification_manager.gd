@@ -4,19 +4,22 @@ const NOTIFICATION_SCENE: PackedScene = preload("res://src/UI/NotificationSystem
 
 signal new_notification(notification: Notification)
 
-func on_turret_break(turret_position: Vector2) -> void:
-	var microgame_notification = get_notification(turret_position)
+func _on_tower_break(tower_position: Vector2, repair_handler: Callable) -> void:
+	var microgame_notification = get_notification(tower_position, repair_handler)
 	new_notification.emit(microgame_notification)
 
-func get_notification(turret_position: Vector2) -> Notification:
+func get_notification(tower_position: Vector2, repair_handler: Callable) -> Notification:
+	# Set Pressed Handler
 	var microgame_notification: Notification = NOTIFICATION_SCENE.instantiate()
-	microgame_notification.position = turret_position
-	microgame_notification.set_pressed_handler(on_button_press.bind(microgame_notification))
-
-	return microgame_notification
+	microgame_notification.global_position = tower_position
+	microgame_notification.set_pressed_handler(on_button_press.bind(microgame_notification, repair_handler))
 	
+	# Set Tower Repair Handler
+	microgame_notification.end_handler = repair_handler
+	
+	return microgame_notification
 
-func on_button_press(button: TextureButton) -> void:
-	MicrogameManager._on_game_start()
-	button.queue_free()
+func on_button_press(notification: Notification, tower_handler: Callable) -> void:
+	MicrogameManager._on_game_start(tower_handler)
+	notification.queue_free()
 	

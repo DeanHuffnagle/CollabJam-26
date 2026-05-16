@@ -500,8 +500,9 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_rp5vy"]
 radius = 300.0
 
-[node name="LaserTurret" type="CharacterBody2D" unique_id=499751901]
+[node name="LaserTurret" type="CharacterBody2D" unique_id=499751901 node_paths=PackedStringArray("state_machine")]
 script = ExtResource("1_77wer")
+state_machine = NodePath("TowerStateMachine")
 metadata/_custom_type_script = "uid://d1uuk7g1gkfjj"
 
 [node name="SFX" type="Node2D" parent="." unique_id=2083304562]
@@ -568,4 +569,3 @@ metadata/_custom_type_script = "uid://bi1mygahrqhqh"
 
 [node name="LaserTurretBrokenState" type="Node2D" parent="TowerStateMachine" unique_id=1636785546]
 script = ExtResource("11_gebsw")
-metadata/_custom_type_script = "uid://oph2dddx3vpe"

@@ -479,8 +479,9 @@ size = Vector2(28, 48)
 [sub_resource type="CircleShape2D" id="CircleShape2D_24adh"]
 radius = 300.0
 
-[node name="SAMLauncherTower" type="CharacterBody2D" unique_id=1595497716]
+[node name="SAMLauncherTower" type="CharacterBody2D" unique_id=1595497716 node_paths=PackedStringArray("state_machine")]
 script = ExtResource("1_05nku")
+state_machine = NodePath("TowerStateMachine")
 metadata/_custom_type_script = "uid://d1uuk7g1gkfjj"
 
 [node name="SFX" type="Node2D" parent="." unique_id=2111117125]
