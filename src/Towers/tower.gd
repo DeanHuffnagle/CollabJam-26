@@ -5,6 +5,8 @@ class_name Tower
 @export var max_rank: int = 3
 @export var current_rank = 1
 @export var building: Building
+@export var state_machine: TowerStateMachine
+
 var is_active: bool
 var is_broken: bool
 

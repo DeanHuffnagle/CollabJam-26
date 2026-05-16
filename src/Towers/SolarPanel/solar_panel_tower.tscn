@@ -138,8 +138,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7hu1g"]
 size = Vector2(47, 46)
 
-[node name="SolarPanelTower" type="CharacterBody2D" unique_id=78751405]
+[node name="SolarPanelTower" type="CharacterBody2D" unique_id=78751405 node_paths=PackedStringArray("state_machine")]
 script = ExtResource("1_mlvcp")
+state_machine = NodePath("TowerStateMachine")
 metadata/_custom_type_script = "uid://d1uuk7g1gkfjj"
 
 [node name="Visuals" type="Node2D" parent="." unique_id=196244045]
