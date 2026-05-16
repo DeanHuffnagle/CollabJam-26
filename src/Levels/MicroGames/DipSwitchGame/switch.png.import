@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dt6xahkqu56so"
-path="res://.godot/imported/dipswitch_background.png-1405106773b603b5bc7943f404b5e39e.ctex"
+uid="uid://sgmmp7nndee6"
+path="res://.godot/imported/switch.png-4a65aebfb1aa83dc68ca5e027c58ed23.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/Levels/MicroGames/dipswitch_background.png"
-dest_files=["res://.godot/imported/dipswitch_background.png-1405106773b603b5bc7943f404b5e39e.ctex"]
+source_file="res://src/Levels/MicroGames/DipSwitchGame/switch.png"
+dest_files=["res://.godot/imported/switch.png-4a65aebfb1aa83dc68ca5e027c58ed23.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0s60t7fl5jmr"
-path="res://.godot/imported/sticky_note.png-69860279e0c495ac301c9c2401f91e2c.ctex"
+uid="uid://dq6ykwyeun532"
+path="res://.godot/imported/dipswitch_background.png-9cbf170825beeba08016389d995515d3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/Levels/MicroGames/sticky_note.png"
-dest_files=["res://.godot/imported/sticky_note.png-69860279e0c495ac301c9c2401f91e2c.ctex"]
+source_file="res://src/Levels/MicroGames/DipSwitchGame/dipswitch_background.png"
+dest_files=["res://.godot/imported/dipswitch_background.png-9cbf170825beeba08016389d995515d3.ctex"]
 
 [params]
 
