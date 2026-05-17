@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cs7or2636akt" path="res://src/Levels/MicroGames/PercussiveMaintenance/computer.gd" id="1_xw6pt"]
 [ext_resource type="Script" uid="uid://dpti8fr74o4wb" path="res://src/Utils/float_slider.gd" id="2_q4du8"]
 [ext_resource type="Texture2D" uid="uid://bwlja7pimypq" path="res://src/Levels/MicroGames/PercussiveMaintenance/crt.png" id="3_2q5q4"]
+[ext_resource type="AudioStream" uid="uid://y7tb5auhad1p" path="res://src/Levels/MicroGames/PercussiveMaintenance/Assets/Bump.wav" id="4_i35rt"]
 
 [sub_resource type="Resource" id="Resource_q4du8"]
 script = ExtResource("2_q4du8")
@@ -146,6 +147,11 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xk5sn"]
+random_pitch = 1.7817973
+streams_count = 1
+stream_0/stream = ExtResource("4_i35rt")
+
 [node name="Computer" type="Node2D" unique_id=1437025272]
 script = ExtResource("1_xw6pt")
 cosmetic_sensitivity = SubResource("Resource_q4du8")
@@ -227,7 +233,10 @@ length = 10.0
 stiffness = 5.0
 damping = 0.06
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=65110999]
+[node name="SFX" type="Node2D" parent="." unique_id=526845982]
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="SFX" unique_id=293235447]
+stream = SubResource("AudioStreamRandomizer_xk5sn")
 
 [connection signal="mouse_entered" from="RigidBody2D" to="." method="_on_rigid_body_2d_mouse_entered"]
 [connection signal="timeout" from="RigidBody2D/Face/Timer" to="." method="reset_animation"]
