@@ -4,6 +4,9 @@ extends MicroGame
 
 var win: bool = false
 
+func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+
 func _physics_process(delta: float) -> void:
 	$Sprite2D.look_at($Computer.global_position)
 	$Sprite2D.global_position = lerp($Sprite2D.global_position, get_global_mouse_position(), 20 * delta)
@@ -33,4 +36,5 @@ func _on_computer_player_force(player_distance: float) -> void:
 	$Computer.screen.modulate = gradient.gradient.sample(player_distance)
 
 func end_game():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	ended.emit()
