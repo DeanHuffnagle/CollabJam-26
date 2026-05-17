@@ -227,5 +227,7 @@ length = 10.0
 stiffness = 5.0
 damping = 0.06
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=65110999]
+
 [connection signal="mouse_entered" from="RigidBody2D" to="." method="_on_rigid_body_2d_mouse_entered"]
 [connection signal="timeout" from="RigidBody2D/Face/Timer" to="." method="reset_animation"]
