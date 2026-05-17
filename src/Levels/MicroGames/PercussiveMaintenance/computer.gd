@@ -51,6 +51,8 @@ func animate(animation: String):
 	timer.start()
 
 func reset_animation():
+	if sprite.animation == "win":
+		return
 	sprite.animation = "default"
 	sprite.pause()
 	
