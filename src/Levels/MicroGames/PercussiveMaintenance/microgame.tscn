@@ -46,7 +46,6 @@ flip_h = true
 flip_v = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=381761178]
-zoom = Vector2(1.333, 1.333)
 
 [node name="SFX" type="Node2D" parent="." unique_id=80331687]
 
