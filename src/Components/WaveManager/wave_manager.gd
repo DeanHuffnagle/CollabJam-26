@@ -12,6 +12,7 @@ class_name WaveManager
 @onready var spawn_point_collection: SpawnPointCollection = get_tree().get_first_node_in_group("SpawnPointCollection")
 @onready var enemy_collection: EnemyCollection = get_tree().get_first_node_in_group("EnemyCollection")
 @export var enemy_move_speed_increment: int = 10
+@export var endgame_move_speed_scaler: int = 10
 
 var max_enemies_achieved: bool = false
 var current_wave: int = 0
@@ -57,8 +58,12 @@ func _on_enemies_cleared() -> void:
 	if is_spawning:
 		return
 	Global.add_energy(current_wave * wave_energy_reward_scale)
-	if current_wave % 5 == 0 || max_enemies_achieved:
+	if current_wave % 5 == 0:
 		Global.increase_enemy_move_speed(enemy_move_speed_increment)
+		
+	if max_enemies_achieved:
+		Global.increase_enemy_move_speed(enemy_move_speed_increment*endgame_move_speed_scaler)
+		audio.increase_pitch(.05)
 	audio.increase_pitch(0.01)	
 	_start_wave()
 
