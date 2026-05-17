@@ -107,6 +107,7 @@ script = ExtResource("15_8drv2")
 initial_wave_wait_time = 10.0
 initial_enemy_count = 20
 wave_energy_reward_scale = 1.1
+spawn_interval = 0.2
 metadata/_custom_type_script = "uid://bbu0wnji1v2tt"
 
 [node name="BoundryWall" parent="." unique_id=1275392463 instance=ExtResource("16_dtvx5")]
