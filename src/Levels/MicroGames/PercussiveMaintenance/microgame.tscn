@@ -2,9 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://ck4gwlhg4wyik" path="res://src/Levels/MicroGames/PercussiveMaintenance/computer.tscn" id="1_3wsfv"]
 [ext_resource type="Script" uid="uid://xe3uby0masp6" path="res://src/Levels/MicroGames/PercussiveMaintenance/microgame.gd" id="1_4028w"]
+[ext_resource type="Texture2D" uid="uid://dk3y722ua2vt" path="res://src/Levels/MicroGames/PercussiveMaintenance/percussive_background.png" id="2_mmgas"]
 [ext_resource type="Script" uid="uid://dpti8fr74o4wb" path="res://src/Utils/float_slider.gd" id="2_tmsok"]
 [ext_resource type="Texture2D" uid="uid://c5gocpair1k4a" path="res://src/Levels/MicroGames/PercussiveMaintenance/fist_cursor.png" id="4_fw5ay"]
 [ext_resource type="Texture2D" uid="uid://jdxhpahj27f1" path="res://src/Levels/MicroGames/PercussiveMaintenance/sticky_note.png" id="5_qkusd"]
+[ext_resource type="AudioStream" uid="uid://drn2ibdmabaxk" path="res://src/Levels/MicroGames/PercussiveMaintenance/Assets/Confirm.wav" id="7_c244u"]
+[ext_resource type="AudioStream" uid="uid://dsgiq7rwm6iur" path="res://src/Levels/MicroGames/PercussiveMaintenance/Assets/Cancel.wav" id="8_cegwk"]
 
 [sub_resource type="Gradient" id="Gradient_tmsok"]
 offsets = PackedFloat32Array(0, 0.13068181, 0.59090906, 1)
@@ -22,10 +25,19 @@ metadata/_custom_type_script = "uid://dpti8fr74o4wb"
 script = ExtResource("1_4028w")
 gradient = SubResource("GradientTexture1D_fw5ay")
 
+[node name="PercussiveBackground" type="Sprite2D" parent="." unique_id=1023617686]
+texture = ExtResource("2_mmgas")
+
+[node name="StickyNote" type="Sprite2D" parent="." unique_id=516009995]
+position = Vector2(-162, -61)
+texture = ExtResource("5_qkusd")
+
 [node name="Computer" parent="." unique_id=1437025272 instance=ExtResource("1_3wsfv")]
 hit_sensitivity = SubResource("Resource_tmsok")
 
 [node name="Timer" type="Timer" parent="." unique_id=1906978067]
+
+[node name="Timer2" type="Timer" parent="." unique_id=1760618264]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1254228780]
 position = Vector2(164, 0)
@@ -34,10 +46,16 @@ flip_h = true
 flip_v = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=381761178]
+zoom = Vector2(1.333, 1.333)
 
-[node name="StickyNote" type="Sprite2D" parent="." unique_id=516009995]
-position = Vector2(-237, -112)
-texture = ExtResource("5_qkusd")
+[node name="SFX" type="Node2D" parent="." unique_id=80331687]
+
+[node name="WinSound" type="AudioStreamPlayer2D" parent="SFX" unique_id=859532595]
+stream = ExtResource("7_c244u")
+
+[node name="LoseSound" type="AudioStreamPlayer2D" parent="SFX" unique_id=569997879]
+stream = ExtResource("8_cegwk")
 
 [connection signal="player_hit" from="Computer" to="." method="_on_computer_player_force"]
 [connection signal="timeout" from="Timer" to="." method="end_game"]
+[connection signal="timeout" from="Timer2" to="." method="end_game"]
