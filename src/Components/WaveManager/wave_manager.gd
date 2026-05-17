@@ -8,7 +8,7 @@ class_name WaveManager
 @export var wave_enemy_increase_scale: float = 1.5
 @export var wave_energy_reward_scale: float = 1.5
 @export var spawn_interval: float = 0.1
-@export var max_wave_size = 400
+@export var max_wave_size = 150
 @onready var spawn_point_collection: SpawnPointCollection = get_tree().get_first_node_in_group("SpawnPointCollection")
 @onready var enemy_collection: EnemyCollection = get_tree().get_first_node_in_group("EnemyCollection")
 var max_enemies_achieved: bool = false
