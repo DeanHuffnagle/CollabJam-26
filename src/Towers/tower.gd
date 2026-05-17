@@ -18,7 +18,7 @@ func _ready() -> void:
 	state_machine.broken_state.connect(_on_broken_state)
 	
 	# Broadcast to Notification manager
-	tower_break.connect(NotificationManager._on_tower_break)
+	tower_break.connect(NotificationManager._on_tower_change)
 	add_to_group("Towers")
 	
 func _process(_delta):
@@ -30,8 +30,8 @@ func rank_up():
 		upgraded.emit()
 
 func _on_broken_state(state: State) -> void:
-	tower_break.emit(global_position, state.repair)
+	tower_break.emit(global_position, state.repair, "repair")
 
 func emit_upgrade_signal():
-	tower_break.emit(global_position, self.rank_up)
+	tower_break.emit(global_position, self.rank_up, "upgrade")
 	
