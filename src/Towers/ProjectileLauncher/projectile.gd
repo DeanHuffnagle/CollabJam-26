@@ -8,3 +8,5 @@ class_name Projectile
 @export var direction: Vector2
 @export var damage: float = 10
 @export var movement_speed: float = 10000
+signal enemy_killed
+var tower: Tower

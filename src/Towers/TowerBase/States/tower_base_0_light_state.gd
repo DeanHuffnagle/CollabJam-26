@@ -23,7 +23,7 @@ func update(delta: float):
 	
 func handle_animation():
 	var transition_animation_name = ("light_transition_{light_no}".format({"light_no":lights}))
-	var idle_animation_name = ("light_idle{light_no}".format({"light_no":lights}))
+	var idle_animation_name = ("light_idle_{light_no}".format({"light_no":lights}))
 	animation_player.play(transition_animation_name)
 	await animation_player.animation_finished
 	animation_player.play(idle_animation_name)

@@ -26,5 +26,6 @@ func calculate_movement_vector(delta):
 func on_enemy_hit(area):
 	projectile.hit_box.emit_damage_signal()
 	projectile.queue_free()
+	projectile.tower.killed_enemy.emit()
 
 	

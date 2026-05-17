@@ -13,6 +13,7 @@ func enter():
 	enemy_detection_field.enemy_detected.connect(_on_enemy_detected)
 	hurt_box.took_damage.connect(_on_take_damage)
 	handle_animation()
+	tower.upgraded.connect(_on_upgraded)
 	
 func exit():
 	enemy_detection_field.enemy_detected.disconnect(_on_enemy_detected)
@@ -28,3 +29,6 @@ func handle_animation():
 
 func _on_take_damage():
 	state_machine.change_state("laserturretbrokenstate")
+
+func _on_upgraded():
+	handle_animation()
