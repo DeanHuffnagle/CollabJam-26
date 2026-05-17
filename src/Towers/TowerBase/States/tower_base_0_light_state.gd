@@ -25,6 +25,7 @@ func update(delta: float):
 func handle_animation():
 	if tower_base.tower.current_rank == tower_base.tower.max_rank:
 		animation_player.play("light_idle_4")
+		return
 	var transition_animation_name = ("light_transition_{light_no}".format({"light_no":lights}))
 	var idle_animation_name = ("light_idle_{light_no}".format({"light_no":lights}))
 	animation_player.play(transition_animation_name)
