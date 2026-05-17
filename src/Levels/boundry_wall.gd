@@ -6,5 +6,6 @@ func _ready() -> void:
 	self.body_entered.connect(_on_body_entered)
 
 func _on_body_entered(body):
+	if body is Enemy:
 		body.queue_free()
 	
