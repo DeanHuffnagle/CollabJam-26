@@ -1,13 +1,16 @@
 extends NodeCollection
 class_name EnemyCollection
 
-var is_empty = true
+signal is_empty
 
 func _ready() -> void:
 	add_to_group("EnemyCollection")
+	var timer := Timer.new()
+	timer.wait_time = 0.5
+	timer.timeout.connect(_on_timer_timeout)
+	add_child(timer)
+	timer.start()
 
-func _process(delta: float) -> void:
-	if self.get_child_count() == 0:
-		is_empty = true
-	else:
-		is_empty = false
+func _on_timer_timeout() -> void:
+	if get_child_count() == 1:
+		is_empty.emit()

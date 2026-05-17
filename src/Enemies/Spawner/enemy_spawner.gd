@@ -13,5 +13,6 @@ var spawnTimer: Timer
 func spawn():
 	var enemy: Enemy = enemy_scene.instantiate()
 	enemy.global_position = self.global_position
+	enemy.move_speed = Global.enemy_move_speed
 	enemy_collection.add_child(enemy)
 	return true
