@@ -24,6 +24,12 @@ func _on_computer_player_force(player_distance: float) -> void:
 		win = true
 		$Computer/RigidBody2D.input_pickable = false
 		$Timer.start(1.5)
+	
+	if win:
+		$SFX/WinSound.play()
+	else:
+		$SFX/LoseSound.play()
+	
 	$Computer.screen.modulate = gradient.gradient.sample(player_distance)
 
 func end_game():
