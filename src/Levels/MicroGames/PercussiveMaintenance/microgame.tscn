@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://jdxhpahj27f1" path="res://src/Levels/MicroGames/PercussiveMaintenance/sticky_note.png" id="5_qkusd"]
 [ext_resource type="AudioStream" uid="uid://drn2ibdmabaxk" path="res://src/Levels/MicroGames/PercussiveMaintenance/Assets/Confirm.wav" id="7_c244u"]
 [ext_resource type="AudioStream" uid="uid://dsgiq7rwm6iur" path="res://src/Levels/MicroGames/PercussiveMaintenance/Assets/Cancel.wav" id="8_cegwk"]
+[ext_resource type="Texture2D" uid="uid://dtbti83euy6mi" path="res://src/Levels/MicroGames/PercussiveMaintenance/sparks.png" id="9_cegwk"]
+[ext_resource type="Material" uid="uid://ddw8yvfovaxx1" path="res://src/Levels/MicroGames/PercussiveMaintenance/spark_texture_material.tres" id="9_lcv46"]
 
 [sub_resource type="Gradient" id="Gradient_tmsok"]
 offsets = PackedFloat32Array(0, 0.13068181, 0.59090906, 1)
@@ -20,6 +22,12 @@ gradient = SubResource("Gradient_tmsok")
 script = ExtResource("2_tmsok")
 big = -4.0
 metadata/_custom_type_script = "uid://dpti8fr74o4wb"
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lcv46"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+anim_speed_min = 1.0
+anim_speed_max = 3.0
 
 [node name="MicroGame" type="Node2D" unique_id=1846526693]
 script = ExtResource("1_4028w")
@@ -54,6 +62,12 @@ stream = ExtResource("7_c244u")
 
 [node name="LoseSound" type="AudioStreamPlayer2D" parent="SFX" unique_id=569997879]
 stream = ExtResource("8_cegwk")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=559357049]
+visible = false
+material = ExtResource("9_lcv46")
+texture = ExtResource("9_cegwk")
+process_material = SubResource("ParticleProcessMaterial_lcv46")
 
 [connection signal="player_hit" from="Computer" to="." method="_on_computer_player_force"]
 [connection signal="timeout" from="Timer" to="." method="end_game"]
