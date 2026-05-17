@@ -10,7 +10,7 @@ func enter():
 	print("enter running")
 	projectile.hit_box.enemy_hit.connect(on_enemy_hit)
 	anim.play("default")
-	
+
 	
 func exit():
 	#projectile.hit_box.enemy_hit.disconnect(on_enemy_hit)
@@ -30,4 +30,5 @@ func on_enemy_hit(area):
 	AOE_emitter.emit_area_of_effect()
 	projectile.queue_free()
 
-	
+func _on_enemy_killed_by_explosion():
+	projectile.enemy_killed.emit()

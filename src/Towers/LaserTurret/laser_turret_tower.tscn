@@ -524,7 +524,6 @@ root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_5qo3e")
 
 [node name="LauncherCollection" type="Node2D" parent="." unique_id=1911865547]
-visible = false
 script = ExtResource("3_5iqyi")
 metadata/_custom_type_script = "uid://cib5agf8urdu3"
 

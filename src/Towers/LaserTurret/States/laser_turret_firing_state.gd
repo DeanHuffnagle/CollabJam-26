@@ -12,6 +12,7 @@ func enter():
 	super()
 	hurt_box.took_damage.connect(_on_take_damage)
 	handle_animation()
+	tower.upgraded.connect(_on_upgraded)
 
 func exit():
 	hurt_box.took_damage.disconnect(_on_take_damage)
@@ -38,3 +39,7 @@ func target_enemies():
 	
 func _on_take_damage():
 	state_machine.change_state("laserturretbrokenstate")
+	
+func _on_upgraded():
+	handle_animation()
+	
