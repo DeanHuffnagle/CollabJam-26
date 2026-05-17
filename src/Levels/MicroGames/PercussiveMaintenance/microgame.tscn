@@ -22,15 +22,17 @@ script = ExtResource("1_4028w")
 gradient = SubResource("GradientTexture1D_fw5ay")
 
 [node name="Computer" parent="." unique_id=1437025272 instance=ExtResource("1_3wsfv")]
-position = Vector2(193, 115)
 hit_sensitivity = SubResource("Resource_tmsok")
 
 [node name="Timer" type="Timer" parent="." unique_id=1906978067]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1254228780]
+position = Vector2(164, 0)
 texture = ExtResource("4_fw5ay")
 flip_h = true
 flip_v = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=381761178]
 
 [connection signal="player_hit" from="Computer" to="." method="_on_computer_player_force"]
 [connection signal="timeout" from="Timer" to="." method="end_game"]
