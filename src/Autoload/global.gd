@@ -21,7 +21,7 @@ func remove_energy(amount: int):
 		current_energy = calculated_energy
 
 func game_over():
-	get_tree().quit()
+	get_tree().change_scene_to_file("res://src/Levels/GameOver/game_over.tscn")
 
 func increase_enemy_move_speed(amount: int):
 	enemy_move_speed = enemy_move_speed + amount
