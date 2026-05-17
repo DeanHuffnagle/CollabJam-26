@@ -3,12 +3,19 @@ extends GPUParticles2D
 class_name ComputerSparks
 
 const PARTICLE_MATERIAL: ParticleProcessMaterial = preload("res://src/Levels/MicroGames/PercussiveMaintenance/sparks_material.tres")
+const TEXTURE: CompressedTexture2D = preload("res://src/Levels/MicroGames/PercussiveMaintenance/sparks.png")
+const TEXTURE_MATERIAL: CanvasItemMaterial = preload("res://src/Levels/MicroGames/PercussiveMaintenance/spark_texture_material.tres")
+
 
 static func from_player_hit(pos: Vector2, vel: Vector2):
 	var obj: GPUParticles2D = GPUParticles2D.new()
 	# update phsics materials
 	obj.process_material = PARTICLE_MATERIAL.duplicate()
 	obj.process_material.direction = Vector3(vel.x, vel.y, 0)
+	
+	# update texture
+	obj.texture = TEXTURE
+	obj.material = TEXTURE_MATERIAL
 	
 	# update object 
 	obj.amount = 64
