@@ -1,8 +1,7 @@
 extends AudioStreamPlayer2D
 class_name PitchableAudioPlayer2D
 
-@export var max_pitch_scale: float = 1.6
-
+@export var max_pitch_scale: float = 2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

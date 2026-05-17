@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d1uuk7g1gkfjj" path="res://src/Towers/tower.gd" id="1_03dfq"]
 [ext_resource type="Script" uid="uid://bnlk1yaggkydw" path="res://src/Towers/AreaOfEffectEmitter/area_of_effect_emitter.gd" id="2_agibg"]
-[ext_resource type="PackedScene" path="res://src/Towers/EMP/emp_animated_sprite_2d.tscn" id="2_lbg2u"]
+[ext_resource type="PackedScene" uid="uid://c53x0csqldsae" path="res://src/Towers/EMP/emp_animated_sprite_2d.tscn" id="2_lbg2u"]
 [ext_resource type="PackedScene" uid="uid://d25q84qcj6ig2" path="res://src/Towers/EMP/Pulse/emp_pulse.tscn" id="3_it10l"]
 [ext_resource type="AudioStream" uid="uid://7ki58a0j5oml" path="res://Assets/Audio/SFX/laser.wav" id="3_j8p2k"]
 [ext_resource type="Script" uid="uid://beqjiqn2c6h2n" path="res://src/Components/EnemyDetectionField/enemy_detection_field.gd" id="4_r77ad"]
@@ -74,6 +74,19 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_r77ad"]
 resource_name = "default"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EMPAnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.13333334),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
 
 [sub_resource type="Animation" id="Animation_msq85"]
 resource_name = "emit_pulse"
