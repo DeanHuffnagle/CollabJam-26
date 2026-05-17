@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://xe3uby0masp6" path="res://src/Levels/MicroGames/PercussiveMaintenance/microgame.gd" id="1_4028w"]
 [ext_resource type="Script" uid="uid://dpti8fr74o4wb" path="res://src/Utils/float_slider.gd" id="2_tmsok"]
 [ext_resource type="Texture2D" uid="uid://c5gocpair1k4a" path="res://src/Levels/MicroGames/PercussiveMaintenance/fist_cursor.png" id="4_fw5ay"]
+[ext_resource type="Texture2D" uid="uid://jdxhpahj27f1" path="res://src/Levels/MicroGames/PercussiveMaintenance/sticky_note.png" id="5_qkusd"]
 
 [sub_resource type="Gradient" id="Gradient_tmsok"]
 offsets = PackedFloat32Array(0, 0.13068181, 0.59090906, 1)
@@ -22,15 +23,21 @@ script = ExtResource("1_4028w")
 gradient = SubResource("GradientTexture1D_fw5ay")
 
 [node name="Computer" parent="." unique_id=1437025272 instance=ExtResource("1_3wsfv")]
-position = Vector2(193, 115)
 hit_sensitivity = SubResource("Resource_tmsok")
 
 [node name="Timer" type="Timer" parent="." unique_id=1906978067]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1254228780]
+position = Vector2(164, 0)
 texture = ExtResource("4_fw5ay")
 flip_h = true
 flip_v = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=381761178]
+
+[node name="StickyNote" type="Sprite2D" parent="." unique_id=516009995]
+position = Vector2(-237, -112)
+texture = ExtResource("5_qkusd")
 
 [connection signal="player_hit" from="Computer" to="." method="_on_computer_player_force"]
 [connection signal="timeout" from="Timer" to="." method="end_game"]
