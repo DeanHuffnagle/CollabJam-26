@@ -29,6 +29,8 @@ window/size/viewport_height=360
 window/size/mode=2
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
+mouse_cursor/custom_image="uid://ldaxrqc5a7s5"
+mouse_cursor/custom_image_hotspot=Vector2(4, 0)
 
 [editor]
 
