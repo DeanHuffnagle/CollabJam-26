@@ -37,6 +37,7 @@ func _on_rigid_body_2d_mouse_entered() -> void:
 	$RigidBody2D.apply_impulse(smack_vector * cosmetic_sensitivity.value, mouse_position)
 	var player_position = mouse_position + (smack_vector * hit_sensitivity.value)
 	handle_particles(player_position, smack_vector)
+	handle_sound()
 	var player_distance = (player_position - goal).length()
 	player_hit.emit(player_distance / (size / 2).length())
 
@@ -52,6 +53,8 @@ func handle_particles(target_position: Vector2, direction: Vector2):
 
 	add_child(particles)
 
+func handle_sound():
+	$SFX/HitSound.play()
 	
 func animate(animation: String):
 	sprite.play(animation) 
