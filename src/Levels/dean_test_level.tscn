@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://baygn142ebblt"]
 
 [ext_resource type="Script" uid="uid://c5dayfb3uij8w" path="res://src/UI/Camera/camera.gd" id="1_bdv3i"]
-[ext_resource type="PackedScene" uid="uid://cpu5j5pa2umn5" path="res://src/UI/ui.tscn" id="1_jk3uy"]
+[ext_resource type="PackedScene" uid="uid://csav2v3a38vx3" path="res://src/UI/ui.tscn" id="1_jk3uy"]
 [ext_resource type="Script" uid="uid://b2ay3b7d44cw2" path="res://src/Components/NodeCollections/projectile_collection.gd" id="1_l7m7a"]
 [ext_resource type="PackedScene" uid="uid://012qvvbiemsn" path="res://src/TileMaps/SpaceBackground/space_tile_map.tscn" id="1_q22x4"]
 [ext_resource type="Script" uid="uid://bqh60mdp18pi4" path="res://src/Components/NodeCollections/building_collection.gd" id="2_q22x4"]
@@ -12,11 +12,11 @@
 [ext_resource type="PackedScene" uid="uid://dnvdhv6q810gy" path="res://src/Enemies/Spawner/enemy_spawner.tscn" id="9_jk3uy"]
 [ext_resource type="Script" uid="uid://dp38uyt1x11hm" path="res://src/Components/NodeCollections/area_of_effect_collection.gd" id="10_uwksr"]
 [ext_resource type="PackedScene" uid="uid://bt5fem2xilsww" path="res://src/Buildings/LaserTurret/laser_turret_building.tscn" id="11_3lpyh"]
-[ext_resource type="Script" path="res://src/Components/NodeCollections/spawn_point_collection.gd" id="12_02kii"]
+[ext_resource type="Script" uid="uid://nw7yee3tkmvk" path="res://src/Components/NodeCollections/spawn_point_collection.gd" id="12_02kii"]
 [ext_resource type="PackedScene" uid="uid://crxtul224pjou" path="res://src/Buildings/EMP/emp_building.tscn" id="13_1lavf"]
 [ext_resource type="Script" uid="uid://b402vrhomxnh8" path="res://src/UI/NotificationSystem/notification_collection.gd" id="14_d5wfb"]
 [ext_resource type="Script" uid="uid://bbu0wnji1v2tt" path="res://src/Components/WaveManager/wave_manager.gd" id="15_8drv2"]
-[ext_resource type="PackedScene" path="res://src/Levels/boundry_wall.tscn" id="16_dtvx5"]
+[ext_resource type="PackedScene" uid="uid://bmdybeacypa3w" path="res://src/Levels/boundry_wall.tscn" id="16_dtvx5"]
 
 [node name="TestWorld" type="WorldEnvironment" unique_id=40971707]
 
@@ -104,6 +104,9 @@ script = ExtResource("14_d5wfb")
 
 [node name="WaveManager" type="Node" parent="." unique_id=269207348]
 script = ExtResource("15_8drv2")
+initial_wave_wait_time = 10.0
+initial_enemy_count = 20
+wave_energy_reward_scale = 1.1
 metadata/_custom_type_script = "uid://bbu0wnji1v2tt"
 
 [node name="BoundryWall" parent="." unique_id=1275392463 instance=ExtResource("16_dtvx5")]

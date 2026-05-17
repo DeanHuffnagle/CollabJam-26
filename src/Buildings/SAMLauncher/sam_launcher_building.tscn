@@ -37,6 +37,8 @@ tile_map_data = PackedByteArray("AAAAAAEAAAAHAAMAAAAAAAAAAAAHAAEAAAAAAP//AAAHAAA
 
 [node name="TowerBase" parent="." unique_id=1469447657 node_paths=PackedStringArray("tower") instance=ExtResource("5_sqpsk")]
 tower = NodePath("../SAMLauncherTower")
+max_kill_count = 500
+kill_count_scaling = 4
 
 [node name="SAMLauncherTower" parent="." unique_id=1595497716 node_paths=PackedStringArray("building") instance=ExtResource("5_dg3rt")]
 building = NodePath("..")
