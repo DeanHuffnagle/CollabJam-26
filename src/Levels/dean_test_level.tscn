@@ -111,7 +111,7 @@ initial_enemy_count = 20
 wave_enemy_increase_scale = 1.1
 wave_energy_reward_scale = 1.1
 spawn_interval = 0.2
-max_wave_size = 100
+max_wave_size = 500
 metadata/_custom_type_script = "uid://bbu0wnji1v2tt"
 
 [node name="BoundryWall" parent="." unique_id=1275392463 instance=ExtResource("16_dtvx5")]

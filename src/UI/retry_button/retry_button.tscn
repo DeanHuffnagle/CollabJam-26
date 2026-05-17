@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://ddaaat7ubuspd"]
+
+[ext_resource type="Texture2D" uid="uid://5426hb4r7xqr" path="res://src/UI/retry_button/retry_button.png" id="1_rwf1t"]
+[ext_resource type="Script" uid="uid://h6hbr6esxxwm" path="res://src/UI/retry_button.gd" id="2_36uvh"]
+
+[node name="TextureButton" type="TextureButton" unique_id=1539707460]
+offset_right = 32.0
+offset_bottom = 32.0
+texture_normal = ExtResource("1_rwf1t")
+script = ExtResource("2_36uvh")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
