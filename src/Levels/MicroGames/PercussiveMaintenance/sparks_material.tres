@@ -7,4 +7,6 @@ emission_sphere_radius = 4.0
 direction = Vector3(1, 1, 1)
 spread = 22.0
 initial_velocity_max = 165.61
-gravity = Vector3(0, 98, 0)
+gravity = Vector3(0, -50, 0)
+anim_speed_min = 1.0
+anim_speed_max = 2.0

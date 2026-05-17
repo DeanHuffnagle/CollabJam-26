@@ -164,7 +164,6 @@ hframes = 4
 vframes = 4
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=385354499]
-visible = false
 collision_layer = 0
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1968105579]
