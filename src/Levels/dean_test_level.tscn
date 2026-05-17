@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://baygn142ebblt"]
 
 [ext_resource type="Script" uid="uid://c5dayfb3uij8w" path="res://src/UI/Camera/camera.gd" id="1_bdv3i"]
-[ext_resource type="PackedScene" uid="uid://csav2v3a38vx3" path="res://src/UI/ui.tscn" id="1_jk3uy"]
+[ext_resource type="PackedScene" uid="uid://cpu5j5pa2umn5" path="res://src/UI/ui.tscn" id="1_jk3uy"]
 [ext_resource type="Script" uid="uid://b2ay3b7d44cw2" path="res://src/Components/NodeCollections/projectile_collection.gd" id="1_l7m7a"]
 [ext_resource type="PackedScene" uid="uid://012qvvbiemsn" path="res://src/TileMaps/SpaceBackground/space_tile_map.tscn" id="1_q22x4"]
 [ext_resource type="Script" uid="uid://bqh60mdp18pi4" path="res://src/Components/NodeCollections/building_collection.gd" id="2_q22x4"]
@@ -13,10 +13,11 @@
 [ext_resource type="Script" uid="uid://dp38uyt1x11hm" path="res://src/Components/NodeCollections/area_of_effect_collection.gd" id="10_uwksr"]
 [ext_resource type="PackedScene" uid="uid://bt5fem2xilsww" path="res://src/Buildings/LaserTurret/laser_turret_building.tscn" id="11_3lpyh"]
 [ext_resource type="Script" uid="uid://nw7yee3tkmvk" path="res://src/Components/NodeCollections/spawn_point_collection.gd" id="12_02kii"]
-[ext_resource type="PackedScene" uid="uid://crxtul224pjou" path="res://src/Buildings/EMP/emp_building.tscn" id="13_1lavf"]
 [ext_resource type="Script" uid="uid://b402vrhomxnh8" path="res://src/UI/NotificationSystem/notification_collection.gd" id="14_d5wfb"]
+[ext_resource type="AudioStream" uid="uid://7k46jx3rqs3" path="res://Assets/Audio/Music/space_wave.wav" id="14_o1x3b"]
 [ext_resource type="Script" uid="uid://bbu0wnji1v2tt" path="res://src/Components/WaveManager/wave_manager.gd" id="15_8drv2"]
 [ext_resource type="PackedScene" uid="uid://bmdybeacypa3w" path="res://src/Levels/boundry_wall.tscn" id="16_dtvx5"]
+[ext_resource type="Script" uid="uid://bbjvgq53ese70" path="res://src/UI/AudioPlayer/pitchable_audio_player.gd" id="19_pw8kk"]
 
 [node name="TestWorld" type="WorldEnvironment" unique_id=40971707]
 
@@ -34,12 +35,9 @@ tile_map_data = PackedByteArray("AAAVABYAAQAMAAgAAAAVABUAAQAMAAEAAAAVABQAAQAKAAk
 [node name="BuildingCollection" type="Node2D" parent="." unique_id=2083253201]
 script = ExtResource("2_q22x4")
 
-[node name="EMPBuilding" parent="BuildingCollection" unique_id=239099661 instance=ExtResource("13_1lavf")]
-position = Vector2(64, -48)
-is_active = true
-
 [node name="Frame" parent="BuildingCollection" unique_id=1179845687 instance=ExtResource("3_jk3uy")]
-position = Vector2(112, 0)
+position = Vector2(0, 112)
+rotation = 1.5707964
 is_active = true
 
 [node name="ShieldGeneratorBuilding" parent="BuildingCollection" unique_id=353799837 instance=ExtResource("6_q22x4")]
@@ -49,8 +47,12 @@ position = Vector2(0, -48)
 is_active = true
 
 [node name="LaserTurretBuilding" parent="BuildingCollection" unique_id=90729066 instance=ExtResource("11_3lpyh")]
-position = Vector2(-80, -16)
+position = Vector2(-64, 48)
 rotation = -1.5707964
+is_active = true
+
+[node name="LaserTurretBuilding2" parent="BuildingCollection" unique_id=1308774738 instance=ExtResource("11_3lpyh")]
+position = Vector2(64, 48)
 is_active = true
 
 [node name="ProjectileCollection" type="Node2D" parent="." unique_id=1751299761]
@@ -106,20 +108,32 @@ script = ExtResource("14_d5wfb")
 script = ExtResource("15_8drv2")
 initial_wave_wait_time = 10.0
 initial_enemy_count = 20
+wave_enemy_increase_scale = 1.1
 wave_energy_reward_scale = 1.1
 spawn_interval = 0.2
+max_wave_size = 100
 metadata/_custom_type_script = "uid://bbu0wnji1v2tt"
 
 [node name="BoundryWall" parent="." unique_id=1275392463 instance=ExtResource("16_dtvx5")]
-position = Vector2(657, 1)
+position = Vector2(1656, -60)
 
 [node name="BoundryWall2" parent="." unique_id=1334647688 instance=ExtResource("16_dtvx5")]
-position = Vector2(-755, -47)
+position = Vector2(-1656, -43)
 
 [node name="BoundryWall3" parent="." unique_id=1371081733 instance=ExtResource("16_dtvx5")]
-position = Vector2(-674, -467)
+position = Vector2(-703, -1369)
 rotation = 1.5707964
 
 [node name="BoundryWall4" parent="." unique_id=1272413649 instance=ExtResource("16_dtvx5")]
-position = Vector2(-746, 369)
+position = Vector2(-662, 1368)
 rotation = 1.5707964
+
+[node name="Audio" type="Node2D" parent="." unique_id=943209424]
+
+[node name="PitchableAudioPlayer2D" type="AudioStreamPlayer2D" parent="Audio" unique_id=423089660]
+stream = ExtResource("14_o1x3b")
+volume_db = -4.0
+pitch_scale = 0.75
+autoplay = true
+script = ExtResource("19_pw8kk")
+metadata/_custom_type_script = "uid://bbjvgq53ese70"

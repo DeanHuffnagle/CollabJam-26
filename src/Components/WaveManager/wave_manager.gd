@@ -1,7 +1,7 @@
 @icon("res://Assets/Icons/radar.png")
 extends Node
 class_name WaveManager
-
+@onready var audio: PitchableAudioPlayer2D =$"../Audio/PitchableAudioPlayer2D"
 @export var initial_wave_wait_time: float = 30.0
 @export var initial_enemy_count: int = 10
 @export var base_enemies_added_per_wave: int = 5
@@ -11,6 +11,8 @@ class_name WaveManager
 @export var max_wave_size = 150
 @onready var spawn_point_collection: SpawnPointCollection = get_tree().get_first_node_in_group("SpawnPointCollection")
 @onready var enemy_collection: EnemyCollection = get_tree().get_first_node_in_group("EnemyCollection")
+@export var enemy_move_speed_increment: int = 10
+
 var max_enemies_achieved: bool = false
 var current_wave: int = 0
 var next_wave_size: int = 0
@@ -56,7 +58,8 @@ func _on_enemies_cleared() -> void:
 		return
 	Global.add_energy(current_wave * wave_energy_reward_scale)
 	if current_wave % 5 == 0 || max_enemies_achieved:
-		Global.increase_enemy_move_speed()
+		Global.increase_enemy_move_speed(enemy_move_speed_increment)
+	audio.increase_pitch(0.01)	
 	_start_wave()
 
 
