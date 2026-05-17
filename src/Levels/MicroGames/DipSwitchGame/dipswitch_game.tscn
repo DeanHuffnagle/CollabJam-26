@@ -100,70 +100,70 @@ offset_bottom = 270.0
 
 [node name="Dipswitches" type="HBoxContainer" parent="DipswitchLayout" unique_id=1121976369]
 layout_mode = 0
-offset_left = 171.0
+offset_left = 163.0
 offset_top = 119.0
-offset_right = 411.0
+offset_right = 420.0
 offset_bottom = 167.0
-theme_override_constants/separation = 16
+theme_override_constants/separation = 0
 
 [node name="Dipswitch1" type="TextureButton" parent="DipswitchLayout/Dipswitches" unique_id=1981300374]
-custom_minimum_size = Vector2(16, 48)
+custom_minimum_size = Vector2(32, 48)
 layout_mode = 2
 size_flags_horizontal = 0
 toggle_mode = true
 texture_normal = ExtResource("3_fjx0h")
 texture_pressed = ExtResource("4_n27d1")
 
-[node name="Dipswitch2" type="TextureButton" parent="DipswitchLayout/Dipswitches" unique_id=1535480487]
-custom_minimum_size = Vector2(16, 48)
+[node name="Dipswitch2" type="TextureButton" parent="DipswitchLayout/Dipswitches" unique_id=1433701695]
+custom_minimum_size = Vector2(32, 48)
 layout_mode = 2
 size_flags_horizontal = 0
 toggle_mode = true
 texture_normal = ExtResource("3_fjx0h")
 texture_pressed = ExtResource("4_n27d1")
 
-[node name="Dipswitch3" type="TextureButton" parent="DipswitchLayout/Dipswitches" unique_id=1341869205]
-custom_minimum_size = Vector2(16, 48)
+[node name="Dipswitch3" type="TextureButton" parent="DipswitchLayout/Dipswitches" unique_id=568442115]
+custom_minimum_size = Vector2(32, 48)
 layout_mode = 2
 size_flags_horizontal = 0
 toggle_mode = true
 texture_normal = ExtResource("3_fjx0h")
 texture_pressed = ExtResource("4_n27d1")
 
-[node name="Dipswitch4" type="TextureButton" parent="DipswitchLayout/Dipswitches" unique_id=370192041]
-custom_minimum_size = Vector2(16, 48)
+[node name="Dipswitch4" type="TextureButton" parent="DipswitchLayout/Dipswitches" unique_id=1722547164]
+custom_minimum_size = Vector2(32, 48)
 layout_mode = 2
 size_flags_horizontal = 0
 toggle_mode = true
 texture_normal = ExtResource("3_fjx0h")
 texture_pressed = ExtResource("4_n27d1")
 
-[node name="Dipswitch5" type="TextureButton" parent="DipswitchLayout/Dipswitches" unique_id=1994355541]
-custom_minimum_size = Vector2(16, 48)
+[node name="Dipswitch5" type="TextureButton" parent="DipswitchLayout/Dipswitches" unique_id=322950997]
+custom_minimum_size = Vector2(32, 48)
 layout_mode = 2
 size_flags_horizontal = 0
 toggle_mode = true
 texture_normal = ExtResource("3_fjx0h")
 texture_pressed = ExtResource("4_n27d1")
 
-[node name="Dipswitch6" type="TextureButton" parent="DipswitchLayout/Dipswitches" unique_id=644579353]
-custom_minimum_size = Vector2(16, 48)
+[node name="Dipswitch6" type="TextureButton" parent="DipswitchLayout/Dipswitches" unique_id=2078358203]
+custom_minimum_size = Vector2(32, 48)
 layout_mode = 2
 size_flags_horizontal = 0
 toggle_mode = true
 texture_normal = ExtResource("3_fjx0h")
 texture_pressed = ExtResource("4_n27d1")
 
-[node name="Dipswitch7" type="TextureButton" parent="DipswitchLayout/Dipswitches" unique_id=712825410]
-custom_minimum_size = Vector2(16, 48)
+[node name="Dipswitch7" type="TextureButton" parent="DipswitchLayout/Dipswitches" unique_id=796398877]
+custom_minimum_size = Vector2(32, 48)
 layout_mode = 2
 size_flags_horizontal = 0
 toggle_mode = true
 texture_normal = ExtResource("3_fjx0h")
 texture_pressed = ExtResource("4_n27d1")
 
-[node name="Dipswitch8" type="TextureButton" parent="DipswitchLayout/Dipswitches" unique_id=374349267]
-custom_minimum_size = Vector2(16, 48)
+[node name="Dipswitch8" type="TextureButton" parent="DipswitchLayout/Dipswitches" unique_id=1492170307]
+custom_minimum_size = Vector2(32, 48)
 layout_mode = 2
 size_flags_horizontal = 0
 toggle_mode = true

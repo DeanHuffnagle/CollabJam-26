@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cs7or2636akt" path="res://src/Levels/MicroGames/PercussiveMaintenance/computer.gd" id="1_xw6pt"]
 [ext_resource type="Script" uid="uid://dpti8fr74o4wb" path="res://src/Utils/float_slider.gd" id="2_q4du8"]
-[ext_resource type="Texture2D" uid="uid://b6ythc0nn27tf" path="res://src/Levels/MicroGames/PercussiveMaintenance/crt.png" id="3_2q5q4"]
+[ext_resource type="Texture2D" uid="uid://bwlja7pimypq" path="res://src/Levels/MicroGames/PercussiveMaintenance/crt.png" id="3_2q5q4"]
 
 [sub_resource type="Resource" id="Resource_q4du8"]
 script = ExtResource("2_q4du8")
@@ -226,6 +226,8 @@ node_b = NodePath("../../RigidBody2D")
 length = 10.0
 stiffness = 5.0
 damping = 0.06
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=65110999]
 
 [connection signal="mouse_entered" from="RigidBody2D" to="." method="_on_rigid_body_2d_mouse_entered"]
 [connection signal="timeout" from="RigidBody2D/Face/Timer" to="." method="reset_animation"]

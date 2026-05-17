@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://3socr0cpogec" path="res://src/UI/NotificationSystem/Nofication/notification.gd" id="1_c0mj8"]
 [ext_resource type="Texture2D" uid="uid://04sg3w6msty3" path="res://src/UI/NotificationSystem/Nofication/notification.svg" id="1_ywn3x"]
 [ext_resource type="Texture2D" uid="uid://cwevpyk0co76u" path="res://Assets/Icons/icon.svg" id="3_5ejva"]
+[ext_resource type="AudioStream" uid="uid://s5ikbbkr84lk" path="res://src/UI/NotificationSystem/Nofication/danger.wav" id="4_nntc0"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_5ejva"]
 diffuse_texture = ExtResource("1_ywn3x")
@@ -35,3 +36,6 @@ offset_bottom = 71.0
 texture = ExtResource("3_5ejva")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=327820700]
+stream = ExtResource("4_nntc0")

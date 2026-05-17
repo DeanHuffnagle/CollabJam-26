@@ -32,11 +32,11 @@ func _on_rigid_body_2d_mouse_entered() -> void:
 	var smack_direction =  get_force_direction(mouse_position.angle_to_point(to_local(position)))
 	var smack_vector = smack_direction * mouse_velocity.length() 
 	
-
 	debug_arrow(mouse_position, mouse_position + (smack_vector * hit_sensitivity.value), Color.GREEN)
 	
 	$RigidBody2D.apply_impulse(smack_vector * cosmetic_sensitivity.value, mouse_position)
 	var player_position = mouse_position + (smack_vector * hit_sensitivity.value)
+	handle_particles(player_position, smack_vector)
 	var player_distance = (player_position - goal).length()
 	player_hit.emit(player_distance / (size / 2).length())
 
@@ -45,15 +45,23 @@ func get_force_direction(angle: float):
 		if (START_ANGLE + (TURN * i)) < angle and angle <= (START_ANGLE + (TURN * (i + 1))):
 			return Vector2.from_angle((i - 1) * PI / 2)
 	return Vector2.from_angle(-PI)
+
+func handle_particles(target_position: Vector2, direction: Vector2):
+	var clamped_target = Vector2(clamp(target_position,- size / 2, size / 2))
+	var particles = ComputerSparks.from_player_hit(clamped_target, direction)
+
+	add_child(particles)
+
 	
 func animate(animation: String):
 	sprite.play(animation) 
 	timer.start()
 
 func reset_animation():
+	if sprite.animation == "win":
+		return
 	sprite.animation = "default"
 	sprite.pause()
-	
 
 func debug_arrow(start: Vector2, end: Vector2, color: Color) -> Area2D:
 	var arrow_shape = CollisionShape2D.new()
